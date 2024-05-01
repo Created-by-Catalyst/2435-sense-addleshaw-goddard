@@ -25,35 +25,21 @@ public class GameState : AState
     public AudioClip gameTheme;
 
     [Header("UI")]
+    public Text timeText;
     public Text coinText;
-    public Text premiumText;
-    public Text scoreText;
     public Text distanceText;
-    public Text multiplierText;
     public Text countdownText;
     public RectTransform powerupZone;
     public RectTransform lifeRectTransform;
 
     public RectTransform pauseMenu;
     public RectTransform wholeUI;
-    public Button pauseButton;
 
-    public Image inventoryIcon;
-
-    public GameObject gameOverPopup;
-    public Button premiumForLifeButton;
-    public GameObject adsForLifeButton;
-    public Text premiumCurrencyOwned;
+    public GameObject winPopup;
+    public GameObject gameoverPopup;
 
     [Header("Prefabs")]
     public GameObject PowerupIconPrefab;
-
-    [Header("Tutorial")]
-    public Text tutorialValidatedObstacles;
-    public GameObject sideSlideTuto;
-    public GameObject upSlideTuto;
-    public GameObject downSlideTuto;
-    public GameObject finishTuto;
 
     public Modifier currentModifier = new Modifier();
 
@@ -85,13 +71,12 @@ public class GameState : AState
     protected int k_ObstacleToClear = 3;
 
 
-    private void Start()
-    {
-        StartGame();
-    }
 
     public override void Enter(AState from)
     {
+
+        trackManager.finishTimeStr = "";
+
         m_CountdownRectTransform = countdownText.GetComponent<RectTransform>();
 
         m_LifeHearts = new Image[k_MaxLives];
@@ -124,14 +109,8 @@ public class GameState : AState
         canvas.gameObject.SetActive(true);
         pauseMenu.gameObject.SetActive(false);
         wholeUI.gameObject.SetActive(true);
-        pauseButton.gameObject.SetActive(!trackManager.isTutorial);
-        gameOverPopup.SetActive(false);
-
-        sideSlideTuto.SetActive(false);
-        upSlideTuto.SetActive(false);
-        downSlideTuto.SetActive(false);
-        finishTuto.SetActive(false);
-        tutorialValidatedObstacles.gameObject.SetActive(false);
+        winPopup.SetActive(false);
+        gameoverPopup.SetActive(false);
 
         if (!trackManager.isRerun)
         {
@@ -141,41 +120,13 @@ public class GameState : AState
 
         currentModifier.OnRunStart(this);
 
-        m_IsTutorial = !PlayerData.instance.tutorialDone;
+        m_IsTutorial = false;
         trackManager.isTutorial = m_IsTutorial;
-
-        if (m_IsTutorial)
-        {
-            tutorialValidatedObstacles.gameObject.SetActive(true);
-            tutorialValidatedObstacles.text = $"0/{k_ObstacleToClear}";
-
-            m_DisplayTutorial = true;
-            trackManager.newSegmentCreated = segment =>
-            {
-                if (trackManager.currentZone != 0 && !m_CountObstacles && m_NextValidSegment == null)
-                {
-                    m_NextValidSegment = segment;
-                }
-            };
-
-            trackManager.currentSegementChanged = segment =>
-            {
-                m_CurrentSegmentObstacleIndex = 0;
-
-                if (!m_CountObstacles && trackManager.currentSegment == m_NextValidSegment)
-                {
-                    trackManager.characterController.currentTutorialLevel += 1;
-                    m_CountObstacles = true;
-                    m_NextValidSegment = null;
-                    m_DisplayTutorial = true;
-
-                    tutorialValidatedObstacles.text = $"{m_TutorialClearedObstacle}/{k_ObstacleToClear}";
-                }
-            };
-        }
 
         m_Finished = false;
         m_PowerupIcons.Clear();
+
+        trackManager.currentTime = 0;
 
         StartCoroutine(trackManager.Begin());
     }
@@ -185,30 +136,17 @@ public class GameState : AState
         return "Game";
     }
 
+    bool playerWon = false;
+
+    public int requiredCoins = 20;
+
     public override void Tick()
     {
+
+        UpdateUI();
+
         if (m_Finished)
         {
-            //if we are finished, we check if advertisement is ready, allow to disable the button until it is ready
-#if UNITY_ADS
-            if (!trackManager.isTutorial && !m_AdsInitialised && Advertisement.IsReady(adsPlacementId))
-            {
-                adsForLifeButton.SetActive(true);
-                m_AdsInitialised = true;
-#if UNITY_ANALYTICS
-                AnalyticsEvent.AdOffer(adsRewarded, adsNetwork, adsPlacementId, new Dictionary<string, object>
-            {
-                { "level_index", PlayerData.instance.rank },
-                { "distance", TrackManager.instance == null ? 0 : TrackManager.instance.worldDistance },
-            });
-#endif
-            }
-            else if(trackManager.isTutorial || !m_AdsInitialised)
-                adsForLifeButton.SetActive(false);
-#else
-            adsForLifeButton.SetActive(false); //Ads is disabled
-#endif
-
             return;
         }
 
@@ -218,14 +156,32 @@ public class GameState : AState
 
             m_TimeSinceStart += Time.deltaTime;
 
+            if (trackManager.characterController.coins >= requiredCoins)
+            {
+                //Win state
+
+                playerWon = true;
+            }
+
+            //PLAYER WON
+            if (playerWon == true)
+            {
+
+                chrCtrl.CleanConsumable();
+                chrCtrl.character.animator.SetBool(s_DeadHash, true);
+                chrCtrl.characterCollider.koParticle.gameObject.SetActive(true);
+                StartCoroutine(WaitForWinScreen());
+            }
+
             if (chrCtrl.currentLife <= 0)
             {
-                pauseButton.gameObject.SetActive(false);
                 chrCtrl.CleanConsumable();
                 chrCtrl.character.animator.SetBool(s_DeadHash, true);
                 chrCtrl.characterCollider.koParticle.gameObject.SetActive(true);
                 StartCoroutine(WaitForGameOver());
             }
+
+
 
             // Consumable ticking & lifetime management
             List<Consumable> toRemove = new List<Consumable>();
@@ -275,9 +231,6 @@ public class GameState : AState
                 m_PowerupIcons.Remove(toRemoveIcon[i]);
             }
 
-            if (m_IsTutorial)
-                TutorialCheckObstacleClear();
-
             UpdateUI();
 
             currentModifier.OnRunTick(this);
@@ -303,7 +256,6 @@ public class GameState : AState
         AudioListener.pause = true;
         Time.timeScale = 0;
 
-        pauseButton.gameObject.SetActive(false);
         pauseMenu.gameObject.SetActive(displayMenu);
         wholeUI.gameObject.SetActive(false);
         m_WasMoving = trackManager.isMoving;
@@ -313,7 +265,6 @@ public class GameState : AState
     public void Resume()
     {
         Time.timeScale = 1.0f;
-        pauseButton.gameObject.SetActive(true);
         pauseMenu.gameObject.SetActive(false);
         wholeUI.gameObject.SetActive(true);
         if (m_WasMoving)
@@ -338,7 +289,7 @@ public class GameState : AState
     protected void UpdateUI()
     {
         coinText.text = trackManager.characterController.coins.ToString();
-        premiumText.text = trackManager.characterController.premium.ToString();
+        timeText.text = "Time: " + trackManager.finishTimeStr;
 
         for (int i = 0; i < 3; ++i)
         {
@@ -353,9 +304,6 @@ public class GameState : AState
             }
         }
 
-        scoreText.text = trackManager.score.ToString();
-        multiplierText.text = "x " + trackManager.multiplier;
-
         distanceText.text = Mathf.FloorToInt(trackManager.worldDistance).ToString() + "m";
 
         if (trackManager.timeToStart >= 0)
@@ -368,20 +316,16 @@ public class GameState : AState
         {
             m_CountdownRectTransform.localScale = Vector3.zero;
         }
-
-        // Consumable
-        if (trackManager.characterController.inventory != null)
-        {
-            inventoryIcon.transform.parent.gameObject.SetActive(true);
-            inventoryIcon.sprite = trackManager.characterController.inventory.icon;
-        }
-        else
-            inventoryIcon.transform.parent.gameObject.SetActive(false);
     }
 
     IEnumerator WaitForGameOver()
     {
         m_Finished = true;
+
+        playerWon = false;
+        trackManager.timerActive = false;
+        timeText.text = "Time: ";
+        trackManager.characterController.coins = 0;
         trackManager.StopMove();
 
         // Reseting the global blinking value. Can happen if game unexpectly exited while still blinking
@@ -390,10 +334,27 @@ public class GameState : AState
         yield return new WaitForSeconds(2.0f);
         if (currentModifier.OnRunEnd(this))
         {
-            if (trackManager.isRerun)
-                manager.SwitchState("GameOver");
-            else
-                OpenGameOverPopup();
+            OpenGameOverPopup();
+        }
+    }
+
+    IEnumerator WaitForWinScreen()
+    {
+        m_Finished = true;
+
+        trackManager.timerActive = false;
+        playerWon = false;
+        timeText.text = "Time: ";
+        trackManager.characterController.coins = 0;
+        trackManager.StopMove();
+
+        // Reseting the global blinking value. Can happen if game unexpectly exited while still blinking
+        Shader.SetGlobalFloat("_BlinkingValue", 0.0f);
+
+        yield return new WaitForSeconds(2.0f);
+        if (currentModifier.OnRunEnd(this))
+        {
+            OpenWinPopup();
         }
     }
 
@@ -410,15 +371,18 @@ public class GameState : AState
         m_PowerupIcons.Clear();
     }
 
-    public void OpenGameOverPopup()
+    public void OpenWinPopup()
     {
-        premiumForLifeButton.interactable = PlayerData.instance.premium >= 3;
-
-        premiumCurrencyOwned.text = PlayerData.instance.premium.ToString();
-
         ClearPowerup();
 
-        gameOverPopup.SetActive(true);
+        winPopup.SetActive(true);
+    }
+
+    public void OpenGameOverPopup()
+    {
+        ClearPowerup();
+
+        gameoverPopup.SetActive(true);
     }
 
     public void GameOver()
@@ -516,92 +480,4 @@ public class GameState : AState
     }
 #endif
 
-
-    void TutorialCheckObstacleClear()
-    {
-        if (trackManager.segments.Count == 0)
-            return;
-
-        if (AudioListener.pause && !trackManager.characterController.tutorialWaitingForValidation)
-        {
-            m_DisplayTutorial = false;
-            DisplayTutorial(false);
-        }
-
-        float ratio = trackManager.currentSegmentDistance / trackManager.currentSegment.worldLength;
-        float nextObstaclePosition = m_CurrentSegmentObstacleIndex < trackManager.currentSegment.obstaclePositions.Length ? trackManager.currentSegment.obstaclePositions[m_CurrentSegmentObstacleIndex] : float.MaxValue;
-
-        if (m_CountObstacles && ratio > nextObstaclePosition + 0.05f)
-        {
-            m_CurrentSegmentObstacleIndex += 1;
-
-            if (!trackManager.characterController.characterCollider.tutorialHitObstacle)
-            {
-                m_TutorialClearedObstacle += 1;
-                tutorialValidatedObstacles.text = $"{m_TutorialClearedObstacle}/{k_ObstacleToClear}";
-            }
-
-            trackManager.characterController.characterCollider.tutorialHitObstacle = false;
-
-            if (m_TutorialClearedObstacle == k_ObstacleToClear)
-            {
-                m_TutorialClearedObstacle = 0;
-                m_CountObstacles = false;
-                m_NextValidSegment = null;
-                trackManager.ChangeZone();
-
-                tutorialValidatedObstacles.text = "Passed!";
-
-                if (trackManager.currentZone == 0)
-                {//we looped, mean we finished the tutorial.
-                    trackManager.characterController.currentTutorialLevel = 3;
-                    DisplayTutorial(true);
-                }
-            }
-        }
-        else if (m_DisplayTutorial && ratio > nextObstaclePosition - 0.1f)
-            DisplayTutorial(true);
-    }
-
-    void DisplayTutorial(bool value)
-    {
-        if (value)
-            Pause(false);
-        else
-        {
-            Resume();
-        }
-
-        switch (trackManager.characterController.currentTutorialLevel)
-        {
-            case 0:
-                sideSlideTuto.SetActive(value);
-                trackManager.characterController.tutorialWaitingForValidation = value;
-                break;
-            case 1:
-                upSlideTuto.SetActive(value);
-                trackManager.characterController.tutorialWaitingForValidation = value;
-                break;
-            case 2:
-                downSlideTuto.SetActive(value);
-                trackManager.characterController.tutorialWaitingForValidation = value;
-                break;
-            case 3:
-                finishTuto.SetActive(value);
-                trackManager.characterController.StopSliding();
-                trackManager.characterController.tutorialWaitingForValidation = value;
-                break;
-            default:
-                break;
-        }
-    }
-
-
-    public void FinishTutorial()
-    {
-        PlayerData.instance.tutorialDone = true;
-        PlayerData.instance.Save();
-
-        QuitToLoadout();
-    }
 }

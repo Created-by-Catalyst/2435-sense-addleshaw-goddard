@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -62,6 +63,9 @@ public class TrackManager : MonoBehaviour
 
     public float timeToStart { get { return m_TimeToStart; } }  // Will return -1 if already started (allow to update UI)
 
+
+    public TimeSpan finishTime;
+    public string finishTimeStr = "";
     public int score { get { return m_Score; } }
     public int multiplier { get { return m_Multiplier; } }
     public float currentSegmentDistance { get { return m_CurrentSegmentDistance; } }
@@ -177,9 +181,9 @@ public class TrackManager : MonoBehaviour
             m_CameraOriginalPos = Camera.main.transform.position;
 
             if (m_TrackSeed != -1)
-                Random.InitState(m_TrackSeed);
+                UnityEngine.Random.InitState(m_TrackSeed);
             else
-                Random.InitState((int)System.DateTime.Now.Ticks);
+                UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
 
             // Since this is not a rerun, init the whole system (on rerun we want to keep the states we had on death)
             m_CurrentSegmentDistance = k_StartingSegmentDistance;
@@ -294,6 +298,8 @@ public class TrackManager : MonoBehaviour
         }
     }
 
+    public bool timerActive = false;
+    public float currentTime = 0;
 
     private int _parallaxRootChildren = 0;
     private int _spawnedSegments = 0;
@@ -305,13 +311,23 @@ public class TrackManager : MonoBehaviour
             _spawnedSegments++;
         }
 
+        if (timerActive)
+        {
+            currentTime += Time.deltaTime;
+
+            finishTime = TimeSpan.FromSeconds(currentTime);
+
+            finishTimeStr = $"{finishTime.Minutes.ToString()} : {finishTime.Seconds.ToString()}";
+        }
+
+
         if (parallaxRoot != null && currentTheme.cloudPrefabs.Length > 0)
         {
             while (_parallaxRootChildren < currentTheme.cloudNumber)
             {
                 float lastZ = parallaxRoot.childCount == 0 ? 0 : parallaxRoot.GetChild(parallaxRoot.childCount - 1).position.z + currentTheme.cloudMinimumDistance.z;
 
-                GameObject cloud = currentTheme.cloudPrefabs[Random.Range(0, currentTheme.cloudPrefabs.Length)];
+                GameObject cloud = currentTheme.cloudPrefabs[UnityEngine.Random.Range(0, currentTheme.cloudPrefabs.Length)];
                 if (cloud != null)
                 {
                     GameObject obj = Instantiate(cloud);
@@ -319,13 +335,13 @@ public class TrackManager : MonoBehaviour
 
                     obj.transform.localPosition =
                         Vector3.up * (currentTheme.cloudMinimumDistance.y +
-                                      (Random.value - 0.5f) * currentTheme.cloudSpread.y)
-                        + Vector3.forward * (lastZ + (Random.value - 0.5f) * currentTheme.cloudSpread.z)
+                                      (UnityEngine.Random.value - 0.5f) * currentTheme.cloudSpread.y)
+                        + Vector3.forward * (lastZ + (UnityEngine.Random.value - 0.5f) * currentTheme.cloudSpread.z)
                         + Vector3.right * (currentTheme.cloudMinimumDistance.x +
-                                           (Random.value - 0.5f) * currentTheme.cloudSpread.x);
+                                           (UnityEngine.Random.value - 0.5f) * currentTheme.cloudSpread.x);
 
-                    obj.transform.localScale = obj.transform.localScale * (1.0f + (Random.value - 0.5f) * 0.5f);
-                    obj.transform.localRotation = Quaternion.AngleAxis(Random.value * 360.0f, Vector3.up);
+                    obj.transform.localScale = obj.transform.localScale * (1.0f + (UnityEngine.Random.value - 0.5f) * 0.5f);
+                    obj.transform.localRotation = Quaternion.AngleAxis(UnityEngine.Random.value * 360.0f, Vector3.up);
                     _parallaxRootChildren++;
                 }
             }
@@ -492,7 +508,7 @@ public class TrackManager : MonoBehaviour
                 ChangeZone();
         }
 
-        int segmentUse = Random.Range(0, m_CurrentThemeData.zones[m_CurrentZone].prefabList.Length);
+        int segmentUse = UnityEngine.Random.Range(0, m_CurrentThemeData.zones[m_CurrentZone].prefabList.Length);
         if (segmentUse == m_PreviousSegment) segmentUse = (segmentUse + 1) % m_CurrentThemeData.zones[m_CurrentZone].prefabList.Length;
 
         AsyncOperationHandle segmentToUseOp = m_CurrentThemeData.zones[m_CurrentZone].prefabList[segmentUse].InstantiateAsync(_offScreenSpawnPos, Quaternion.identity);
@@ -527,7 +543,7 @@ public class TrackManager : MonoBehaviour
         newSegment.transform.position = pos;
         newSegment.manager = this;
 
-        newSegment.transform.localScale = new Vector3((Random.value > 0.5f ? -1 : 1), 1, 1);
+        newSegment.transform.localScale = new Vector3((UnityEngine.Random.value > 0.5f ? -1 : 1), 1, 1);
         newSegment.objectRoot.localScale = new Vector3(1.0f / newSegment.transform.localScale.x, 1, 1);
 
         if (m_SafeSegementLeft <= 0)
@@ -549,7 +565,7 @@ public class TrackManager : MonoBehaviour
         {
             for (int i = 0; i < segment.obstaclePositions.Length; ++i)
             {
-                AssetReference assetRef = segment.possibleObstacles[Random.Range(0, segment.possibleObstacles.Length)];
+                AssetReference assetRef = segment.possibleObstacles[UnityEngine.Random.Range(0, segment.possibleObstacles.Length)];
                 StartCoroutine(SpawnFromAssetReference(assetRef, segment, i));
             }
         }
@@ -576,7 +592,7 @@ public class TrackManager : MonoBehaviour
         {
             const float increment = 1.5f;
             float currentWorldPos = 0.0f;
-            int currentLane = Random.Range(0, 3);
+            int currentLane = UnityEngine.Random.Range(0, 3);
 
             float powerupChance = Mathf.Clamp01(Mathf.Floor(m_TimeSincePowerup) * 0.5f * 0.001f);
             float premiumChance = Mathf.Clamp01(Mathf.Floor(m_TimeSinceLastPremium) * 0.5f * 0.0001f);
@@ -609,9 +625,9 @@ public class TrackManager : MonoBehaviour
 
 
                     GameObject toUse = null;
-                    if (Random.value < powerupChance)
+                    if (UnityEngine.Random.value < powerupChance)
                     {
-                        int picked = Random.Range(0, consumableDatabase.consumbales.Length);
+                        int picked = UnityEngine.Random.Range(0, consumableDatabase.consumbales.Length);
 
                         //if the powerup can't be spawned, we don't reset the time since powerup to continue to have a high chance of picking one next track segment
                         if (consumableDatabase.consumbales[picked].canBeSpawned)
@@ -631,7 +647,7 @@ public class TrackManager : MonoBehaviour
                             toUse.transform.SetParent(segment.transform, true);
                         }
                     }
-                    else if (Random.value < premiumChance)
+                    else if (UnityEngine.Random.value < premiumChance)
                     {
                         m_TimeSinceLastPremium = 0.0f;
                         premiumChance = 0.0f;
