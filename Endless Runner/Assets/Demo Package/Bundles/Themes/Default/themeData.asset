@@ -31,15 +31,11 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
-  - length: 500
-    prefabList:
-    - m_AssetGUID: 0f71fea5e782b2142acc3df8a6c63d5a
+    - m_AssetGUID: 4e661b27b4dd65c40807d2a4a5200455
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
-  - length: 500
-    prefabList:
-    - m_AssetGUID: 0f71fea5e782b2142acc3df8a6c63d5a
+    - m_AssetGUID: ef934c15583dff240b95e3ae1bdf00f0
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
