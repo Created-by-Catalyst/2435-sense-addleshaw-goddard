@@ -23,6 +23,14 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+    - m_AssetGUID: 2d2ee29608fa78449be598b3a46ee0ac
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: e770a439221ce64498f8ee03c040cb63
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
   - length: 500
     prefabList:
     - m_AssetGUID: 0f71fea5e782b2142acc3df8a6c63d5a
