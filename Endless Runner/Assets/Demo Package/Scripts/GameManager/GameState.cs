@@ -19,6 +19,8 @@ public class GameState : AState
 {
     static int s_DeadHash = Animator.StringToHash("Dead");
 
+    public FinishedScreen finishScreen;
+
     public Canvas canvas;
     public TrackManager trackManager;
 
@@ -74,6 +76,7 @@ public class GameState : AState
 
     public override void Enter(AState from)
     {
+        finishScreen.CloseLeaderboard();
 
         trackManager.finishTimeStr = "";
 
@@ -334,7 +337,7 @@ public class GameState : AState
         yield return new WaitForSeconds(2.0f);
         if (currentModifier.OnRunEnd(this))
         {
-            OpenGameOverPopup();
+            GameOver();
         }
     }
 
@@ -354,7 +357,7 @@ public class GameState : AState
         yield return new WaitForSeconds(2.0f);
         if (currentModifier.OnRunEnd(this))
         {
-            OpenWinPopup();
+            Win();
         }
     }
 
@@ -388,6 +391,11 @@ public class GameState : AState
     public void GameOver()
     {
         manager.SwitchState("GameOver");
+    }
+
+    public void Win()
+    {
+        manager.SwitchState("Win");
     }
 
     public void PremiumForLife()

@@ -63,6 +63,7 @@ public class TrackManager : MonoBehaviour
 
     public float timeToStart { get { return m_TimeToStart; } }  // Will return -1 if already started (allow to update UI)
 
+    public static bool playerWin = false;
 
     public TimeSpan finishTime;
     public string finishTimeStr = "";
@@ -151,6 +152,8 @@ public class TrackManager : MonoBehaviour
 
     IEnumerator WaitToStart()
     {
+        playerWin = false;
+
         characterController.character.animator.Play(s_StartHash);
         float length = k_CountdownToStartLength;
         m_TimeToStart = length;

@@ -15,6 +15,8 @@ using UnityEngine.Analytics;
 /// </summary>
 public class LoadoutState : AState
 {
+    public FinishedScreen finishedScreen;
+
     public Canvas inventoryCanvas;
 
     [Header("Char UI")]
@@ -99,6 +101,8 @@ public class LoadoutState : AState
         }
 
         Refresh();
+
+        finishedScreen.OpenLeaderboard();
     }
 
     public override void Exit(AState to)
@@ -260,7 +264,7 @@ public class LoadoutState : AState
                     {
                         pos.x = 0.0f;
                     }
-                    charPosition.transform.position = pos;
+                    //charPosition.transform.position = pos;
 
                     accessoriesSelector.gameObject.SetActive(m_OwnedAccesories.Count > 0);
 
