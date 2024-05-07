@@ -127,8 +127,8 @@ public class TrackManager : MonoBehaviour
     protected const float k_StartingSegmentDistance = 2f;
     protected const int k_StartingSafeSegments = 2;
     protected const int k_StartingCoinPoolSize = 256;
-    protected const int k_DesiredSegmentCount = 10;
-    protected const float k_SegmentRemovalDistance = -30f;
+    protected const int k_DesiredSegmentCount = 5;
+    protected const float k_SegmentRemovalDistance = -150f;
     protected const float k_Acceleration = 0.2f;
 
     protected void Awake()
@@ -546,8 +546,8 @@ public class TrackManager : MonoBehaviour
         newSegment.transform.position = pos;
         newSegment.manager = this;
 
-        //newSegment.transform.localScale = new Vector3((UnityEngine.Random.value > 0.5f ? -1 : 1), 1, 1);
-        //newSegment.objectRoot.localScale = new Vector3(1.0f / newSegment.transform.localScale.x, 1, 1);
+        newSegment.transform.localScale = new Vector3((UnityEngine.Random.value > 0.5f ? -1 : 1), 1, 1);
+        newSegment.objectRoot.localScale = new Vector3(1.0f / newSegment.transform.localScale.x, 1, 1);
 
         if (m_SafeSegementLeft <= 0)
         {
