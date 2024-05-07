@@ -21,40 +21,89 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/UI/AddMissionButton.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ae64d0eaec8d6f4f9436fce6117048d
     m_Address: Trash Cat
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2bfa18892388236498842bbfe7a3ff83
     m_Address: Assets/Prefabs/UI/Header.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 473ffa016efe3724cad08daa78e3d12a
     m_Address: Rubbish Raccoon
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71514012df4dcd146957cb145cec8287
     m_Address: Assets/Prefabs/UI/MissionEntry.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94cb557246c11d14388842cc08be79a8
     m_Address: Assets/Prefabs/UI/PowerupIcon.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a53fe2875371488408daf0df7d69a981
     m_Address: Assets/Prefabs/UI/MissionPopup.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: abafe3707f9235b4ab7cdfd1333295c3
     m_Address: Assets/Prefabs/UI/ItemEntry.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac361d43768a861498da8046b83b94f5
     m_Address: Assets/Prefabs/UI/Score.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f71fea5e782b2142acc3df8a6c63d5a
+    m_Address: Assets/Prefabs/EnvironmentBundles/City-Building01.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d2ee29608fa78449be598b3a46ee0ac
+    m_Address: Assets/Prefabs/EnvironmentBundles/City-Building02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e770a439221ce64498f8ee03c040cb63
+    m_Address: Assets/Prefabs/EnvironmentBundles/City-Building03.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e661b27b4dd65c40807d2a4a5200455
+    m_Address: Assets/Prefabs/EnvironmentBundles/City-Building04.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef934c15583dff240b95e3ae1bdf00f0
+    m_Address: Assets/Prefabs/EnvironmentBundles/City-Building05.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdad798300398e543b821b21fa849746
+    m_Address: Assets/Prefabs/EnvironmentBundles/City-Building06.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bc3616b3fc85544985049275b4e3642
+    m_Address: Assets/Prefabs/EnvironmentBundles/City-Building07.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bae4aa7105e26340886367450e9cad0
+    m_Address: Assets/Prefabs/EnvironmentBundles/City-Building08.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 735e874f947d0e143a6b4e83f8a7283a, type: 2}
   m_SchemaSet:

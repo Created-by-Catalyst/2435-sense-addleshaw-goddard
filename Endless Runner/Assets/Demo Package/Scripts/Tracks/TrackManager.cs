@@ -127,8 +127,8 @@ public class TrackManager : MonoBehaviour
     protected const float k_StartingSegmentDistance = 2f;
     protected const int k_StartingSafeSegments = 2;
     protected const int k_StartingCoinPoolSize = 256;
-    protected const int k_DesiredSegmentCount = 10;
-    protected const float k_SegmentRemovalDistance = -30f;
+    protected const int k_DesiredSegmentCount = 5;
+    protected const float k_SegmentRemovalDistance = -150f;
     protected const float k_Acceleration = 0.2f;
 
     protected void Awake()
