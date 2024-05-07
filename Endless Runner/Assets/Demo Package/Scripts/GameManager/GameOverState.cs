@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 #if UNITY_ANALYTICS
 using UnityEngine.Analytics;
 #endif
@@ -8,6 +9,7 @@ using UnityEngine.Analytics;
 /// </summary>
 public class GameOverState : AState
 {
+    public GameObject defaultLoadoutButton;
 
     public WinState winState;
 
@@ -21,11 +23,17 @@ public class GameOverState : AState
 
     public override void Enter(AState from)
     {
+
+        //GameManager.instance.SetSelectedUIElement(defaultLoadoutButton);
+
         winState.gameObject.SetActive(false);
         gameObject.SetActive(true);
         canvas.gameObject.SetActive(true);
 
         OpenLeaderboard();
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(defaultLoadoutButton);
     }
 
     public override void Exit(AState to)

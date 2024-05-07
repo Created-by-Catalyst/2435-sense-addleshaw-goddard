@@ -1,5 +1,21 @@
 {
   "dependencies": {
+    "com.createdbycatalyst.inputreader": {
+      "version": "https://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@github.com/Created-by-Catalyst/Internal-Unity-Packages.git#InputReader",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.createdbycatalyst.unityeventsextension": "https://github.com/Created-by-Catalyst/Internal-Unity-Packages.git#UnityEventsExtension"
+      },
+      "hash": "ea5d9f391c1b3615326e8e685641f329599f2b27"
+    },
+    "com.createdbycatalyst.unityeventsextension": {
+      "version": "https://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@github.com/Created-by-Catalyst/Internal-Unity-Packages.git#UnityEventsExtension",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "53f4df3cce57afabf5e9b2a17627f34b3cbf0a01"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -95,6 +111,15 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.inputsystem": {
+      "version": "1.7.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.uielements": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.mathematics": {

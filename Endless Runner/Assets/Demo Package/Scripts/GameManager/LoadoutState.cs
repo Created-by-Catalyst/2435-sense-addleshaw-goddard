@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.EventSystems;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ using UnityEngine.Analytics;
 /// </summary>
 public class LoadoutState : AState
 {
+    public GameObject defaultLoadoutButton;
+
     public FinishedScreen finishedScreen;
 
     public Canvas inventoryCanvas;
@@ -99,10 +102,12 @@ public class LoadoutState : AState
             if (!PlayerData.instance.consumables.ContainsKey(m_PowerupToUse) || PlayerData.instance.consumables[m_PowerupToUse] == 0)
                 m_PowerupToUse = Consumable.ConsumableType.NONE;
         }
-
         Refresh();
 
         finishedScreen.OpenLeaderboard();
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(defaultLoadoutButton);
     }
 
     public override void Exit(AState to)

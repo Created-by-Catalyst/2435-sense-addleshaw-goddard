@@ -183,23 +183,23 @@ public class CharacterInputController : MonoBehaviour
         // Use key input in editor or standalone
         // disabled if it's tutorial and not thecurrent right tutorial level (see func TutorialMoveCheck)
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && TutorialMoveCheck(0))
-        {
-            ChangeLane(-1);
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && TutorialMoveCheck(0))
-        {
-            ChangeLane(1);
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && TutorialMoveCheck(1))
-        {
-            Jump();
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) && TutorialMoveCheck(2))
-        {
-            if (!m_Sliding)
-                Slide();
-        }
+        //if (Input.GetKeyDown(KeyCode.LeftArrow) && TutorialMoveCheck(0))
+        //{
+        //    ChangeLane(-1);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.RightArrow) && TutorialMoveCheck(0))
+        //{
+        //    ChangeLane(1);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.UpArrow) && TutorialMoveCheck(1))
+        //{
+        //    Jump();
+        //}
+        //else if (Input.GetKeyDown(KeyCode.DownArrow) && TutorialMoveCheck(2))
+        //{
+        //    if (!m_Sliding)
+        //        Slide();
+        //}
 #else
         // Use touch input on mobile
         if (Input.touchCount == 1)
@@ -317,6 +317,8 @@ public class CharacterInputController : MonoBehaviour
 
     public void Jump()
     {
+        print("JUMP");
+
         if (!m_IsRunning)
             return;
 
@@ -347,6 +349,9 @@ public class CharacterInputController : MonoBehaviour
 
     public void Slide()
     {
+        if (m_Sliding)
+            return;
+
         if (!m_IsRunning)
             return;
 
