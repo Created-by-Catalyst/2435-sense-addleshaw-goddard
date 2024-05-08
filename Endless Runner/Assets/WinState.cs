@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 #if UNITY_ANALYTICS
 using UnityEngine.Analytics;
 #endif
@@ -9,7 +10,11 @@ using UnityEngine.Analytics;
 /// </summary>
 public class WinState : AState
 {
+    public KeyboardManager onScreenKeyboard;
+
     public GameObject defaultLoadoutButton;
+
+    public GameObject entryFinishedLoadoutButton;
 
     public GameOverState gameOverState;
 
@@ -23,9 +28,34 @@ public class WinState : AState
 
     public GameObject addButton;
 
+    [SerializeField] InputField playerEntry;
+    public void AddCharacter(string key)
+    {
+        if (key == "Enter")
+        {
+            onScreenKeyboard.gameObject.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(entryFinishedLoadoutButton);
+        }
+        else if (key == "Back")
+        {
+            if (playerEntry.text.Length > 0)
+            {
+                playerEntry.text = playerEntry.text.Substring(0, playerEntry.text.Length - 1);
+            }
+        }
+        else
+        {
+            playerEntry.text += key;
+        }
+    }
+
+
     public override void Enter(AState from)
     {
         //GameManager.instance.SetSelectedUIElement(defaultLoadoutButton);
+
+        onScreenKeyboard.gameObject.SetActive(true);
 
         gameOverState.gameObject.SetActive(false);
         gameObject.SetActive(true);
@@ -50,10 +80,14 @@ public class WinState : AState
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(defaultLoadoutButton);
+
+
+        playerEntry.text = "";
     }
 
     public override void Exit(AState to)
     {
+        onScreenKeyboard.gameObject.SetActive(false);
         canvas.gameObject.SetActive(false);
         FinishRun();
     }
