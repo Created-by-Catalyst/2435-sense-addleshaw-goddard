@@ -19619,7 +19619,7 @@ MonoBehaviour:
   finishLineSegment: {fileID: 7205905067418322898, guid: a4d19ab5f1014ef448577c05811ca0ef,
     type: 3}
   characterController: {fileID: 2094493432}
-  minSpeed: 20
+  minSpeed: 18
   maxSpeed: 30
   speedStep: 4
   laneOffset: 1.5

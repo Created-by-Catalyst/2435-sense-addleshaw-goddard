@@ -29,6 +29,7 @@ using UnityEngine.Analytics;
 public class TrackManager : MonoBehaviour
 {
     static public bool s_SpawnFinishLine = false;
+    private GameObject finishLineEnd;
 
     static public TrackManager instance { get { return s_Instance; } }
     static protected TrackManager s_Instance;
@@ -323,7 +324,7 @@ public class TrackManager : MonoBehaviour
                 _spawnedSegments++;
             }
         }
-        else
+        else if (finishLineEnd == null)
             SpawnFinishLineSegment();
 
         if (timerActive)
@@ -364,17 +365,29 @@ public class TrackManager : MonoBehaviour
 
         if (!m_IsMoving)
             return;
+        if (s_SpawnFinishLine && finishLineEnd != null)
+        {
+            float distanceToEnd = Vector3.Distance(characterController.transform.position, finishLineEnd.transform.position);
+            distanceToEnd = Math.Clamp(distanceToEnd, 0, m_Speed);
+            float scaledSpeed = Mathf.Lerp(0, distanceToEnd, Time.deltaTime);
+            m_CurrentZoneDistance += scaledSpeed;
 
-        float scaledSpeed = m_Speed * Time.deltaTime;
-        m_ScoreAccum += scaledSpeed;
-        m_CurrentZoneDistance += scaledSpeed;
+            m_TotalWorldDistance += scaledSpeed;
+            m_CurrentSegmentDistance += scaledSpeed;
+        }
+        else
+        {
+            float scaledSpeed = m_Speed * Time.deltaTime;
+            m_ScoreAccum += scaledSpeed;
+            m_CurrentZoneDistance += scaledSpeed;
 
-        int intScore = Mathf.FloorToInt(m_ScoreAccum);
-        if (intScore != 0) AddScore(intScore);
-        m_ScoreAccum -= intScore;
+            int intScore = Mathf.FloorToInt(m_ScoreAccum);
+            if (intScore != 0) AddScore(intScore);
+            m_ScoreAccum -= intScore;
 
-        m_TotalWorldDistance += scaledSpeed;
-        m_CurrentSegmentDistance += scaledSpeed;
+            m_TotalWorldDistance += scaledSpeed;
+            m_CurrentSegmentDistance += scaledSpeed;
+        }
 
         if (m_CurrentSegmentDistance > m_Segments[0].worldLength)
         {
@@ -517,60 +530,63 @@ public class TrackManager : MonoBehaviour
     private readonly Vector3 _offScreenSpawnPos = new Vector3(-100f, -100f, -100f);
     public IEnumerator SpawnNewSegment()
     {
-        if (!m_IsTutorial)
+        if (!s_SpawnFinishLine)
         {
-            if (m_CurrentThemeData.zones[m_CurrentZone].length < m_CurrentZoneDistance)
-                ChangeZone();
+            if (!m_IsTutorial)
+            {
+                if (m_CurrentThemeData.zones[m_CurrentZone].length < m_CurrentZoneDistance)
+                    ChangeZone();
+            }
+
+            int segmentUse = UnityEngine.Random.Range(0, m_CurrentThemeData.zones[m_CurrentZone].prefabList.Length);
+            if (segmentUse == m_PreviousSegment) segmentUse = (segmentUse + 1) % m_CurrentThemeData.zones[m_CurrentZone].prefabList.Length;
+
+            AsyncOperationHandle segmentToUseOp = m_CurrentThemeData.zones[m_CurrentZone].prefabList[segmentUse].InstantiateAsync(_offScreenSpawnPos, Quaternion.identity);
+            yield return segmentToUseOp;
+            if (segmentToUseOp.Result == null || !(segmentToUseOp.Result is GameObject))
+            {
+                Debug.LogWarning(string.Format("Unable to load segment {0}.", m_CurrentThemeData.zones[m_CurrentZone].prefabList[segmentUse].Asset.name));
+                yield break;
+            }
+            TrackSegment newSegment = (segmentToUseOp.Result as GameObject).GetComponent<TrackSegment>();
+
+            Vector3 currentExitPoint;
+            Quaternion currentExitRotation;
+            if (m_Segments.Count > 0)
+            {
+                m_Segments[m_Segments.Count - 1].GetPointAt(1.0f, out currentExitPoint, out currentExitRotation);
+            }
+            else
+            {
+                currentExitPoint = transform.position;
+                currentExitRotation = transform.rotation;
+            }
+
+            newSegment.transform.rotation = currentExitRotation;
+
+            Vector3 entryPoint;
+            Quaternion entryRotation;
+            newSegment.GetPointAt(0.0f, out entryPoint, out entryRotation);
+
+
+            Vector3 pos = currentExitPoint + (newSegment.transform.position - entryPoint);
+            newSegment.transform.position = pos;
+            newSegment.manager = this;
+
+            newSegment.transform.localScale = new Vector3((UnityEngine.Random.value > 0.5f ? -1 : 1), 1, 1);
+            newSegment.objectRoot.localScale = new Vector3(1.0f / newSegment.transform.localScale.x, 1, 1);
+
+            if (m_SafeSegementLeft <= 0)
+            {
+                SpawnObstacle(newSegment);
+            }
+            else
+                m_SafeSegementLeft -= 1;
+
+            m_Segments.Add(newSegment);
+
+            if (newSegmentCreated != null) newSegmentCreated.Invoke(newSegment);
         }
-
-        int segmentUse = UnityEngine.Random.Range(0, m_CurrentThemeData.zones[m_CurrentZone].prefabList.Length);
-        if (segmentUse == m_PreviousSegment) segmentUse = (segmentUse + 1) % m_CurrentThemeData.zones[m_CurrentZone].prefabList.Length;
-
-        AsyncOperationHandle segmentToUseOp = m_CurrentThemeData.zones[m_CurrentZone].prefabList[segmentUse].InstantiateAsync(_offScreenSpawnPos, Quaternion.identity);
-        yield return segmentToUseOp;
-        if (segmentToUseOp.Result == null || !(segmentToUseOp.Result is GameObject))
-        {
-            Debug.LogWarning(string.Format("Unable to load segment {0}.", m_CurrentThemeData.zones[m_CurrentZone].prefabList[segmentUse].Asset.name));
-            yield break;
-        }
-        TrackSegment newSegment = (segmentToUseOp.Result as GameObject).GetComponent<TrackSegment>();
-
-        Vector3 currentExitPoint;
-        Quaternion currentExitRotation;
-        if (m_Segments.Count > 0)
-        {
-            m_Segments[m_Segments.Count - 1].GetPointAt(1.0f, out currentExitPoint, out currentExitRotation);
-        }
-        else
-        {
-            currentExitPoint = transform.position;
-            currentExitRotation = transform.rotation;
-        }
-
-        newSegment.transform.rotation = currentExitRotation;
-
-        Vector3 entryPoint;
-        Quaternion entryRotation;
-        newSegment.GetPointAt(0.0f, out entryPoint, out entryRotation);
-
-
-        Vector3 pos = currentExitPoint + (newSegment.transform.position - entryPoint);
-        newSegment.transform.position = pos;
-        newSegment.manager = this;
-
-        newSegment.transform.localScale = new Vector3((UnityEngine.Random.value > 0.5f ? -1 : 1), 1, 1);
-        newSegment.objectRoot.localScale = new Vector3(1.0f / newSegment.transform.localScale.x, 1, 1);
-
-        if (m_SafeSegementLeft <= 0)
-        {
-            SpawnObstacle(newSegment);
-        }
-        else
-            m_SafeSegementLeft -= 1;
-
-        m_Segments.Add(newSegment);
-
-        if (newSegmentCreated != null) newSegmentCreated.Invoke(newSegment);
     }
 
 
@@ -727,6 +743,9 @@ public class TrackManager : MonoBehaviour
             finishSegment.manager = this;
 
             m_Segments.Add(finishSegment);
+
+            if (finishLineEnd == null)
+                finishLineEnd = finishSegment.pathParent.GetChild(1).gameObject;
 
         }
     }
