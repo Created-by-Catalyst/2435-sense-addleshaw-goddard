@@ -28,6 +28,8 @@ using UnityEngine.Analytics;
 /// </summary>
 public class TrackManager : MonoBehaviour
 {
+    static public bool s_SpawnFinishLine = false;
+
     static public TrackManager instance { get { return s_Instance; } }
     static protected TrackManager s_Instance;
 
@@ -35,6 +37,8 @@ public class TrackManager : MonoBehaviour
 
     public delegate int MultiplierModifier(int current);
     public MultiplierModifier modifyMultiply;
+
+    public GameObject finishLineSegment;
 
     [Header("Character & Movements")]
     public CharacterInputController characterController;
@@ -127,7 +131,7 @@ public class TrackManager : MonoBehaviour
     protected const float k_StartingSegmentDistance = 2f;
     protected const int k_StartingSafeSegments = 2;
     protected const int k_StartingCoinPoolSize = 256;
-    protected const int k_DesiredSegmentCount = 5;
+    protected const int k_DesiredSegmentCount = 2;
     protected const float k_SegmentRemovalDistance = -150f;
     protected const float k_Acceleration = 0.2f;
 
@@ -308,11 +312,19 @@ public class TrackManager : MonoBehaviour
     private int _spawnedSegments = 0;
     void Update()
     {
-        while (_spawnedSegments < (m_IsTutorial ? 4 : k_DesiredSegmentCount))
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+            s_SpawnFinishLine = true;
+
+        if (!s_SpawnFinishLine)
         {
-            StartCoroutine(SpawnNewSegment());
-            _spawnedSegments++;
+            while (!s_SpawnFinishLine && _spawnedSegments < (m_IsTutorial ? 4 : k_DesiredSegmentCount))
+            {
+                StartCoroutine(SpawnNewSegment());
+                _spawnedSegments++;
+            }
         }
+        else
+            SpawnFinishLineSegment();
 
         if (timerActive)
         {
@@ -682,6 +694,40 @@ public class TrackManager : MonoBehaviour
 
                 currentWorldPos += increment;
             }
+        }
+    }
+
+    private void SpawnFinishLineSegment()
+    {
+        if (finishLineSegment != null)
+        {
+            TrackSegment finishSegment = Instantiate(finishLineSegment, Vector3.zero, Quaternion.identity).GetComponent<TrackSegment>();
+
+            Vector3 currentExitPoint;
+            Quaternion currentExitRotation;
+            if (m_Segments.Count > 0)
+            {
+                m_Segments[m_Segments.Count - 1].GetPointAt(1.0f, out currentExitPoint, out currentExitRotation);
+            }
+            else
+            {
+                currentExitPoint = transform.position;
+                currentExitRotation = transform.rotation;
+            }
+
+            finishSegment.transform.rotation = currentExitRotation;
+
+            Vector3 entryPoint;
+            Quaternion entryRotation;
+            finishSegment.GetPointAt(0.0f, out entryPoint, out entryRotation);
+
+
+            Vector3 pos = currentExitPoint + (finishSegment.transform.position - entryPoint);
+            finishSegment.transform.position = pos;
+            finishSegment.manager = this;
+
+            m_Segments.Add(finishSegment);
+
         }
     }
 

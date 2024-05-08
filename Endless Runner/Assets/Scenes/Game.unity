@@ -19,7 +19,7 @@ RenderSettings:
   m_FogMode: 1
   m_FogDensity: 0.0075
   m_LinearFogStart: 10
-  m_LinearFogEnd: 125
+  m_LinearFogEnd: 100
   m_AmbientSkyColor: {r: 0.9150943, g: 0.9107778, b: 0.9107778, a: 1}
   m_AmbientEquatorColor: {r: 0.46226418, g: 0.43999726, b: 0.4121129, a: 1}
   m_AmbientGroundColor: {r: 0.13207549, g: 0.11948339, b: 0.11400856, a: 1}
@@ -19616,8 +19616,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357943a8c88ecc848b7f5de152a00562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishLineSegment: {fileID: 7205905067418322898, guid: a4d19ab5f1014ef448577c05811ca0ef,
+    type: 3}
   characterController: {fileID: 2094493432}
-  minSpeed: 10
+  minSpeed: 20
   maxSpeed: 30
   speedStep: 4
   laneOffset: 1.5
