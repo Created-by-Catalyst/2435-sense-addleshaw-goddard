@@ -11,6 +11,12 @@
         },
         {
             "m_Id": "ff7a09cdd2dd42c48ed76d570da7aec8"
+        },
+        {
+            "m_Id": "eb9744be84c84a969cb6dbe37ea9d045"
+        },
+        {
+            "m_Id": "05cccfe8f35741f7972bb5498797baea"
         }
     ],
     "m_Keywords": [],
@@ -468,6 +474,36 @@
 }
 
 {
+    "m_SGVersion": 3,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
+    "m_ObjectId": "05cccfe8f35741f7972bb5498797baea",
+    "m_Guid": {
+        "m_GuidSerialized": "915a5d5a-29f5-4eba-b605-bb7acd417fcd"
+    },
+    "m_Name": "EmissionColour",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "EmissionColour",
+    "m_DefaultReferenceName": "_EmissionColour",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "isMainColor": false,
+    "m_ColorMode": 1
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "0bdb9fb31814420d8f67da5030574593",
@@ -679,6 +715,12 @@
         },
         {
             "m_Id": "f440823b49b949a4898cf5c6643558dd"
+        },
+        {
+            "m_Id": "eb9744be84c84a969cb6dbe37ea9d045"
+        },
+        {
+            "m_Id": "05cccfe8f35741f7972bb5498797baea"
         }
     ]
 }
@@ -2614,6 +2656,36 @@
         "w": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "eb9744be84c84a969cb6dbe37ea9d045",
+    "m_Guid": {
+        "m_GuidSerialized": "d232f329-7975-43c3-adb2-ba775c9991e2"
+    },
+    "m_Name": "Emission",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Emission",
+    "m_DefaultReferenceName": "_Emission",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_Guid": ""
+    },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
+    "m_Modifiable": true,
+    "m_DefaultType": 0
 }
 
 {
