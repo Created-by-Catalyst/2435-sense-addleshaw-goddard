@@ -76,6 +76,8 @@ public class GameState : AState
 
     public override void Enter(AState from)
     {
+        TrackManager.m_Multiplier = 1;
+
         trackManager.ResetFinishLine();
 
         TrackManager.s_SpawnFinishLine = false;
@@ -144,7 +146,7 @@ public class GameState : AState
 
     bool playerWon = false;
 
-    private int requiredCoins = 40;
+    private int requiredCoins = 1000;
 
     public override void Tick()
     {

@@ -108,7 +108,7 @@ public class TrackManager : MonoBehaviour
     protected float m_TimeSincePowerup;     // The higher it goes, the higher the chance of spawning one
     protected float m_TimeSinceLastPremium;
 
-    protected int m_Multiplier;
+    public static int m_Multiplier = 1;
 
     protected List<TrackSegment> m_Segments = new List<TrackSegment>();
     protected List<TrackSegment> m_PastSegments = new List<TrackSegment>();
@@ -491,15 +491,15 @@ public class TrackManager : MonoBehaviour
                 m_Speed = maxSpeed;
         }
 
-        m_Multiplier = 1 + Mathf.FloorToInt((m_Speed - minSpeed) / (maxSpeed - minSpeed) * speedStep);
+        //m_Multiplier = 1 + Mathf.FloorToInt((m_Speed - minSpeed) / (maxSpeed - minSpeed) * speedStep);
 
-        if (modifyMultiply != null)
-        {
-            foreach (MultiplierModifier part in modifyMultiply.GetInvocationList())
-            {
-                m_Multiplier = part(m_Multiplier);
-            }
-        }
+        //if (modifyMultiply != null)
+        //{
+        //    foreach (MultiplierModifier part in modifyMultiply.GetInvocationList())
+        //    {
+        //        m_Multiplier = part(m_Multiplier);
+        //    }
+        //}
 
         if (!m_IsTutorial)
         {

@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using System;
-using System.Collections;
+﻿using System.Collections;
 
 public class Score2Multiplier : Consumable
 {
@@ -19,29 +17,29 @@ public class Score2Multiplier : Consumable
         return 750;
     }
 
-	public override int GetPremiumCost()
-	{
-		return 0;
-	}
+    public override int GetPremiumCost()
+    {
+        return 0;
+    }
 
-	public override IEnumerator Started(CharacterInputController c)
+    public override IEnumerator Started(CharacterInputController c)
     {
         yield return base.Started(c);
 
         m_SinceStart = 0;
 
-        c.trackManager.modifyMultiply += MultiplyModify;
+        TrackManager.m_Multiplier = 2;
     }
 
     public override void Ended(CharacterInputController c)
     {
         base.Ended(c);
 
-        c.trackManager.modifyMultiply -= MultiplyModify;
+        TrackManager.m_Multiplier = 1;
     }
 
-    protected int MultiplyModify(int multi)
-    {
-        return multi * 2;
-    }
+    //protected int MultiplyModify(int multi)
+    //{
+    //    return multi * 2;
+    //}
 }
