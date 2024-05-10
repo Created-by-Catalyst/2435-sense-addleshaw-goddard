@@ -30,6 +30,8 @@ public class TrackManager : MonoBehaviour
 {
     static public bool s_SpawnFinishLine = false;
     private GameObject finishLineEnd;
+    static public bool s_reachedFinishLineEnd = false;
+    private float _distanceToWin = 5f;
 
     static public TrackManager instance { get { return s_Instance; } }
     static protected TrackManager s_Instance;
@@ -303,6 +305,9 @@ public class TrackManager : MonoBehaviour
             PlayerData.instance.Add(characterController.inventory.GetConsumableType());
             characterController.inventory = null;
         }
+
+        _spawnedSegments = 0;
+        ResetFinishLine();
     }
 
     public bool timerActive = false;
@@ -375,6 +380,9 @@ public class TrackManager : MonoBehaviour
 
             m_TotalWorldDistance += scaledSpeed;
             m_CurrentSegmentDistance += scaledSpeed;
+
+            if (distanceToEnd <= _distanceToWin)
+                s_reachedFinishLineEnd = true;
         }
         else
         {
@@ -721,9 +729,11 @@ public class TrackManager : MonoBehaviour
     {
         if (finishSegment != null)
         {
+            finishLineEnd = null;
             Destroy(finishSegment.gameObject);
         }
         finishSegment = null;
+        s_reachedFinishLineEnd = false;
     }
 
     private void SpawnFinishLineSegment()

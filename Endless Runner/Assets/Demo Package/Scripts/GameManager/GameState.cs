@@ -356,7 +356,7 @@ public class GameState : AState
         // Reseting the global blinking value. Can happen if game unexpectly exited while still blinking
         Shader.SetGlobalFloat("_BlinkingValue", 0.0f);
 
-        yield return new WaitForSeconds(9f);
+        yield return new WaitUntil(() => TrackManager.s_reachedFinishLineEnd == true);
         if (currentModifier.OnRunEnd(this))
         {
             TrackManager.s_SpawnFinishLine = false;
