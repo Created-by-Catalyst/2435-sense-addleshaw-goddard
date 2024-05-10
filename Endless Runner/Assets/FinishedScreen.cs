@@ -32,18 +32,18 @@ public class FinishedScreen : MonoBehaviour
 
     public void OpenLeaderboard()
     {
-        if (gameoverState.gameObject.activeSelf == true)
-        {
-            gameoverState.OpenLeaderboard();
-        }
-        else if (winState.gameObject.activeSelf == true)
-        {
-            winState.OpenLeaderboard();
-        }
-        else
-        {
-            gameoverState.OpenLeaderboard();
-        }
+        //if (gameoverState.gameObject.activeSelf == true)
+        //{
+        gameoverState.OpenLeaderboard();
+        //}
+        //else if (winState.gameObject.activeSelf == true)
+        //{
+        //    winState.OpenLeaderboard();
+        //}
+        //else
+        //{
+        //    gameoverState.OpenLeaderboard();
+        //}
     }
 
     public void CloseLeaderboard()
