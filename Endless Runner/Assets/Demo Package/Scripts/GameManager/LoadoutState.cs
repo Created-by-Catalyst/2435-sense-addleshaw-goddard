@@ -121,7 +121,6 @@ public class LoadoutState : AState
 
         skyMeshFilter.gameObject.SetActive(false);
         UIGroundFilter.gameObject.SetActive(false);
-
         if (gs != null)
         {
             gs.currentModifier = m_CurrentModifier;

@@ -76,6 +76,9 @@ public class GameState : AState
 
     public override void Enter(AState from)
     {
+        trackManager.ResetFinishLine();
+
+        TrackManager.s_SpawnFinishLine = false;
         finishScreen.CloseLeaderboard();
 
         trackManager.finishTimeStr = "";
@@ -141,7 +144,7 @@ public class GameState : AState
 
     bool playerWon = false;
 
-    public int requiredCoins = 20;
+    private int requiredCoins = 40;
 
     public override void Tick()
     {
@@ -169,7 +172,7 @@ public class GameState : AState
             //PLAYER WON
             if (playerWon == true)
             {
-
+                TrackManager.s_SpawnFinishLine = true;
                 chrCtrl.CleanConsumable();
                 chrCtrl.character.animator.SetBool(s_DeadHash, true);
                 chrCtrl.characterCollider.koParticle.gameObject.SetActive(true);
@@ -337,6 +340,8 @@ public class GameState : AState
         yield return new WaitForSeconds(2.0f);
         if (currentModifier.OnRunEnd(this))
         {
+            TrackManager.s_SpawnFinishLine = true;
+
             GameOver();
         }
     }
@@ -347,16 +352,18 @@ public class GameState : AState
 
         trackManager.timerActive = false;
         playerWon = false;
-        timeText.text = "Time: ";
-        trackManager.characterController.coins = 0;
-        trackManager.StopMove();
 
         // Reseting the global blinking value. Can happen if game unexpectly exited while still blinking
         Shader.SetGlobalFloat("_BlinkingValue", 0.0f);
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(9f);
         if (currentModifier.OnRunEnd(this))
         {
+            TrackManager.s_SpawnFinishLine = false;
+
+            timeText.text = "Time: ";
+            trackManager.characterController.coins = 0;
+            trackManager.StopMove();
             Win();
         }
     }
