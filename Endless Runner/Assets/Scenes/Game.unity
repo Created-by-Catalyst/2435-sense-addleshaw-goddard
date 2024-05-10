@@ -24258,7 +24258,7 @@ MonoBehaviour:
   entriesCount: 10
   playerEntry: {fileID: 926798345}
   forcePlayerDisplay: 0
-  displayPlayer: 1
+  displayPlayer: 0
 --- !u!1 &1822183923
 GameObject:
   m_ObjectHideFlags: 0

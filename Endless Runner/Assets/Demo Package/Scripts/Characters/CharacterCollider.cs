@@ -117,9 +117,10 @@ public class CharacterCollider : MonoBehaviour
             }
             else
             {
+                print("mult" + TrackManager.m_Multiplier);
                 Coin.coinPool.Free(c.gameObject);
-                PlayerData.instance.coins += 1;
-                controller.coins += 1;
+                PlayerData.instance.coins += 1 * TrackManager.m_Multiplier;
+                controller.coins += 1 * TrackManager.m_Multiplier;
                 m_Audio.PlayOneShot(coinSound);
             }
         }
