@@ -76,6 +76,9 @@ public class GameState : AState
 
     public override void Enter(AState from)
     {
+        trackManager.invincible = false;
+        trackManager.characterController.CheatInvincible(false);
+
         TrackManager.m_Multiplier = 1;
 
         trackManager.ResetFinishLine();
@@ -146,7 +149,7 @@ public class GameState : AState
 
     bool playerWon = false;
 
-    private int requiredCoins = 1000;
+    private int requiredCoins = 10;
 
     public override void Tick()
     {
@@ -174,6 +177,9 @@ public class GameState : AState
             //PLAYER WON
             if (playerWon == true)
             {
+                trackManager.invincible = true;
+                trackManager.characterController.CheatInvincible(true);
+
                 TrackManager.s_SpawnFinishLine = true;
                 chrCtrl.CleanConsumable();
                 chrCtrl.character.animator.SetBool(s_DeadHash, true);
@@ -350,6 +356,9 @@ public class GameState : AState
 
     IEnumerator WaitForWinScreen()
     {
+        trackManager.invincible = true;
+        trackManager.characterController.CheatInvincible(true);
+
         m_Finished = true;
 
         trackManager.timerActive = false;

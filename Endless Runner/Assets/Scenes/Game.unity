@@ -4623,6 +4623,169 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479285295}
   m_CullTransparentMesh: 0
+--- !u!1 &483649592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 483649594}
+  - component: {fileID: 483649593}
+  m_Layer: 0
+  m_Name: '[Menu Input]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &483649593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483649592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996394c92d5e54e44bfdb0c5d21f644b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputData:
+    inputActionAsset: {fileID: -944628639613478452, guid: ec25cbb3d5a10bd4ea4872f15a303fdb,
+      type: 3}
+    _actionMapName: Default
+    _inputEvents:
+    - _inputName: Select
+      _inputEnterEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _inputExitEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _valueEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _updateEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    - _inputName: Left
+      _inputEnterEvents:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 869760749}
+            m_TargetAssemblyTypeName: LoadoutState, Assembly-CSharp
+            m_MethodName: ChangeCharacter
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: -1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _inputExitEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _valueEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _updateEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    - _inputName: Right
+      _inputEnterEvents:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 869760749}
+            m_TargetAssemblyTypeName: LoadoutState, Assembly-CSharp
+            m_MethodName: ChangeCharacter
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _inputExitEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _valueEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _updateEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    - _inputName: Up
+      _inputEnterEvents:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 2094493432}
+            m_TargetAssemblyTypeName: CharacterInputController, Assembly-CSharp
+            m_MethodName: Jump
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      _inputExitEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _valueEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _updateEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    - _inputName: Down
+      _inputEnterEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _inputExitEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _valueEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _updateEvents:
+        m_PersistentCalls:
+          m_Calls: []
+    - _inputName: Select
+      _inputEnterEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _inputExitEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _valueEvents:
+        m_PersistentCalls:
+          m_Calls: []
+      _updateEvents:
+        m_PersistentCalls:
+          m_Calls: []
+--- !u!4 &483649594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483649592}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -27.143745, y: -49.87302, z: 229.52444}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &491729093
 GameObject:
   m_ObjectHideFlags: 0
@@ -4819,6 +4982,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 574961894}
+  - {fileID: 1264732168}
+  - {fileID: 2108654925}
   m_Father: {fileID: 1653182062}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -5658,9 +5823,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1264732168}
-  - {fileID: 2108654925}
+  m_Children: []
   m_Father: {fileID: 520105013}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10206,6 +10369,7 @@ MonoBehaviour:
   defaultLoadoutButton: {fileID: 1393864682}
   finishedScreen: {fileID: 455205755}
   inventoryCanvas: {fileID: 869760747}
+  menuInput: {fileID: 483649593}
   charNameDisplay: {fileID: 520105014}
   charSelect: {fileID: 574961894}
   charPosition: {fileID: 764160786}
@@ -15665,11 +15829,11 @@ RectTransform:
   m_Children:
   - {fileID: 1161045408}
   - {fileID: 1218241355}
-  m_Father: {fileID: 574961894}
+  m_Father: {fileID: 520105013}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -45.50006, y: -0.0000019073}
+  m_AnchoredPosition: {x: 120, y: -0}
   m_SizeDelta: {x: 122, y: 170}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1264732169
@@ -20021,7 +20185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1540953231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33332,11 +33496,11 @@ RectTransform:
   m_Children:
   - {fileID: 564509392}
   - {fileID: 699940263}
-  m_Father: {fileID: 574961894}
+  m_Father: {fileID: 520105013}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 49.49997, y: 0}
+  m_AnchoredPosition: {x: -119.999985, y: 0}
   m_SizeDelta: {x: 122, y: 170}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2108654926
@@ -33863,6 +34027,7 @@ SceneRoots:
   - {fileID: 1449334687}
   - {fileID: 1565788661}
   - {fileID: 650610586}
+  - {fileID: 483649594}
   - {fileID: 807014138}
   - {fileID: 590897648}
   - {fileID: 1958487561}
