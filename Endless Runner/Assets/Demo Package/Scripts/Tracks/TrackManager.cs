@@ -677,15 +677,18 @@ public class TrackManager : MonoBehaviour
                                 m_TimeSincePowerup = 0.0f;
                                 powerupChance = 0.0f;
 
-                                AsyncOperationHandle op = Addressables.InstantiateAsync(consumableDatabase.consumbales[picked].gameObject.name, pos, rot);
-                                yield return op;
-                                if (op.Result == null || !(op.Result is GameObject))
+                                if (UnityEngine.Random.Range(0, 2) == 0)
                                 {
-                                    Debug.LogWarning(string.Format("Unable to load consumable {0}.", consumableDatabase.consumbales[picked].gameObject.name));
-                                    yield break;
+                                    AsyncOperationHandle op = Addressables.InstantiateAsync(consumableDatabase.consumbales[picked].gameObject.name, pos, rot);
+                                    yield return op;
+                                    if (op.Result == null || !(op.Result is GameObject))
+                                    {
+                                        Debug.LogWarning(string.Format("Unable to load consumable {0}.", consumableDatabase.consumbales[picked].gameObject.name));
+                                        yield break;
+                                    }
+                                    toUse = op.Result as GameObject;
+                                    toUse.transform.SetParent(segment.transform, true);
                                 }
-                                toUse = op.Result as GameObject;
-                                toUse.transform.SetParent(segment.transform, true);
                             }
                         }
                         else if (UnityEngine.Random.value < premiumChance)
