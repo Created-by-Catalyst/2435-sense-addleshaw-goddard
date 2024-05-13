@@ -53,9 +53,9 @@ ModelImporter:
       loopBlendPositionY: 1
       loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
+      keepOriginalPositionY: 0
       keepOriginalPositionXZ: 1
-      heightFromFeet: 0
+      heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
@@ -86,8 +86,8 @@ ModelImporter:
     weldVertices: 1
     bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
+    skinWeightsMode: 1
+    maxBonesPerVertex: 8
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
@@ -340,7 +340,7 @@ ModelImporter:
     - name: LeftFoot
       parentName: LeftLeg
       position: {x: -0.15624696, y: -7.105427e-17, z: 0.0004943468}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
+      rotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftToe
       parentName: LeftFoot
@@ -365,7 +365,7 @@ ModelImporter:
     - name: RightFoot
       parentName: RightLeg
       position: {x: 0.15624714, y: -0.0000000949624, z: -0.0004943112}
-      rotation: {x: 0.62061435, y: -0, z: -0, w: 0.784116}
+      rotation: {x: 0.6532815, y: 0.27059805, z: 0.27059805, w: 0.6532815}
       scale: {x: 1, y: 1, z: 1}
     - name: RightToe
       parentName: RightFoot
