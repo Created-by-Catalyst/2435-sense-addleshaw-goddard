@@ -73,13 +73,6 @@ public class LoadoutState : AState
     protected int k_UILayer;
     protected readonly Quaternion k_FlippedYAxisRotation = Quaternion.Euler(0f, 180f, 0f);
 
-    private void Start()
-    {
-
-        //Add all available characters at the start
-
-        PlayerData.instance.AddCharacter("Rubbish Raccoon");
-    }
 
     public override void Enter(AState from)
     {
@@ -176,6 +169,14 @@ public class LoadoutState : AState
 
                 //we can always enabled, as the parent will be disabled if tutorial is already done
                 //tutorialPrompt.SetActive(true);
+
+                Debug.Log(CharacterDatabase.dictionary.Count);
+
+                //Add all available characters - once character database has been built <<<< !!!
+                foreach (KeyValuePair<string, Character> characterFromDatabase in CharacterDatabase.dictionary)
+                {
+                    PlayerData.instance.AddCharacter(characterFromDatabase.Key);
+                }
             }
         }
 
