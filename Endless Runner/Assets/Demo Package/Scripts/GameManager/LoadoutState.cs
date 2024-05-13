@@ -22,6 +22,8 @@ public class LoadoutState : AState
 
     public Canvas inventoryCanvas;
 
+    public InputReader menuInput;
+
     [Header("Char UI")]
     public Text charNameDisplay;
     public RectTransform charSelect;
@@ -71,8 +73,17 @@ public class LoadoutState : AState
     protected int k_UILayer;
     protected readonly Quaternion k_FlippedYAxisRotation = Quaternion.Euler(0f, 180f, 0f);
 
+    private void Start()
+    {
+
+        //Add all available characters at the start
+
+        PlayerData.instance.AddCharacter("Rubbish Raccoon");
+    }
+
     public override void Enter(AState from)
     {
+        menuInput.enabled = true;
 
         inventoryCanvas.gameObject.SetActive(true);
         missionPopup.gameObject.SetActive(false);
@@ -112,6 +123,8 @@ public class LoadoutState : AState
 
     public override void Exit(AState to)
     {
+        menuInput.enabled = false;
+
         missionPopup.gameObject.SetActive(false);
         inventoryCanvas.gameObject.SetActive(false);
 
