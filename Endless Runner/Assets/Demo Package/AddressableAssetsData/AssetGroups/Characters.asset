@@ -104,6 +104,114 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39df355f468738448b2476fb3f76fbfc
+    m_Address: EagerIntern-Female
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: deb86e1eea482cc4c9617c55d8bf2c49
+    m_Address: LegalScholar-Male
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a2effd408a1e0c41bfdb4c0c6ca6f4f
+    m_Address: EagerIntern-Male
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 749879b063a714a40b6356890f40dc3b
+    m_Address: BurntOutPublicDefender-Male
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ca41651d34985f4988f5ad1afba8eab
+    m_Address: CorporateAttorney-Female
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 246f364bf2903f242bfeb7cc90e05a0e
+    m_Address: SeasonedParalegal-Female
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f68bd9ccde30cfd42b54d83337d4fe83
+    m_Address: CharismaticJuryConsultant-Male
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 732b6041d2a921e44ac0a86667cb2f90
+    m_Address: TechSavvyAnalyst-Female
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a611fafad4889ba43b109981b0af73c1
+    m_Address: LegalScholar-Female
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c049c1b0741d6794fbb4c44823d3b8ef
+    m_Address: HighFlyingLawyer-Female
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4656186fbe5ab74eba05797e7791194
+    m_Address: CorporateAttorney-Male
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e702cfed33443e349b75feede00f3c90
+    m_Address: TechSavvyAnalyst-Male
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0209174c1d8d91e44a54588f124c5b49
+    m_Address: SeasonedParalegal-Male
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00f31fada1d0a304caa8320fdb7a4758
+    m_Address: HighFlyingLawyer-Male
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c9f355eab97f0a419f5c909af244427
+    m_Address: CharismaticJuryConsultant-Female
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fec812bde75b1444a8287dedf1ab4ea
+    m_Address: BurntOutPublicDefender-Female
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e255cc44266d51e448f3c796301542ca
+    m_Address: IdealisticHumanRightsAttorney-Female
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27bacaee300fd8e4fb74fbcb3bea48d5
+    m_Address: IdealisticHumanRightsAttorney-Male
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 735e874f947d0e143a6b4e83f8a7283a, type: 2}
   m_SchemaSet:
