@@ -7688,7 +7688,7 @@ Transform:
   m_GameObject: {fileID: 704408728}
   serializedVersion: 2
   m_LocalRotation: {x: 0.06975647, y: 0, z: 0, w: 0.9975641}
-  m_LocalPosition: {x: 0, y: 3, z: -2}
+  m_LocalPosition: {x: 0, y: 3, z: -3.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32982,7 +32982,7 @@ MonoBehaviour:
   maxLife: 3
   inventory: {fileID: 0}
   jumpLength: 6
-  jumpHeight: 1.2
+  jumpHeight: 0.8
   slideLength: 7
   slideSound: {fileID: 8300000, guid: febd5a5a8b245774fbfa9f0bef51e0b6, type: 3}
   powerUpUseSound: {fileID: 8300000, guid: defdb98bfddc24748aead1ce73ba7972, type: 3}

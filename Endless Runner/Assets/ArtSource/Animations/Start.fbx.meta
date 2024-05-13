@@ -340,12 +340,12 @@ ModelImporter:
     - name: LeftFoot
       parentName: LeftLeg
       position: {x: -0.15624696, y: -7.105427e-17, z: 0.0004943468}
-      rotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+      rotation: {x: 0, y: 0.46174863, z: 0, w: 0.8870109}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftToe
       parentName: LeftFoot
       position: {x: -0.057321534, y: 0.00038322186, z: 0.0043983683}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
+      rotation: {x: 0, y: 0.29237175, z: 0, w: 0.9563048}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftToeEnd
       parentName: LeftToe
@@ -365,12 +365,12 @@ ModelImporter:
     - name: RightFoot
       parentName: RightLeg
       position: {x: 0.15624714, y: -0.0000000949624, z: -0.0004943112}
-      rotation: {x: 0.6532815, y: 0.27059805, z: 0.27059805, w: 0.6532815}
+      rotation: {x: 0.6272114, y: 0.32650563, z: 0.32650563, w: 0.6272114}
       scale: {x: 1, y: 1, z: 1}
     - name: RightToe
       parentName: RightFoot
       position: {x: 0.057321582, y: -0.0003831507, z: -0.0043983767}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
+      rotation: {x: 0, y: 0.29237175, z: 0, w: 0.9563048}
       scale: {x: 1, y: 1, z: 1}
     - name: RightToeEnd
       parentName: RightToe
