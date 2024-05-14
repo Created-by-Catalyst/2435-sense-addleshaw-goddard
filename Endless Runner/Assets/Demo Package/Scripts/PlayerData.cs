@@ -47,7 +47,7 @@ public class PlayerData
     public List<HighscoreEntry> highscores = new List<HighscoreEntry>();
     public List<MissionBase> missions = new List<MissionBase>();
 
-    public string previousName = "Trash Cat";
+    public string previousName = "High Flying Lawyer - Male";
 
     public bool licenceAccepted;
     public bool tutorialDone;
@@ -246,7 +246,7 @@ public class PlayerData
         m_Instance.coins = 0;
         m_Instance.premium = 0;
 
-        m_Instance.characters.Add("Trash Cat");
+        m_Instance.characters.Add("High Flying Lawyer - Male");
         m_Instance.themes.Add("Day");
 
         m_Instance.ftueLevel = 0;
@@ -287,12 +287,6 @@ public class PlayerData
         for (int i = 0; i < charCount; ++i)
         {
             string charName = r.ReadString();
-
-            if (charName.Contains("Raccoon") && ver < 11)
-            {//in 11 version, we renamed Raccoon (fixing spelling) so we need to patch the save to give the character if player had it already
-                charName = charName.Replace("Racoon", "Raccoon");
-            }
-
             characters.Add(charName);
         }
 
