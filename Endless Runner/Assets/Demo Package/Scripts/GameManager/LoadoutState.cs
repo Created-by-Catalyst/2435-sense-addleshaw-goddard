@@ -164,19 +164,20 @@ public class LoadoutState : AState
             bool interactable = ThemeDatabase.loaded && CharacterDatabase.loaded;
             if (interactable)
             {
-                runButton.interactable = true;
-                runButton.GetComponentInChildren<Text>().text = "Run!";
-
-                //we can always enabled, as the parent will be disabled if tutorial is already done
-                //tutorialPrompt.SetActive(true);
-
-                Debug.Log(CharacterDatabase.dictionary.Count);
+                Debug.Log("Total Characters in Database is " + CharacterDatabase.dictionary.Count);
+                Debug.Log("Current Selected Character is  " + PlayerData.instance.characters[PlayerData.instance.usedCharacter]);
 
                 //Add all available characters - once character database has been built <<<< !!!
                 foreach (KeyValuePair<string, Character> characterFromDatabase in CharacterDatabase.dictionary)
                 {
                     PlayerData.instance.AddCharacter(characterFromDatabase.Key);
                 }
+
+                runButton.interactable = true;
+                runButton.GetComponentInChildren<Text>().text = "Run!";
+
+                //we can always enabled, as the parent will be disabled if tutorial is already done
+                //tutorialPrompt.SetActive(true);
             }
         }
 
