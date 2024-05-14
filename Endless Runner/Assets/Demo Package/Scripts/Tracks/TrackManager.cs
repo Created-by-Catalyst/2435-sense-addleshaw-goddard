@@ -393,6 +393,7 @@ public class TrackManager : MonoBehaviour
             {
                 _characterWinAnimationTriggered = true;
                 characterController.Victory();
+                Camera.main.GetComponent<Animator>().SetTrigger("Victory");
             }
 
             if (distanceToEnd <= _distanceToWin)
@@ -556,7 +557,7 @@ public class TrackManager : MonoBehaviour
     private readonly Vector3 _offScreenSpawnPos = new Vector3(-100f, -100f, -100f);
     public IEnumerator SpawnNewSegment()
     {
-        if (!s_SpawnFinishLine)
+        if (!s_SpawnFinishLine && !_characterWinAnimationTriggered)
         {
             if (!m_IsTutorial)
             {
@@ -754,6 +755,7 @@ public class TrackManager : MonoBehaviour
         }
         finishSegment = null;
         s_reachedFinishLineEnd = false;
+        _characterWinAnimationTriggered = false;
     }
 
     private void SpawnFinishLineSegment()

@@ -4392,7 +4392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2205882, g: 0.2205882, b: 0.2205882, a: 0.647}
+  m_Color: {r: 0.2205882, g: 0.2205882, b: 0.2205882, a: 0.52156866}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7690,6 +7690,7 @@ GameObject:
   - component: {fileID: 704408730}
   - component: {fileID: 704408729}
   - component: {fileID: 704408735}
+  - component: {fileID: 704408736}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7823,6 +7824,27 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0.025
+--- !u!95 &704408736
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704408728}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ea6f9240c49dab4f950357b755d3dd8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &716398981
 GameObject:
   m_ObjectHideFlags: 0
@@ -10983,7 +11005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 311.00058, y: -397}
+  m_AnchoredPosition: {x: 311.00058, y: -450}
   m_SizeDelta: {x: 463.87, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &919934257
@@ -19763,7 +19785,7 @@ RectTransform:
   m_GameObject: {fileID: 1507270230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 716398982}
@@ -25386,8 +25408,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 310.99994, y: 399}
-  m_SizeDelta: {x: -1654.764, y: 106.29}
+  m_AnchoredPosition: {x: 307.65005, y: 290.4}
+  m_SizeDelta: {x: -1929.3, y: 92.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1841838545
 MonoBehaviour:

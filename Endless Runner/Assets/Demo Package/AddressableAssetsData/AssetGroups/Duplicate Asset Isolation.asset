@@ -332,11 +332,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a1da5a75d83b2b64d9684707d810f8c7
-    m_Address: Assets/Materials/VCOL.mat
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a31a8a627e6f7d24aa0af123ce1403c6
     m_Address: Assets/Materials/TreeBranch.mat
     m_ReadOnly: 0
