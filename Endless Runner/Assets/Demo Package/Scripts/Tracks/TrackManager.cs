@@ -31,7 +31,9 @@ public class TrackManager : MonoBehaviour
     static public bool s_SpawnFinishLine = false;
     private GameObject finishLineEnd;
     static public bool s_reachedFinishLineEnd = false;
-    private float _distanceToWin = 5f;
+    private float _distanceToWin = 4f;
+    private float _distanceToTriggerWinAnimation = 14f;
+    private bool _characterWinAnimationTriggered = false;
 
     static public TrackManager instance { get { return s_Instance; } }
     static protected TrackManager s_Instance;
@@ -318,7 +320,6 @@ public class TrackManager : MonoBehaviour
     void Update()
     {
         print("Spawn Finish Line" + s_SpawnFinishLine);
-
         if (Input.GetKeyDown(KeyCode.Alpha9))
             s_SpawnFinishLine = true;
 
@@ -374,15 +375,31 @@ public class TrackManager : MonoBehaviour
         if (s_SpawnFinishLine && finishLineEnd != null)
         {
             float distanceToEnd = Vector3.Distance(characterController.transform.position, finishLineEnd.transform.position);
-            distanceToEnd = Math.Clamp(distanceToEnd, 0, m_Speed);
-            float scaledSpeed = Mathf.Lerp(0, distanceToEnd, Time.deltaTime);
+            float scaledSpeed;
+            if (distanceToEnd <= _distanceToTriggerWinAnimation + 1f)
+            {
+                distanceToEnd = Math.Clamp(distanceToEnd, 0, m_Speed);
+                scaledSpeed = Mathf.Lerp(0, distanceToEnd, Time.deltaTime);
+            }
+            else
+                scaledSpeed = m_Speed * Time.deltaTime;
+
             m_CurrentZoneDistance += scaledSpeed;
 
             m_TotalWorldDistance += scaledSpeed;
             m_CurrentSegmentDistance += scaledSpeed;
 
+            if (distanceToEnd <= _distanceToTriggerWinAnimation && !_characterWinAnimationTriggered)
+            {
+                _characterWinAnimationTriggered = true;
+                characterController.Victory();
+            }
+
             if (distanceToEnd <= _distanceToWin)
+            {
                 s_reachedFinishLineEnd = true;
+                StopMove();
+            }
         }
         else
         {

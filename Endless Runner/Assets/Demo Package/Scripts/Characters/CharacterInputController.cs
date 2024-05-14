@@ -13,6 +13,9 @@ public class CharacterInputController : MonoBehaviour
     static int s_JumpingHash = Animator.StringToHash("Jumping");
     static int s_JumpingSpeedHash = Animator.StringToHash("JumpSpeed");
     static int s_SlidingHash = Animator.StringToHash("Sliding");
+    static int s_VictoryHash = Animator.StringToHash("Victory");
+
+    private bool _isVictory = false;
 
     public TrackManager trackManager;
     public Character character;
@@ -103,6 +106,8 @@ public class CharacterInputController : MonoBehaviour
 
     public void Init()
     {
+        _isVictory = false;
+
         transform.position = k_StartingPosition;
         m_TargetPosition = Vector3.zero;
 
@@ -179,27 +184,30 @@ public class CharacterInputController : MonoBehaviour
 
     protected void Update()
     {
-#if UNITY_EDITOR || UNITY_STANDALONE
-        // Use key input in editor or standalone
-        // disabled if it's tutorial and not thecurrent right tutorial level (see func TutorialMoveCheck)
+        if (!_isVictory)
+        {
 
-        //if (Input.GetKeyDown(KeyCode.LeftArrow) && TutorialMoveCheck(0))
-        //{
-        //    ChangeLane(-1);
-        //}
-        //else if (Input.GetKeyDown(KeyCode.RightArrow) && TutorialMoveCheck(0))
-        //{
-        //    ChangeLane(1);
-        //}
-        //else if (Input.GetKeyDown(KeyCode.UpArrow) && TutorialMoveCheck(1))
-        //{
-        //    Jump();
-        //}
-        //else if (Input.GetKeyDown(KeyCode.DownArrow) && TutorialMoveCheck(2))
-        //{
-        //    if (!m_Sliding)
-        //        Slide();
-        //}
+#if UNITY_EDITOR || UNITY_STANDALONE
+            // Use key input in editor or standalone
+            // disabled if it's tutorial and not thecurrent right tutorial level (see func TutorialMoveCheck)
+
+            //if (Input.GetKeyDown(KeyCode.LeftArrow) && TutorialMoveCheck(0))
+            //{
+            //    ChangeLane(-1);
+            //}
+            //else if (Input.GetKeyDown(KeyCode.RightArrow) && TutorialMoveCheck(0))
+            //{
+            //    ChangeLane(1);
+            //}
+            //else if (Input.GetKeyDown(KeyCode.UpArrow) && TutorialMoveCheck(1))
+            //{
+            //    Jump();
+            //}
+            //else if (Input.GetKeyDown(KeyCode.DownArrow) && TutorialMoveCheck(2))
+            //{
+            //    if (!m_Sliding)
+            //        Slide();
+            //}
 #else
         // Use touch input on mobile
         if (Input.touchCount == 1)
@@ -255,63 +263,64 @@ public class CharacterInputController : MonoBehaviour
         }
 #endif
 
-        Vector3 verticalTargetPosition = m_TargetPosition;
+            Vector3 verticalTargetPosition = m_TargetPosition;
 
-        if (m_Sliding)
-        {
-            // Slide time isn't constant but the slide length is (even if slightly modified by speed, to slide slightly further when faster).
-            // This is for gameplay reason, we don't want the character to drasticly slide farther when at max speed.
-            float correctSlideLength = slideLength * (1.0f + trackManager.speedRatio);
-            float ratio = (trackManager.worldDistance - m_SlideStart) / correctSlideLength;
-            if (ratio >= 1.0f)
+            if (m_Sliding)
             {
-                // We slid to (or past) the required length, go back to running
-                StopSliding();
-            }
-        }
-
-        if (m_Jumping)
-        {
-            if (trackManager.isMoving)
-            {
-                // Same as with the sliding, we want a fixed jump LENGTH not fixed jump TIME. Also, just as with sliding,
-                // we slightly modify length with speed to make it more playable.
-                float correctJumpLength = jumpLength * (1.0f + trackManager.speedRatio);
-                float ratio = (trackManager.worldDistance - m_JumpStart) / correctJumpLength;
+                // Slide time isn't constant but the slide length is (even if slightly modified by speed, to slide slightly further when faster).
+                // This is for gameplay reason, we don't want the character to drasticly slide farther when at max speed.
+                float correctSlideLength = slideLength * (1.0f + trackManager.speedRatio);
+                float ratio = (trackManager.worldDistance - m_SlideStart) / correctSlideLength;
                 if (ratio >= 1.0f)
                 {
-                    m_Jumping = false;
-                    character.animator.SetBool(s_JumpingHash, false);
-                }
-                else
-                {
-                    verticalTargetPosition.y = Mathf.Sin(ratio * Mathf.PI) * jumpHeight;
+                    // We slid to (or past) the required length, go back to running
+                    StopSliding();
                 }
             }
-            else if (!AudioListener.pause)//use AudioListener.pause as it is an easily accessible singleton & it is set when the app is in pause too
+
+            if (m_Jumping)
             {
-                verticalTargetPosition.y = Mathf.MoveTowards(verticalTargetPosition.y, 0, k_GroundingSpeed * Time.deltaTime);
-                if (Mathf.Approximately(verticalTargetPosition.y, 0f))
+                if (trackManager.isMoving)
                 {
-                    character.animator.SetBool(s_JumpingHash, false);
-                    m_Jumping = false;
+                    // Same as with the sliding, we want a fixed jump LENGTH not fixed jump TIME. Also, just as with sliding,
+                    // we slightly modify length with speed to make it more playable.
+                    float correctJumpLength = jumpLength * (1.0f + trackManager.speedRatio);
+                    float ratio = (trackManager.worldDistance - m_JumpStart) / correctJumpLength;
+                    if (ratio >= 1.0f)
+                    {
+                        m_Jumping = false;
+                        character.animator.SetBool(s_JumpingHash, false);
+                    }
+                    else
+                    {
+                        verticalTargetPosition.y = Mathf.Sin(ratio * Mathf.PI) * jumpHeight;
+                    }
+                }
+                else if (!AudioListener.pause)//use AudioListener.pause as it is an easily accessible singleton & it is set when the app is in pause too
+                {
+                    verticalTargetPosition.y = Mathf.MoveTowards(verticalTargetPosition.y, 0, k_GroundingSpeed * Time.deltaTime);
+                    if (Mathf.Approximately(verticalTargetPosition.y, 0f))
+                    {
+                        character.animator.SetBool(s_JumpingHash, false);
+                        m_Jumping = false;
+                    }
                 }
             }
-        }
 
-        characterCollider.transform.localPosition = Vector3.MoveTowards(characterCollider.transform.localPosition, verticalTargetPosition, laneChangeSpeed * Time.deltaTime);
+            characterCollider.transform.localPosition = Vector3.MoveTowards(characterCollider.transform.localPosition, verticalTargetPosition, laneChangeSpeed * Time.deltaTime);
 
-        // Put blob shadow under the character.
-        RaycastHit hit;
-        if (Physics.Raycast(characterCollider.transform.position + Vector3.up, Vector3.down, out hit, k_ShadowRaycastDistance, m_ObstacleLayer))
-        {
-            blobShadow.transform.position = hit.point + Vector3.up * k_ShadowGroundOffset;
-        }
-        else
-        {
-            Vector3 shadowPosition = characterCollider.transform.position;
-            shadowPosition.y = k_ShadowGroundOffset;
-            blobShadow.transform.position = shadowPosition;
+            // Put blob shadow under the character.
+            RaycastHit hit;
+            if (Physics.Raycast(characterCollider.transform.position + Vector3.up, Vector3.down, out hit, k_ShadowRaycastDistance, m_ObstacleLayer))
+            {
+                blobShadow.transform.position = hit.point + Vector3.up * k_ShadowGroundOffset;
+            }
+            else
+            {
+                Vector3 shadowPosition = characterCollider.transform.position;
+                shadowPosition.y = k_ShadowGroundOffset;
+                blobShadow.transform.position = shadowPosition;
+            }
         }
     }
 
@@ -430,5 +439,28 @@ public class CharacterInputController : MonoBehaviour
 
         m_ActiveConsumables.Add(c);
         StartCoroutine(c.Started(this));
+    }
+
+    public void Victory()
+    {
+        _isVictory = true;
+
+        if (!m_Sliding)
+        {
+            if (m_Jumping)
+                StopJumping();
+
+            float correctSlideLength = slideLength * (1.0f + trackManager.speedRatio);
+            m_SlideStart = trackManager.worldDistance;
+            float animSpeed = k_TrackSpeedToJumpAnimSpeedRatio * (trackManager.speed / correctSlideLength);
+
+            character.animator.SetFloat(s_JumpingSpeedHash, animSpeed);
+           // character.animator.SetBool(s_SlidingHash, true);
+            character.animator.SetBool(s_VictoryHash, true);
+            m_Audio.PlayOneShot(slideSound);
+           // m_Sliding = true;
+
+           // characterCollider.Slide(true);
+        }
     }
 }
