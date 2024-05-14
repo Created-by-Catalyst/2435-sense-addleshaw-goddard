@@ -131,11 +131,11 @@ public class TrackManager : MonoBehaviour
 
     protected const float k_CountdownToStartLength = 5f;
     protected const float k_CountdownSpeed = 1.5f;
-    protected const float k_StartingSegmentDistance = 2f;
-    protected const int k_StartingSafeSegments = 1;
+    protected const float k_StartingSegmentDistance = 4f;
+    protected const int k_StartingSafeSegments = 2;
     protected const int k_StartingCoinPoolSize = 256;
     protected const int k_DesiredSegmentCount = 2;
-    protected const float k_SegmentRemovalDistance = -2f;
+    protected const float k_SegmentRemovalDistance = -10f;
     protected const float k_Acceleration = 0.6f;
 
     protected void Awake()
@@ -473,7 +473,7 @@ public class TrackManager : MonoBehaviour
         // Still move past segment until they aren't visible anymore.
         for (int i = 0; i < m_PastSegments.Count; ++i)
         {
-            if ((m_PastSegments[i].transform.position - currentPos).z < k_SegmentRemovalDistance)
+            if ((m_PastSegments[i].pathParent.GetChild(1).transform.position - currentPos).z < k_SegmentRemovalDistance)
             {
                 m_PastSegments[i].Cleanup();
                 m_PastSegments.RemoveAt(i);
