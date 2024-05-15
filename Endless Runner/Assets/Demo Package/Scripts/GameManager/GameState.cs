@@ -368,13 +368,14 @@ public class GameState : AState
         Shader.SetGlobalFloat("_BlinkingValue", 0.0f);
 
         yield return new WaitUntil(() => TrackManager.s_reachedFinishLineEnd == true);
-        if (currentModifier.OnRunEnd(this))
         {
-            TrackManager.s_SpawnFinishLine = false;
-
             timeText.text = "Time: ";
             trackManager.characterController.coins = 0;
             trackManager.StopMove();
+        }
+        yield return new WaitForSeconds(4f);
+        if (currentModifier.OnRunEnd(this))
+        {
             Win();
         }
     }

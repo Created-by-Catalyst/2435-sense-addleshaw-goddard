@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c00881e0fa5d8b45ae820e074cff0d8
+guid: eb24b01712a662542990c5ecafa90049
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,18 +33,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Victory02
+      name: TwistDance
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 40
+      lastFrame: 283
       wrapMode: 0
-      orientationOffsetY: 150
+      orientationOffsetY: 160
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1

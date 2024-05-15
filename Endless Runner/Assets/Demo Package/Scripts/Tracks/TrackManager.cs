@@ -128,7 +128,9 @@ public class TrackManager : MonoBehaviour
     protected bool m_IsTutorial; //Tutorial is a special run that don't chance section until the tutorial step is "validated" by the TutorialState.
 
     Vector3 m_CameraOriginalPos = Vector3.zero;
+    Vector3 m_CameraOriginalRot = Vector3.zero;
     Vector3 _cameraGamePosition = new Vector3(0, 3, -3.2f);
+    private Animator _cameraAnimator;
 
     const float k_FloatingOriginThreshold = 10000f;
 
@@ -145,6 +147,11 @@ public class TrackManager : MonoBehaviour
     {
         m_ScoreAccum = 0.0f;
         s_Instance = this;
+    }
+
+    private void Start()
+    {
+        _cameraAnimator = Camera.main.GetComponent<Animator>();
     }
 
     public void StartMove(bool isRestart = true)
@@ -191,6 +198,7 @@ public class TrackManager : MonoBehaviour
 
         firstObstacle = true;
         m_CameraOriginalPos = Camera.main.transform.position;
+        m_CameraOriginalRot = Camera.main.transform.eulerAngles;
 
         if (m_TrackSeed != -1)
             UnityEngine.Random.InitState(m_TrackSeed);
@@ -292,8 +300,10 @@ public class TrackManager : MonoBehaviour
         Addressables.ReleaseInstance(characterController.character.gameObject);
         characterController.character = null;
 
+        _cameraAnimator.SetTrigger("Reset");
         Camera.main.transform.SetParent(null);
         Camera.main.transform.position = m_CameraOriginalPos;
+        Camera.main.transform.eulerAngles = m_CameraOriginalRot;
 
         characterController.gameObject.SetActive(false);
 
@@ -321,9 +331,9 @@ public class TrackManager : MonoBehaviour
     private int _spawnedSegments = 0;
     void Update()
     {
-        print("Spawn Finish Line" + s_SpawnFinishLine);
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-            s_SpawnFinishLine = true;
+      //  print("Spawn Finish Line" + s_SpawnFinishLine);
+       //// if (Input.GetKeyDown(KeyCode.Alpha9))
+         //   s_SpawnFinishLine = true;
 
         if (!s_SpawnFinishLine)
         {
@@ -395,7 +405,7 @@ public class TrackManager : MonoBehaviour
             {
                 _characterWinAnimationTriggered = true;
                 characterController.Victory();
-                Camera.main.GetComponent<Animator>().SetTrigger("Victory");
+                _cameraAnimator.SetTrigger("Victory");
             }
 
             if (distanceToEnd <= _distanceToWin)

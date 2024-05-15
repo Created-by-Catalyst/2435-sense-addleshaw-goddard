@@ -322,6 +322,11 @@ public class CharacterInputController : MonoBehaviour
                 blobShadow.transform.position = shadowPosition;
             }
         }
+        else if (_isVictory)
+        {
+            m_TargetPosition = Vector3.zero;
+            characterCollider.transform.localPosition = Vector3.MoveTowards(characterCollider.transform.localPosition, m_TargetPosition, 2 * Time.deltaTime);
+        }
     }
 
     public void Jump()
@@ -455,12 +460,8 @@ public class CharacterInputController : MonoBehaviour
             float animSpeed = k_TrackSpeedToJumpAnimSpeedRatio * (trackManager.speed / correctSlideLength);
 
             character.animator.SetFloat(s_JumpingSpeedHash, animSpeed);
-           // character.animator.SetBool(s_SlidingHash, true);
             character.animator.SetBool(s_VictoryHash, true);
             m_Audio.PlayOneShot(slideSound);
-           // m_Sliding = true;
-
-           // characterCollider.Slide(true);
         }
     }
 }
