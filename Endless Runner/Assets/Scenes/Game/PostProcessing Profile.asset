@@ -104,6 +104,24 @@ MonoBehaviour:
   - {fileID: -5719508759334585837}
   - {fileID: 9078869167027322493}
   - {fileID: 6900387278562521071}
+  - {fileID: 4014412324570195577}
+  - {fileID: 8694346515769848348}
+--- !u!114 &4014412324570195577
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.17
 --- !u!114 &6900387278562521071
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -119,7 +137,7 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.25
   contrast:
     m_OverrideState: 1
     m_Value: 5
@@ -132,6 +150,31 @@ MonoBehaviour:
   saturation:
     m_OverrideState: 1
     m_Value: 25
+--- !u!114 &8694346515769848348
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 1
+  mode:
+    m_OverrideState: 0
+    m_Value: 0
+  quality:
+    m_OverrideState: 1
+    m_Value: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.0325
+  clamp:
+    m_OverrideState: 0
+    m_Value: 0.05
 --- !u!114 &9078869167027322493
 MonoBehaviour:
   m_ObjectHideFlags: 3
