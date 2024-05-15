@@ -18,109 +18,55 @@ MonoBehaviour:
   m_GUID: 0ee8914add8bf184eb2669a5f9b6f538
   m_SerializeEntries:
   - m_GUID: 39df355f468738448b2476fb3f76fbfc
-    m_Address: Eager Intern - Female
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: deb86e1eea482cc4c9617c55d8bf2c49
-    m_Address: Legal Scholar - Male
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6a2effd408a1e0c41bfdb4c0c6ca6f4f
-    m_Address: Eager Intern - Male
+    m_Address: Eager Intern
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 749879b063a714a40b6356890f40dc3b
-    m_Address: Burnt Out Public Defender - Male
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3ca41651d34985f4988f5ad1afba8eab
-    m_Address: Corporate Attorney - Female
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 246f364bf2903f242bfeb7cc90e05a0e
-    m_Address: Seasoned Paralegal - Female
+    m_Address: Burnt Out Public Defender
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f68bd9ccde30cfd42b54d83337d4fe83
-    m_Address: Charismatic Jury Consultant - Male
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 732b6041d2a921e44ac0a86667cb2f90
-    m_Address: Tech Savvy Analyst - Female
+    m_Address: Charismatic Jury Consultant
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a611fafad4889ba43b109981b0af73c1
-    m_Address: Legal Scholar - Female
+    m_Address: Legal Scholar
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c049c1b0741d6794fbb4c44823d3b8ef
-    m_Address: High Flying Lawyer - Female
+    m_Address: High Flying Lawyer
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4656186fbe5ab74eba05797e7791194
-    m_Address: Corporate Attorney - Male
+    m_Address: Corporate Attorney
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e702cfed33443e349b75feede00f3c90
-    m_Address: Tech Savvy Analyst - Male
+    m_Address: Tech Savvy Analyst
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0209174c1d8d91e44a54588f124c5b49
-    m_Address: Seasoned Paralegal - Male
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 00f31fada1d0a304caa8320fdb7a4758
-    m_Address: High Flying Lawyer - Male
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8c9f355eab97f0a419f5c909af244427
-    m_Address: Charismatic Jury Consultant - Female
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9fec812bde75b1444a8287dedf1ab4ea
-    m_Address: Burnt Out Public Defender - Female
+    m_Address: Seasoned Paralegal
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e255cc44266d51e448f3c796301542ca
-    m_Address: Idealistic Human Rights Attorney - Female
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 27bacaee300fd8e4fb74fbcb3bea48d5
-    m_Address: Idealistic Human Rights Attorney - Male
+    m_Address: Idealistic Human Rights Attorney
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters

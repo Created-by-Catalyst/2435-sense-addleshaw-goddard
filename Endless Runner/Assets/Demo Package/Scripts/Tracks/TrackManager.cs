@@ -128,6 +128,7 @@ public class TrackManager : MonoBehaviour
     protected bool m_IsTutorial; //Tutorial is a special run that don't chance section until the tutorial step is "validated" by the TutorialState.
 
     Vector3 m_CameraOriginalPos = Vector3.zero;
+    Vector3 _cameraGamePosition = new Vector3(0, 3, -3.2f);
 
     const float k_FloatingOriginThreshold = 10000f;
 
@@ -226,6 +227,7 @@ public class TrackManager : MonoBehaviour
         //Instantiate(CharacterDatabase.GetCharacter(PlayerData.instance.characters[PlayerData.instance.usedCharacter]), Vector3.zero, Quaternion.identity);
         player.transform.SetParent(characterController.characterCollider.transform, false);
         Camera.main.transform.SetParent(characterController.transform, true);
+        Camera.main.transform.position = _cameraGamePosition;
 
         if (m_IsTutorial)
             m_CurrentThemeData = tutorialThemeData;
