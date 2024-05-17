@@ -15769,6 +15769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  _fadeScreen: {fileID: 918805596}
   finishScreen: {fileID: 455205755}
   canvas: {fileID: 1245236424}
   trackManager: {fileID: 1958487560}

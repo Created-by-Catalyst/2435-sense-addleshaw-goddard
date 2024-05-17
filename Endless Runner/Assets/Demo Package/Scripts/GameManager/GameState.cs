@@ -17,6 +17,8 @@ using UnityEngine.Analytics;
 /// </summary>
 public class GameState : AState
 {
+    public Animator _fadeScreen;
+
     static int s_DeadHash = Animator.StringToHash("Dead");
 
     public FinishedScreen finishScreen;
@@ -117,6 +119,9 @@ public class GameState : AState
 
     public void StartGame()
     {
+        if (_fadeScreen != null)
+            _fadeScreen.SetTrigger("FadeScreenIn");
+
         canvas.gameObject.SetActive(true);
         pauseMenu.gameObject.SetActive(false);
         wholeUI.gameObject.SetActive(true);
