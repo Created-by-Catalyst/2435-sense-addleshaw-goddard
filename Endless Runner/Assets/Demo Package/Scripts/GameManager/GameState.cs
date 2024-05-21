@@ -188,7 +188,7 @@ public class GameState : AState
                 TrackManager.s_SpawnFinishLine = true;
                 chrCtrl.CleanConsumable();
                 chrCtrl.character.animator.SetBool(s_DeadHash, true);
-                chrCtrl.characterCollider.koParticle.gameObject.SetActive(true);
+                //chrCtrl.characterCollider.koParticle.gameObject.SetActive(true);
                 StartCoroutine(WaitForWinScreen());
             }
 
