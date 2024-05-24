@@ -6,6 +6,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class SimpleBarricade : Obstacle
 {
+    public bool _spawnOnMultipleLanes = true;
     protected const int k_MinObstacleCount = 1;
     protected const int k_MaxObstacleCount = 2;
     protected const int k_LeftMostLaneIndex = -1;
@@ -18,8 +19,14 @@ public class SimpleBarricade : Obstacle
 
         if (isTutorialFirst)
             TrackManager.instance.firstObstacle = false;
-        
-        int count = isTutorialFirst ? 1 : Random.Range(k_MinObstacleCount, k_MaxObstacleCount + 1);
+
+        int maxcount;
+        if (!_spawnOnMultipleLanes)
+            maxcount = 1;
+        else
+            maxcount = k_MaxObstacleCount;
+
+        int count = isTutorialFirst ? 1 : Random.Range(k_MinObstacleCount, maxcount + 1);
         int startLane = isTutorialFirst ? 0 : Random.Range(k_LeftMostLaneIndex, k_RightMostLaneIndex + 1);
 
         Vector3 position;
