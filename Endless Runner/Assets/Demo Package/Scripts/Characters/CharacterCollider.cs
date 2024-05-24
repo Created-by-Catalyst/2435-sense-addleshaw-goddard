@@ -157,7 +157,7 @@ public class CharacterCollider : MonoBehaviour
 
             if (controller.currentLife > 0)
             {
-                m_Audio.PlayOneShot(controller.character.hitSound);
+                //m_Audio.PlayOneShot(controller.character.hitSound);
                 SetInvincible();
             }
             // The collision killed the player, record all data to analytics.

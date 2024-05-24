@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 
 /// <summary>
 /// Mainly used as a data container to define a character. This script is attached to the prefab
@@ -9,17 +8,16 @@ public class Character : MonoBehaviour
 {
     public string characterName;
     public int cost;
-	public int premiumCost;
+    public int premiumCost;
 
-	public CharacterAccessories[] accessories;
+    public CharacterAccessories[] accessories;
 
     public Animator animator;
-	public Sprite icon;
+    public Sprite icon;
 
-	[Header("Sound")]
-	public AudioClip jumpSound;
-	public AudioClip hitSound;
-	public AudioClip deathSound;
+    [Header("Sound")]
+    public AudioClip jumpSound;
+    public AudioClip deathSound;
 
     // Called by the game when an accessory changes, enable/disable the accessories children objects accordingly
     // a value of -1 as parameter disables all accessory.
