@@ -51,7 +51,7 @@ MonoBehaviour:
   objectRoot: {fileID: 0}
   collectibleTransform: {fileID: 0}
   possibleObstacles:
-  - m_AssetGUID: b19a0bd8ede69fe4683dff84150a047b
+  - m_AssetGUID: 516b8057ea9920f4d845d6a472880bb4
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
