@@ -26,7 +26,7 @@ public class PatrollingObstacle : Obstacle
 	protected AudioSource m_Audio;
     private bool m_isMoving = false;
 
-    protected const float k_LaneOffsetToFullWidth = 2f;
+    protected const float k_LaneOffsetToFullWidth = 3.2f;
 
 	public override IEnumerator Spawn(TrackSegment segment, float t)
 	{

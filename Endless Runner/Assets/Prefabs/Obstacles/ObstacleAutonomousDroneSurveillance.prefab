@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8191215952052747141}
   - component: {fileID: 489470791833118097}
-  - component: {fileID: 1931093626860740195}
   - component: {fileID: 5191810476226766947}
   - component: {fileID: 1615734417928012876}
+  - component: {fileID: 2437723190905126972}
   m_Layer: 9
   m_Name: ObstacleAutonomousDroneSurveillance
   m_TagString: Untagged
@@ -132,20 +132,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1931093626860740195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 989930148705267106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01bf43c79f6bad84784689f6386c2e5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impactedSound: {fileID: 0}
-  _spawnOnMultipleLanes: 1
 --- !u!114 &5191810476226766947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,12 +160,29 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 1.15, z: 0}
+--- !u!114 &2437723190905126972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989930148705267106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4667c4f4d7e27554aa443a56067403a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactedSound: {fileID: 0}
+  minTime: 1
+  maxTime: 3
+  animator: {fileID: 0}
+  patrollingSound: []
 --- !u!1001 &1226275428866338737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -211,32 +214,32 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a28f7b6d63568dc49a211f767a53951a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.07
+      value: 1.464
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a28f7b6d63568dc49a211f767a53951a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.061
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a28f7b6d63568dc49a211f767a53951a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70500165
+      value: 0.70689267
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a28f7b6d63568dc49a211f767a53951a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.054519944
+      value: -0.017399535
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a28f7b6d63568dc49a211f767a53951a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.705002
+      value: -0.70689267
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a28f7b6d63568dc49a211f767a53951a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.054519907
+      value: 0.017399535
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a28f7b6d63568dc49a211f767a53951a,
         type: 3}
@@ -251,7 +254,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a28f7b6d63568dc49a211f767a53951a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 8.844
+      value: 2.82
       objectReference: {fileID: 0}
     - target: {fileID: -7079400046060500122, guid: a28f7b6d63568dc49a211f767a53951a,
         type: 3}
