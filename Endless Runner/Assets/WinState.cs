@@ -64,8 +64,8 @@ public class WinState : AState
 
         miniLeaderboard.playerEntry.inputName.text = PlayerData.instance.previousName;
 
-        miniLeaderboard.playerEntry.finishTimeText.text = trackManager.finishTimeStr;
-        miniLeaderboard.playerEntry.finishTime = trackManager.finishTime;
+        miniLeaderboard.playerEntry.finalScore = 3000 - ( trackManager.finishTime.Seconds * 3);
+        miniLeaderboard.playerEntry.finishTimeText.text = miniLeaderboard.playerEntry.finalScore.ToString();
         miniLeaderboard.Populate();
 
         CreditCoins();
@@ -107,8 +107,8 @@ public class WinState : AState
         fullLeaderboard.forcePlayerDisplay = false;
         fullLeaderboard.displayPlayer = true;
         fullLeaderboard.playerEntry.playerName.text = miniLeaderboard.playerEntry.inputName.text;
-        fullLeaderboard.playerEntry.finishTimeText.text = trackManager.finishTimeStr;
-        fullLeaderboard.playerEntry.finishTime = trackManager.finishTime;
+        fullLeaderboard.playerEntry.finalScore = 3000 - (trackManager.finishTime.Seconds * 3);
+        fullLeaderboard.playerEntry.finishTimeText.text = fullLeaderboard.playerEntry.finalScore.ToString();
 
         fullLeaderboard.Open();
     }
@@ -177,7 +177,7 @@ public class WinState : AState
             PlayerData.instance.previousName = miniLeaderboard.playerEntry.inputName.text;
         }
 
-        PlayerData.instance.InsertScore(trackManager.finishTime, miniLeaderboard.playerEntry.inputName.text);
+        PlayerData.instance.InsertScore(3000 - trackManager.finishTime.Seconds, miniLeaderboard.playerEntry.inputName.text);
 
         CharacterCollider.DeathEvent de = trackManager.characterController.characterCollider.deathData;
         //register data to analytics

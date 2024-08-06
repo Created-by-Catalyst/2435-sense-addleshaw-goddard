@@ -8,5 +8,5 @@ public class HighscoreUI : MonoBehaviour
     public Text playerName;
     public InputField inputName;
     public Text finishTimeText;
-    public TimeSpan finishTime;
+    public int finalScore;
 }

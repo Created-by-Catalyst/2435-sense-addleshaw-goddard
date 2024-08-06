@@ -38,7 +38,7 @@ public class Leaderboard : MonoBehaviour
 
         if (displayPlayer)
         {
-            place = PlayerData.instance.GetScorePlace(playerEntry.finishTime);
+            place = PlayerData.instance.GetScorePlace(playerEntry.finalScore);
             localPlace = place - localStart;
         }
 
@@ -68,7 +68,7 @@ public class Leaderboard : MonoBehaviour
                 hs.gameObject.SetActive(true);
                 hs.playerName.text = PlayerData.instance.highscores[currentHighScore].name;
                 hs.number.text = (localStart + i + 1).ToString();
-                hs.finishTimeText.text = $"{PlayerData.instance.highscores[currentHighScore].finishTime.Minutes.ToString()} : {PlayerData.instance.highscores[currentHighScore].finishTime.Seconds.ToString()}";
+                hs.finishTimeText.text = PlayerData.instance.highscores[currentHighScore].finalScore.ToString() /*$"{PlayerData.instance.highscores[currentHighScore].finishTime.Minutes.ToString()} : {PlayerData.instance.highscores[currentHighScore].finishTime.Seconds.ToString()}"*/;
 
                 currentHighScore++;
             }

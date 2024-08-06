@@ -5868,6 +5868,7 @@ MonoBehaviour:
   playerName: {fileID: 0}
   inputName: {fileID: 44912680}
   finishTimeText: {fileID: 1109858308}
+  finalScore: 0
 --- !u!114 &576403261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9867,6 +9868,7 @@ MonoBehaviour:
   playerName: {fileID: 1134543213}
   inputName: {fileID: 0}
   finishTimeText: {fileID: 239198698}
+  finalScore: 0
 --- !u!114 &856817412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10692,6 +10694,7 @@ MonoBehaviour:
   playerName: {fileID: 1304435306}
   inputName: {fileID: 0}
   finishTimeText: {fileID: 629393310}
+  finalScore: 0
 --- !u!114 &902125534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11356,6 +11359,7 @@ MonoBehaviour:
   playerName: {fileID: 267877888}
   inputName: {fileID: 0}
   finishTimeText: {fileID: 853438048}
+  finalScore: 0
 --- !u!114 &933570057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16322,6 +16326,7 @@ MonoBehaviour:
   playerName: {fileID: 781485305}
   inputName: {fileID: 0}
   finishTimeText: {fileID: 316081126}
+  finalScore: 0
 --- !u!114 &1269882082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19106,6 +19111,7 @@ MonoBehaviour:
   playerName: {fileID: 1122273675}
   inputName: {fileID: 0}
   finishTimeText: {fileID: 1984436780}
+  finalScore: 0
 --- !u!114 &1448701452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24497,7 +24503,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815696057}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
