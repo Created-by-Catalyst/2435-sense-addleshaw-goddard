@@ -2,6 +2,8 @@
 using System.IO;
 using System.Collections.Generic;
 using System;
+using Unity.VisualScripting.FullSerializer;
+
 
 #if UNITY_ANALYTICS
 using UnityEngine.Analytics;
@@ -332,9 +334,11 @@ public class PlayerData
             int count = r.ReadInt32();
             for (int i = 0; i < count; ++i)
             {
+                Debug.Log("Save highscore: count-" + count);
+
                 HighscoreEntry entry = new HighscoreEntry();
                 entry.name = r.ReadString();
-                entry.finalScore = 3 /*int.Parse(r.ReadString())*/;
+                entry.finalScore = r.ReadInt32();
 
                 highscores.Add(entry);
             }
@@ -435,6 +439,8 @@ public class PlayerData
         w.Write(highscores.Count);
         for (int i = 0; i < highscores.Count; ++i)
         {
+            Debug.Log("Save highscore: name-" + highscores[i].name + " score-" + highscores[i].finalScore);
+
             w.Write(highscores[i].name);
             w.Write(highscores[i].finalScore);
         }
