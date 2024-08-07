@@ -50,6 +50,7 @@ public class WinState : AState
         }
     }
 
+    int totalScore = 0;
 
     public override void Enter(AState from)
     {
@@ -64,7 +65,15 @@ public class WinState : AState
 
         miniLeaderboard.playerEntry.inputName.text = PlayerData.instance.previousName;
 
-        miniLeaderboard.playerEntry.finalScore = 3000 - ( trackManager.finishTime.Seconds * 3);
+
+        print("finish time seconds " + trackManager.finishTime.TotalSeconds);
+        print("end health " + trackManager.characterController.currentLife);
+
+        //Total score + remaining health - time taken
+
+        totalScore = Mathf.Clamp((3000 - ((int)trackManager.finishTime.TotalSeconds * 13)) + (trackManager.characterController.currentLife * 40), 0, 5000);
+
+        miniLeaderboard.playerEntry.finalScore = totalScore;
         miniLeaderboard.playerEntry.finishTimeText.text = miniLeaderboard.playerEntry.finalScore.ToString();
         miniLeaderboard.Populate();
 
@@ -107,7 +116,7 @@ public class WinState : AState
         fullLeaderboard.forcePlayerDisplay = false;
         fullLeaderboard.displayPlayer = true;
         fullLeaderboard.playerEntry.playerName.text = miniLeaderboard.playerEntry.inputName.text;
-        fullLeaderboard.playerEntry.finalScore = 3000 - (trackManager.finishTime.Seconds * 3);
+        fullLeaderboard.playerEntry.finalScore = totalScore;
         fullLeaderboard.playerEntry.finishTimeText.text = fullLeaderboard.playerEntry.finalScore.ToString();
 
         fullLeaderboard.Open();
@@ -177,7 +186,7 @@ public class WinState : AState
             PlayerData.instance.previousName = miniLeaderboard.playerEntry.inputName.text;
         }
 
-        PlayerData.instance.InsertScore(3000 - trackManager.finishTime.Seconds, miniLeaderboard.playerEntry.inputName.text);
+        PlayerData.instance.InsertScore(miniLeaderboard.playerEntry.finalScore, miniLeaderboard.playerEntry.inputName.text);
 
         CharacterCollider.DeathEvent de = trackManager.characterController.characterCollider.deathData;
         //register data to analytics
