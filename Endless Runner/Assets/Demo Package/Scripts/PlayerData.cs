@@ -2,6 +2,8 @@
 using System.IO;
 using System.Collections.Generic;
 using System;
+using Unity.VisualScripting.FullSerializer;
+
 
 #if UNITY_ANALYTICS
 using UnityEngine.Analytics;
@@ -13,12 +15,12 @@ using UnityEditor;
 public struct HighscoreEntry : System.IComparable<HighscoreEntry>
 {
     public string name;
-    public TimeSpan finishTime;
+    public int finalScore;
 
     public int CompareTo(HighscoreEntry other)
     {
         // We want to sort from highest to lowest, so inverse the comparison.
-        return finishTime.CompareTo(other.finishTime);
+        return other.finalScore.CompareTo(finalScore);
     }
 }
 
@@ -176,10 +178,10 @@ public class PlayerData
 
     // High Score management
 
-    public int GetScorePlace(TimeSpan finishTime)
+    public int GetScorePlace(int finalScore)
     {
         HighscoreEntry entry = new HighscoreEntry();
-        entry.finishTime = finishTime;
+        entry.finalScore = finalScore;
         entry.name = "";
 
         int index = highscores.BinarySearch(entry);
@@ -187,13 +189,13 @@ public class PlayerData
         return index < 0 ? (~index) : index;
     }
 
-    public void InsertScore(TimeSpan finishTime, string name)
+    public void InsertScore(int finalScore, string name)
     {
         HighscoreEntry entry = new HighscoreEntry();
-        entry.finishTime = finishTime;
+        entry.finalScore = finalScore;
         entry.name = name;
 
-        highscores.Insert(GetScorePlace(finishTime), entry);
+        highscores.Insert(GetScorePlace(finalScore), entry);
 
         // Keep only the 10 best scores.
         while (highscores.Count > 10)
@@ -332,9 +334,11 @@ public class PlayerData
             int count = r.ReadInt32();
             for (int i = 0; i < count; ++i)
             {
+                Debug.Log("Save highscore: count-" + count);
+
                 HighscoreEntry entry = new HighscoreEntry();
                 entry.name = r.ReadString();
-                entry.finishTime = TimeSpan.Parse(r.ReadString());
+                entry.finalScore = r.ReadInt32();
 
                 highscores.Add(entry);
             }
@@ -435,8 +439,10 @@ public class PlayerData
         w.Write(highscores.Count);
         for (int i = 0; i < highscores.Count; ++i)
         {
+            Debug.Log("Save highscore: name-" + highscores[i].name + " score-" + highscores[i].finalScore);
+
             w.Write(highscores[i].name);
-            w.Write(highscores[i].finishTime.ToString());
+            w.Write(highscores[i].finalScore);
         }
 
         // Write missions.
