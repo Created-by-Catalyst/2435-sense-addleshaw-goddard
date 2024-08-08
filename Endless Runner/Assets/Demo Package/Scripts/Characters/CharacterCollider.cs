@@ -31,6 +31,8 @@ public class CharacterCollider : MonoBehaviour
 
     public ParticleSystem koParticle;
 
+    [SerializeField] GameObject aiForcefield;
+
     [Header("Sound")]
     public AudioClip coinSound;
     public AudioClip premiumSound;
@@ -127,7 +129,14 @@ public class CharacterCollider : MonoBehaviour
         else if (c.gameObject.layer == k_ObstacleLayerIndex)
         {
             if (m_Invincible || controller.IsCheatInvincible())
+            {
+                //Destroy hurdle here
+
+                Destroy(c.gameObject);
+
                 return;
+            }
+                
 
             controller.StopMoving();
 
@@ -185,6 +194,8 @@ public class CharacterCollider : MonoBehaviour
         }
     }
 
+
+
     public void SetInvincibleExplicit(bool invincible)
     {
         m_Invincible = invincible;
@@ -198,6 +209,7 @@ public class CharacterCollider : MonoBehaviour
     protected IEnumerator InvincibleTimer(float timer)
     {
         m_Invincible = true;
+        if(timer > 2) aiForcefield.SetActive(true);
 
         float time = 0;
         float currentBlink = 1.0f;
@@ -224,6 +236,8 @@ public class CharacterCollider : MonoBehaviour
 
         Shader.SetGlobalFloat(s_BlinkingValueHash, 0.0f);
 
+
+        aiForcefield.SetActive(false);
         m_Invincible = false;
     }
 }
