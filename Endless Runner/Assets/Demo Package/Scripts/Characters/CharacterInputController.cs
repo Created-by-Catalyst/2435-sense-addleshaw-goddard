@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -24,6 +25,8 @@ public class CharacterInputController : MonoBehaviour
     public float laneChangeSpeed = 1.0f;
 
     public int maxLife = 3;
+
+    protected bool m_SpedUp;
 
     public Consumable inventory;
 
@@ -78,7 +81,7 @@ public class CharacterInputController : MonoBehaviour
     protected const float k_ShadowGroundOffset = 0.01f;
     protected const float k_TrackSpeedToJumpAnimSpeedRatio = 0.6f;
     protected const float k_TrackSpeedToSlideAnimSpeedRatio = 0.9f;
-
+    protected const float k_DefaultSpedUpTime = 2f;
     protected void Awake()
     {
         m_Premium = 0;
@@ -464,4 +467,42 @@ public class CharacterInputController : MonoBehaviour
             m_Audio.PlayOneShot(slideSound);
         }
     }
+
+
+
+    public void SetSpeedUpExplicit(bool spedUp)
+    {
+        m_SpedUp = spedUp;
+    }
+
+    public void SetSpeedUp(float timer = k_DefaultSpedUpTime)
+    {
+        StartCoroutine(SpeedUpTimer(timer));
+    }
+
+    protected IEnumerator SpeedUpTimer(float timer)
+    {
+        float speedModifier = 1.3f;
+
+        m_SpedUp = true;
+
+        trackManager.maxSpeed = trackManager.maxSpeed * speedModifier;
+        trackManager.speed = trackManager.maxSpeed;
+
+        float time = 0;
+
+        while (time < timer && m_SpedUp)
+        {
+            trackManager.speed = trackManager.maxSpeed;
+            yield return null;
+            time += Time.deltaTime;
+        }
+
+        trackManager.maxSpeed = trackManager.maxSpeed / speedModifier;
+
+        if (trackManager.speed > trackManager.maxSpeed) trackManager.speed = trackManager.maxSpeed;
+
+        m_SpedUp = false;
+    }
+
 }
