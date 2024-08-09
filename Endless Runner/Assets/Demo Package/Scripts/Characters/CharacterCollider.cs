@@ -119,7 +119,6 @@ public class CharacterCollider : MonoBehaviour
             }
             else
             {
-                print("mult" + TrackManager.m_Multiplier);
                 Coin.coinPool.Free(c.gameObject);
                 PlayerData.instance.coins += 1 * TrackManager.m_Multiplier;
                 controller.coins += 1 * TrackManager.m_Multiplier;
@@ -136,7 +135,9 @@ public class CharacterCollider : MonoBehaviour
 
                 return;
             }
-                
+
+
+            PopUpMessages.Instance.ConvertObjectToMessage(c.gameObject.name);
 
             controller.StopMoving();
 
