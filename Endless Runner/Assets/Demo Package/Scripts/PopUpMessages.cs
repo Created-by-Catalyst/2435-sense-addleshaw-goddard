@@ -55,6 +55,21 @@ public class PopUpMessages : MonoBehaviour
                 DisplayMessage("Social Media Firestorm!");
                 break;
 
+            case "ObstacleQuestions":
+                DisplayMessage("Questioning Clients!");
+                break;
+            case "ObstackeRedTapeHurdle":
+                DisplayMessage("Red Tape!");
+                break;
+            case "ObstacleWarningSign":
+                DisplayMessage("Warning!");
+                break;
+            case "ObstaclePaperVortex":
+                DisplayMessage("Paper Vortex!");
+                break;
+            case "ObstacleOilSlick":
+                DisplayMessage("Oil Slick!");
+                break;
             default:
                 break;
         }
