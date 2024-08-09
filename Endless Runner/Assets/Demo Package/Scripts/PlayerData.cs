@@ -49,7 +49,7 @@ public class PlayerData
     public List<HighscoreEntry> highscores = new List<HighscoreEntry>();
     public List<MissionBase> missions = new List<MissionBase>();
 
-    public string previousName = "High Flying Lawyer";
+    public string previousName = "Black Woman";
 
     public bool licenceAccepted;
     public bool tutorialDone;
@@ -248,15 +248,14 @@ public class PlayerData
         m_Instance.coins = 0;
         m_Instance.premium = 0;
 
-        m_Instance.characters.Add("High Flying Lawyer");
-        m_Instance.characters.Add("Tech Savvy Analyst");
-        m_Instance.characters.Add("Legal Scholar");
-        m_Instance.characters.Add("Charismatic Jury Consultant");
-        m_Instance.characters.Add("Burnt Out Public Defender");
-        m_Instance.characters.Add("Eager Intern");
-        m_Instance.characters.Add("Idealistic Human Rights Attorney");
-        m_Instance.characters.Add("Seasoned Paralegal");
-        m_Instance.characters.Add("Corporate Attorney");
+        m_Instance.characters.Add("White Man");
+        m_Instance.characters.Add("Arab Man");
+        m_Instance.characters.Add("Black Woman");
+        m_Instance.characters.Add("South East Asian Woman");
+        m_Instance.characters.Add("Non Binary Indian Asian");
+        m_Instance.characters.Add("Non Binary Hispanic");
+
+
 
         m_Instance.themes.Add("Day");
 

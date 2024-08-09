@@ -17,64 +17,46 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 0ee8914add8bf184eb2669a5f9b6f538
   m_SerializeEntries:
-  - m_GUID: 39df355f468738448b2476fb3f76fbfc
-    m_Address: Eager Intern
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 749879b063a714a40b6356890f40dc3b
-    m_Address: Burnt Out Public Defender
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f68bd9ccde30cfd42b54d83337d4fe83
-    m_Address: Charismatic Jury Consultant
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a611fafad4889ba43b109981b0af73c1
-    m_Address: Legal Scholar
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c049c1b0741d6794fbb4c44823d3b8ef
-    m_Address: High Flying Lawyer
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f4656186fbe5ab74eba05797e7791194
-    m_Address: Corporate Attorney
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e702cfed33443e349b75feede00f3c90
-    m_Address: Tech Savvy Analyst
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0209174c1d8d91e44a54588f124c5b49
-    m_Address: Seasoned Paralegal
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e255cc44266d51e448f3c796301542ca
-    m_Address: Idealistic Human Rights Attorney
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a1da5a75d83b2b64d9684707d810f8c7
     m_Address: Assets/Demo Package/Materials/VCOL.mat
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74d2ef33bb39d3b46b576de04fcf21bb
+    m_Address: White Man
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 312708690d9abd641ab661c8645cefaa
+    m_Address: Non Binary Hispanic
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c95df46e92268342a69b203be9592c6
+    m_Address: Arab Man
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83caef8ee6b6b224fa91b30de36f2c2c
+    m_Address: Black Woman
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2c2839ffe8e574449e0d5693a5f9944
+    m_Address: Non Binary Indian Asian
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ed8f988cce43a547a6b1ea700ff65a8
+    m_Address: South East Asian Woman
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - characters
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 735e874f947d0e143a6b4e83f8a7283a, type: 2}
