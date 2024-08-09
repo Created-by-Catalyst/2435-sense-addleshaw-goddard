@@ -334,8 +334,6 @@ public class CharacterInputController : MonoBehaviour
 
     public void Jump()
     {
-        print("JUMP");
-
         if (!m_IsRunning)
             return;
 

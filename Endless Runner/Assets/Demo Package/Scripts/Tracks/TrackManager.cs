@@ -709,7 +709,7 @@ public class TrackManager : MonoBehaviour
 
                                 if (UnityEngine.Random.Range(0, 2) == 0)
                                 {
-                                    AsyncOperationHandle op = Addressables.InstantiateAsync(consumableDatabase.consumbales[4].gameObject.name, pos, rot);
+                                    AsyncOperationHandle op = Addressables.InstantiateAsync(consumableDatabase.consumbales[picked].gameObject.name, pos, rot);
                                     yield return op;
                                     if (op.Result == null || !(op.Result is GameObject))
                                     {
