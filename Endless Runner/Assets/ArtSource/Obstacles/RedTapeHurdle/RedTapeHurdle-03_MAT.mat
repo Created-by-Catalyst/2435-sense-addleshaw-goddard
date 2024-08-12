@@ -60,6 +60,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Normals:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -98,6 +102,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _DissolveAmount: -1.26
+    - _DissolveScale: 19
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
@@ -124,8 +130,10 @@ Material:
     - _BaseColor: {r: 0.9686275, g: 0.14901961, b: 0.1137255, a: 1}
     - _Color: {r: 0.9686275, g: 0.14901961, b: 0.1137255, a: 1}
     - _Colour: {r: 0.9686275, g: 0.14901961, b: 0.1137255, a: 0}
+    - _DissolveColour: {r: 667.70905, g: 94.26481, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColour: {r: 0, g: 0, b: 0, a: 0}
+    - _NormalsTiling: {r: 1, g: 1, b: 0, a: 0}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}

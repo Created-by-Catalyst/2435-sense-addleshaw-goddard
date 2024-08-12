@@ -131,7 +131,10 @@ public class CharacterCollider : MonoBehaviour
             {
                 //Destroy hurdle here
 
-                Destroy(c.gameObject);
+                if (c.GetComponent<Animator>() != null)
+                    c.GetComponent<Animator>().SetTrigger("Dissolve");
+                else
+                    Destroy(c.gameObject);
 
                 return;
             }

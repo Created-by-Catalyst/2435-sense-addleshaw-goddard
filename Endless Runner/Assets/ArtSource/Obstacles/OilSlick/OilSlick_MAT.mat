@@ -115,6 +115,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _DissolveAmount: 0
+    - _DissolveScale: 15
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
@@ -141,6 +143,7 @@ Material:
     - _BaseColor: {r: 0.09665359, g: 0.097206876, b: 0.11320752, a: 1}
     - _Color: {r: 0.09665359, g: 0.097206876, b: 0.11320752, a: 1}
     - _Colour: {r: 0.049044445, g: 0.04785, b: 0.05, a: 0}
+    - _DissolveColour: {r: 0, g: 144.64491, b: 166.92725, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColour: {r: 0.0071801203, g: 0.0031764705, b: 0.011764706, a: 1}
     - _NormalsTiling: {r: 0.5, g: 0.5, b: 0, a: 0}
