@@ -43,8 +43,10 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
-  collectiblePrefab: {fileID: 184264, guid: 5e8a9ab964614a44a9990aaf7e11231f, type: 3}
-  premiumCollectible: {fileID: 184264, guid: 5e8a9ab964614a44a9990aaf7e11231f, type: 3}
+  collectiblePrefab: {fileID: 2397819605282472028, guid: f889c904b9adb944f839f4e3afd4b93a,
+    type: 3}
+  premiumCollectible: {fileID: 2397819605282472028, guid: f889c904b9adb944f839f4e3afd4b93a,
+    type: 3}
   cloudPrefabs:
   - {fileID: 1000012225143368, guid: 1225524528f67794ead226c3401f6bd6, type: 3}
   - {fileID: 1000012941456988, guid: e4217d014d522f94bb0a059a38e2cb14, type: 3}

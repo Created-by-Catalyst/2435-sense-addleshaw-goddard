@@ -17,18 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 4c4981ffc6cbd384f83bfa48976554ea
   m_SerializeEntries:
-  - m_GUID: 1269ce00623d4694f927c463dd3be44a
+  - m_GUID: 1a186e17c4c50e94697f62bb3e51a226
+    m_Address: SpeedIncrease
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99e8eb2efe632e348a420dc4ba5b2e38
     m_Address: ScoreMultiplier
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 527cd33d94f565c428b85a011d736c3c
-    m_Address: Invincibilty
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8c89761b43b2362418709a8178d5dd8c
-    m_Address: CoinMagnet
+  - m_GUID: d20615272cffbda4aa2bbd64d907dfb6
+    m_Address: Resource
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -52,13 +52,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cccc43bc040988e488680155c25b163c
+  - m_GUID: b2d2feb3c02255a46a64455680e7c2f1
     m_Address: ExtraLife
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f213ff5260d9f8a4d8ecebd766e695ce
-    m_Address: Speed Up
+  - m_GUID: 4c21b71ec44f38d4fa7eb9326834c249
+    m_Address: Invincibility
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
