@@ -658,7 +658,7 @@ public class TrackManager : MonoBehaviour
 
     public IEnumerator SpawnCoinAndPowerup(TrackSegment segment)
     {
-        if (UnityEngine.Random.Range(0, 6) > 1)
+        if (UnityEngine.Random.Range(0, 8) > 1)
             if (!m_IsTutorial)
             {
                 const float increment = 1.5f;
@@ -707,7 +707,7 @@ public class TrackManager : MonoBehaviour
                                 m_TimeSincePowerup = 0.0f;
                                 powerupChance = 0.0f;
 
-                                if (UnityEngine.Random.Range(0, 2) == 0)
+                                if (UnityEngine.Random.Range(0, 0) == 0)
                                 {
                                     AsyncOperationHandle op = Addressables.InstantiateAsync(consumableDatabase.consumbales[picked].gameObject.name, pos, rot);
                                     yield return op;

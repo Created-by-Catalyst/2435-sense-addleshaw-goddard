@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77874b4fc6a3b8a48bf4144607a2c365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 10
+  duration: 20
   icon: {fileID: 21300028, guid: e1a536f74c7ef384a8d7132148ace0c8, type: 3}
   activatedSound: {fileID: 8300000, guid: 7e09e73a89ba7674785d9e9acd3387b6, type: 3}
   ActivatedParticleReference:
