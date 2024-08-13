@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Consumables
   m_EditorClassIdentifier: 
   consumbales:
-  - {fileID: 11491712, guid: 8c89761b43b2362418709a8178d5dd8c, type: 3}
-  - {fileID: 11420506, guid: 1269ce00623d4694f927c463dd3be44a, type: 3}
-  - {fileID: 114000010511232114, guid: 527cd33d94f565c428b85a011d736c3c, type: 3}
-  - {fileID: 114000011351653892, guid: cccc43bc040988e488680155c25b163c, type: 3}
-  - {fileID: 4232717246800746376, guid: f213ff5260d9f8a4d8ecebd766e695ce, type: 3}
+  - {fileID: 406411077046156398, guid: d20615272cffbda4aa2bbd64d907dfb6, type: 3}
+  - {fileID: 2965234837776857541, guid: 99e8eb2efe632e348a420dc4ba5b2e38, type: 3}
+  - {fileID: 7788615239730599925, guid: 4c21b71ec44f38d4fa7eb9326834c249, type: 3}
+  - {fileID: 5570758256645028126, guid: b2d2feb3c02255a46a64455680e7c2f1, type: 3}
+  - {fileID: 4119750140436469464, guid: 1a186e17c4c50e94697f62bb3e51a226, type: 3}

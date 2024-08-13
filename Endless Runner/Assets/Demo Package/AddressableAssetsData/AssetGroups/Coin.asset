@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 89278b1b8bdb81c4996129605154b1d9
   m_SerializeEntries:
-  - m_GUID: 5e8a9ab964614a44a9990aaf7e11231f
-    m_Address: Coin
+  - m_GUID: f889c904b9adb944f839f4e3afd4b93a
+    m_Address: AGToken
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
