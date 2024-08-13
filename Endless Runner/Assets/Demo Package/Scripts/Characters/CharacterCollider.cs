@@ -32,6 +32,7 @@ public class CharacterCollider : MonoBehaviour
     public ParticleSystem koParticle;
 
     [SerializeField] GameObject aiForcefield;
+    private Animator _aiForcefieldAnimator;
 
     [Header("Sound")]
     public AudioClip coinSound;
@@ -70,6 +71,9 @@ public class CharacterCollider : MonoBehaviour
         m_Collider = GetComponent<BoxCollider>();
         m_Audio = GetComponent<AudioSource>();
         m_StartingColliderHeight = m_Collider.bounds.size.y;
+
+        if (aiForcefield != null)
+            _aiForcefieldAnimator = aiForcefield.GetComponent<Animator>();
     }
 
     public void Init()
@@ -132,7 +136,11 @@ public class CharacterCollider : MonoBehaviour
                 //Destroy hurdle here
 
                 if (c.GetComponent<Animator>() != null)
+                {
+                    if (_aiForcefieldAnimator != null)
+                        _aiForcefieldAnimator.SetTrigger("Pulse");
                     c.GetComponent<Animator>().SetTrigger("Dissolve");
+                }
                 else
                     Destroy(c.gameObject);
 
