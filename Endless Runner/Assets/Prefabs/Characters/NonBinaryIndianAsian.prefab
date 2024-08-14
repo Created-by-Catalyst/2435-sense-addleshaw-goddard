@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8162448714721337872
+--- !u!1001 &3313230551239274901
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -58,6 +58,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5909192852540696868, guid: a75cc739126b48546bf0a42d849c1244,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.95581
+      objectReference: {fileID: 0}
+    - target: {fileID: -5909192852540696868, guid: a75cc739126b48546bf0a42d849c1244,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.95581
+      objectReference: {fileID: 0}
+    - target: {fileID: -5909192852540696868, guid: a75cc739126b48546bf0a42d849c1244,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.95581
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a75cc739126b48546bf0a42d849c1244,
         type: 3}
       propertyPath: m_Name
@@ -75,35 +90,29 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a75cc739126b48546bf0a42d849c1244,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7457875869408614763}
+      addedObject: {fileID: 8063074091024883499}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a75cc739126b48546bf0a42d849c1244,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2358521395841577521}
+      addedObject: {fileID: 3537876225301329466}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a75cc739126b48546bf0a42d849c1244,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3475176840966835201}
+      addedObject: {fileID: 8439612693134607944}
   m_SourcePrefab: {fileID: 100100000, guid: a75cc739126b48546bf0a42d849c1244, type: 3}
---- !u!95 &2318300982520291201 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: a75cc739126b48546bf0a42d849c1244,
-    type: 3}
-  m_PrefabInstance: {fileID: 8162448714721337872}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &9045407343638093633 stripped
+--- !u!1 &2394679632627207364 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a75cc739126b48546bf0a42d849c1244,
     type: 3}
-  m_PrefabInstance: {fileID: 8162448714721337872}
+  m_PrefabInstance: {fileID: 3313230551239274901}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7457875869408614763
+--- !u!114 &8063074091024883499
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9045407343638093633}
+  m_GameObject: {fileID: 2394679632627207364}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 397d959cc2da2684c8109d35be73c4a5, type: 3}
@@ -113,17 +122,17 @@ MonoBehaviour:
   cost: 0
   premiumCost: 0
   accessories: []
-  animator: {fileID: 2318300982520291201}
+  animator: {fileID: 8975779645535685636}
   icon: {fileID: 21300054, guid: e1a536f74c7ef384a8d7132148ace0c8, type: 3}
   jumpSound: {fileID: 8300000, guid: bc3f780d9e086e946957719961d640e4, type: 3}
   deathSound: {fileID: 8300000, guid: fdc365ead25d32f47b3bb147ab4649f6, type: 3}
---- !u!82 &2358521395841577521
+--- !u!82 &3537876225301329466
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9045407343638093633}
+  m_GameObject: {fileID: 2394679632627207364}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -213,16 +222,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &3475176840966835201
+--- !u!114 &8439612693134607944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9045407343638093633}
+  m_GameObject: {fileID: 2394679632627207364}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15e38bebbdc31db468a604b05bd1d75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mixerGroup: SFX
+--- !u!95 &8975779645535685636 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: a75cc739126b48546bf0a42d849c1244,
+    type: 3}
+  m_PrefabInstance: {fileID: 3313230551239274901}
+  m_PrefabAsset: {fileID: 0}
