@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
@@ -23,6 +25,10 @@ public class LoadoutState : AState
     public Canvas inventoryCanvas;
 
     public InputReader menuInput;
+
+    [SerializeField] Transform faceCamCharPos;
+    [SerializeField] Transform faceCamCamera;
+    [SerializeField] AnimatorController idleController;
 
     [Header("Char UI")]
     public Text charNameDisplay;
@@ -247,6 +253,8 @@ public class LoadoutState : AState
         UIGroundFilter.sharedMesh = t.UIGroundMesh;
     }
 
+    GameObject faceChar;
+
     public IEnumerator PopulateCharacters()
     {
         accessoriesSelector.gameObject.SetActive(false);
@@ -313,6 +321,34 @@ public class LoadoutState : AState
                     m_Character.transform.localPosition = Vector3.zero;
 
                     SetupAccessory();
+
+                    Destroy(faceChar);
+
+                    AsyncOperationHandle faceCamOp = Addressables.InstantiateAsync(c.characterName);
+                    yield return faceCamOp;
+
+                    faceChar = faceCamOp.Result as GameObject;
+
+                    faceChar.transform.SetParent(faceCamCharPos, false);
+
+                    faceChar.gameObject.GetComponent<Animator>().runtimeAnimatorController = idleController;
+
+
+                    foreach(Transform transform in faceChar.transform.GetComponentsInChildren<Transform>())
+                    {
+
+                        print("trans" + transform.gameObject.name);
+
+                        if (transform.gameObject.name == "Head")
+                        {
+                            print("FOUND" + transform.gameObject);
+
+                            faceCamCamera.position = transform.position;
+
+                            faceCamCamera.Translate(0, -.08f, -.5f);
+                        }
+                    }
+
                 }
                 else
                     yield return new WaitForSeconds(1.0f);

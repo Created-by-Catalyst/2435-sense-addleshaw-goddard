@@ -203,6 +203,9 @@ public class CharacterCollider : MonoBehaviour
             {
                 controller.UseConsumable(consumable);
             }
+
+
+            PopUpMessages.Instance.ConvertObjectToMessage(c.gameObject.name);
         }
     }
 

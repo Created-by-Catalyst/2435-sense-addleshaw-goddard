@@ -8,6 +8,8 @@ using UnityEngine.AddressableAssets;
 /// </summary>
 public class CharacterInputController : MonoBehaviour
 {
+
+
     static int s_DeadHash = Animator.StringToHash("Dead");
     static int s_RunStartHash = Animator.StringToHash("runStart");
     static int s_MovingHash = Animator.StringToHash("Moving");
@@ -133,6 +135,7 @@ public class CharacterInputController : MonoBehaviour
         characterCollider.Init();
 
         m_ActiveConsumables.Clear();
+
     }
 
     public void End()
@@ -159,7 +162,14 @@ public class CharacterInputController : MonoBehaviour
             character.animator.Play(s_RunStartHash);
             character.animator.SetBool(s_MovingHash, true);
         }
+
+
+
     }
+
+    
+
+
 
     public void StartMoving()
     {
