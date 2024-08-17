@@ -17,33 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 95a3c2cd5e0a1b745a3fd1ce16c01ff9
   m_SerializeEntries:
-  - m_GUID: 0efb8909365acf54cac204f00d0a17ee
-    m_Address: ObstaclePaperVortex
+  - m_GUID: b2e96d9d9d25b474faeb04a5e012cd41
+    m_Address: MultiVaried06
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9a5e4624787d4614abe837748d401e0a
-    m_Address: ObstackeRedTapeHurdle
+  - m_GUID: 7fe6a26b5d6e12949903e511bfd60e84
+    m_Address: MultiVaried05
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0bf43cfee8f55c24aaf3a2f394d5c86e
-    m_Address: ObstaclePaperVortexPatrolling
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c76c8a58115afb14b94652c3d738c19f
-    m_Address: ObstacleOilSlick
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fc2af17abed0c2744892f9a5f82b3df0
-    m_Address: ObstacleWarningSign
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e71aa1a1da546d840a7ee80128e1def8
-    m_Address: ObstacleQuestions
+  - m_GUID: ab255d856e6908a4c845e4342c0feffe
+    m_Address: MultiVaried04
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -69,6 +54,36 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c1569b77ec06fe1408dd668e5540017a
     m_Address: MultiVaried03
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a5e4624787d4614abe837748d401e0a
+    m_Address: ObstackeRedTapeHurdle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c76c8a58115afb14b94652c3d738c19f
+    m_Address: ObstacleOilSlick
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0efb8909365acf54cac204f00d0a17ee
+    m_Address: ObstaclePaperVortex
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bf43cfee8f55c24aaf3a2f394d5c86e
+    m_Address: ObstaclePaperVortexPatrolling
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e71aa1a1da546d840a7ee80128e1def8
+    m_Address: ObstacleQuestions
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc2af17abed0c2744892f9a5f82b3df0
+    m_Address: ObstacleWarningSign
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

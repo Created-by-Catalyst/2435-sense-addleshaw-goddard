@@ -5,6 +5,10 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class PatrollingObstacle : Obstacle
 {
+	public bool inMultiObstacle = true;
+
+	private float manualMovementRange = 5;
+
 	static int s_SpeedRatioHash = Animator.StringToHash("SpeedRatio");
 	static int s_DeadHash = Animator.StringToHash("Dead"); 
 
@@ -17,10 +21,10 @@ public class PatrollingObstacle : Obstacle
 
 	public AudioClip[] patrollingSound;
 
-	protected TrackSegment m_Segement;
+	public TrackSegment m_Segement;
 
-	protected Vector3 m_OriginalPosition = Vector3.zero;
-	protected float m_MaxSpeed;
+	protected Vector3 m_OriginalPosition;
+	protected float m_MaxSpeed = 2;
 	protected float m_CurrentPos;
 
 	protected AudioSource m_Audio;
@@ -28,8 +32,17 @@ public class PatrollingObstacle : Obstacle
 
     protected const float k_LaneOffsetToFullWidth = 3.2f;
 
+
+	private void Awake()
+	{
+		m_OriginalPosition = transform.localPosition;
+	}
+
 	public override IEnumerator Spawn(TrackSegment segment, float t)
 	{
+
+		print("SPAWNED");
+
 		Vector3 position;
 		Quaternion rotation;
 		segment.GetPointAt(t, out position, out rotation);
@@ -95,7 +108,14 @@ public class PatrollingObstacle : Obstacle
 
 	void Update()
 	{
-		if (!m_isMoving)
+
+        if (inMultiObstacle)
+        {
+            m_CurrentPos += Time.deltaTime * m_MaxSpeed;
+            transform.localPosition = m_OriginalPosition - transform.right * (Mathf.PingPong(m_CurrentPos, manualMovementRange) - manualMovementRange / 2f);
+        }
+
+        if (!m_isMoving)
 			return;
 
 		m_CurrentPos += Time.deltaTime * m_MaxSpeed;

@@ -16,8 +16,6 @@ public class TrackSegment : MonoBehaviour
 	public Transform objectRoot;
 	public Transform collectibleTransform;
 
-    public AssetReference[] possibleObstacles; 
-
     [HideInInspector]
     public float[] obstaclePositions;
 

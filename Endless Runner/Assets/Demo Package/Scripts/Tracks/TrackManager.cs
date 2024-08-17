@@ -28,6 +28,10 @@ using UnityEngine.Analytics;
 /// </summary>
 public class TrackManager : MonoBehaviour
 {
+
+
+    public AssetReference[] possibleObstacles;
+
     static public bool s_SpawnFinishLine = false;
     private GameObject finishLineEnd;
     static public bool s_reachedFinishLineEnd = false;
@@ -47,9 +51,9 @@ public class TrackManager : MonoBehaviour
 
     [Header("Character & Movements")]
     public CharacterInputController characterController;
-    public float minSpeed = 5.0f;
-    public float maxSpeed = 10.0f;
-    public int speedStep = 4;
+    public float minSpeed = 0.1f;
+    public float maxSpeed = 0.1f;
+    public int speedStep = 1;
     public float laneOffset = 1.0f;
 
     public bool invincible = false;
@@ -331,9 +335,12 @@ public class TrackManager : MonoBehaviour
     private int _spawnedSegments = 0;
     void Update()
     {
-      //  print("Spawn Finish Line" + s_SpawnFinishLine);
-       //// if (Input.GetKeyDown(KeyCode.Alpha9))
-         //   s_SpawnFinishLine = true;
+        //  print("Spawn Finish Line" + s_SpawnFinishLine);
+        //// if (Input.GetKeyDown(KeyCode.Alpha9))
+        //   s_SpawnFinishLine = true;
+
+        print("max" + maxSpeed);
+
 
         if (!s_SpawnFinishLine)
         {
@@ -553,7 +560,7 @@ public class TrackManager : MonoBehaviour
 
     public void PowerupSpawnUpdate()
     {
-        m_TimeSincePowerup += Time.deltaTime;
+        m_TimeSincePowerup += Time.deltaTime * 5;
         m_TimeSinceLastPremium += Time.deltaTime;
     }
 
@@ -631,11 +638,11 @@ public class TrackManager : MonoBehaviour
 
     public void SpawnObstacle(TrackSegment segment)
     {
-        if (segment.possibleObstacles.Length != 0)
+        if (possibleObstacles.Length != 0)
         {
             for (int i = 0; i < segment.obstaclePositions.Length; ++i)
             {
-                AssetReference assetRef = segment.possibleObstacles[UnityEngine.Random.Range(0, segment.possibleObstacles.Length)];
+                AssetReference assetRef = possibleObstacles[UnityEngine.Random.Range(0, possibleObstacles.Length)];
                 StartCoroutine(SpawnFromAssetReference(assetRef, segment, i));
             }
         }
