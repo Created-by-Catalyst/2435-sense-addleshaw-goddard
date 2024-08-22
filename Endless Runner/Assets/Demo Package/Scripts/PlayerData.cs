@@ -251,9 +251,9 @@ public class PlayerData
         m_Instance.characters.Add("White Man");
         m_Instance.characters.Add("Arab Man");
         m_Instance.characters.Add("Black Woman");
+        m_Instance.characters.Add("White Woman");
         m_Instance.characters.Add("South East Asian Woman");
         m_Instance.characters.Add("Non Binary Indian Asian");
-        m_Instance.characters.Add("Non Binary Hispanic");
 
 
 

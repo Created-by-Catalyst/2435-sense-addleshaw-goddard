@@ -446,7 +446,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: dbf3adff8f35eb74ab044e880ab1a839,
         type: 3}
       propertyPath: m_Name
-      value: NonBinaryHispanic
+      value: WhiteWoman
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dbf3adff8f35eb74ab044e880ab1a839,
         type: 3}
@@ -753,7 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397d959cc2da2684c8109d35be73c4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: Non Binary Hispanic
+  characterName: White Woman
   cost: 0
   premiumCost: 0
   accessories: []
