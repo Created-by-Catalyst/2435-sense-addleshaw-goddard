@@ -61,7 +61,7 @@ MonoBehaviour:
     m_Value: 0.89
   intensity:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 1
   scatter:
     m_OverrideState: 1
     m_Value: 0.847
@@ -121,7 +121,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.17
+    m_Value: 0.1
 --- !u!114 &6900387278562521071
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   postExposure:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.2
   contrast:
     m_OverrideState: 1

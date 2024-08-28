@@ -147,6 +147,9 @@ public class TrackManager : MonoBehaviour
     protected const float k_SegmentRemovalDistance = -10f;
     protected const float k_Acceleration = 0.6f;
 
+    [SerializeField]
+    private bool _flipSegmentScale = false;
+
     protected void Awake()
     {
         m_ScoreAccum = 0.0f;
@@ -619,7 +622,8 @@ public class TrackManager : MonoBehaviour
             newSegment.transform.position = pos;
             newSegment.manager = this;
 
-            newSegment.transform.localScale = new Vector3((UnityEngine.Random.value > 0.5f ? -1 : 1), 1, 1);
+            if (_flipSegmentScale)
+                newSegment.transform.localScale = new Vector3((UnityEngine.Random.value > 0.5f ? -1 : 1), 1, 1);
             newSegment.objectRoot.localScale = new Vector3(1.0f / newSegment.transform.localScale.x, 1, 1);
 
             if (m_SafeSegementLeft <= 0)
