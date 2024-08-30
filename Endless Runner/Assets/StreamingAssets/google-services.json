@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "850331203503",
+    "firebase_url": "https://legalgeek-da7d8-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "legalgeek-da7d8",
+    "storage_bucket": "legalgeek-da7d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850331203503:android:7a5f80e6b5a1ca8bb7215a",
+        "android_client_info": {
+          "package_name": "com.google.firebase.legalGeek"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi37D8jYu8tw7eI6bQXiqjed7t-_zQ0oQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,6 +6,8 @@ public class FinishedScreen : MonoBehaviour
 
     [SerializeField] GameOverState gameoverState;
 
+    [SerializeField] Leaderboard leaderboard;
+
     public void RunAgain()
     {
         if (gameoverState.gameObject.activeSelf == true)
@@ -14,6 +16,7 @@ public class FinishedScreen : MonoBehaviour
         }
         else if (winState.gameObject.activeSelf == true)
         {
+            SaveNewScoreToFirebase();
             winState.RunAgain();
         }
     }
@@ -26,8 +29,16 @@ public class FinishedScreen : MonoBehaviour
         }
         else if (winState.gameObject.activeSelf == true)
         {
+            SaveNewScoreToFirebase();
             winState.GoToLoadout();
         }
+    }
+
+
+
+    void SaveNewScoreToFirebase()
+    {
+        FirebaseHandler.Instance.UploadScore(leaderboard.playerEntry.playerName.text, leaderboard.playerEntry.finalScore);
     }
 
     public void OpenLeaderboard()

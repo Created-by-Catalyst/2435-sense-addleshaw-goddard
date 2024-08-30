@@ -154,7 +154,7 @@ public class GameState : AState
 
     bool playerWon = false;
 
-    private int requiredCoins = 1000;
+    private int requiredCoins = 10;
 
     public override void Tick()
     {
