@@ -19,6 +19,8 @@ public class Character : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip deathSound;
 
+    public GameObject _miniMes;
+
     // Called by the game when an accessory changes, enable/disable the accessories children objects accordingly
     // a value of -1 as parameter disables all accessory.
     public void SetupAccesory(int accessory)
