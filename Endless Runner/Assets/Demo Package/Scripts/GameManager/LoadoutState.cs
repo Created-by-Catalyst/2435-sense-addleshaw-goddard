@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
+
 //using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -28,7 +30,7 @@ public class LoadoutState : AState
 
     [SerializeField] Transform faceCamCharPos;
     [SerializeField] Transform faceCamCamera;
-    //[SerializeField] AnimatorController idleController;
+    [SerializeField] AnimatorController idleController;
 
     [Header("Char UI")]
     public Text charNameDisplay;
@@ -331,7 +333,7 @@ public class LoadoutState : AState
 
                     faceChar.transform.SetParent(faceCamCharPos, false);
 
-                    //faceChar.gameObject.GetComponent<Animator>().runtimeAnimatorController = idleController;
+                    faceChar.gameObject.GetComponent<Animator>().runtimeAnimatorController = idleController;
 
 
                     foreach(Transform transform in faceChar.transform.GetComponentsInChildren<Transform>())

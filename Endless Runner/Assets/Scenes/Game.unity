@@ -10879,6 +10879,7 @@ MonoBehaviour:
   menuInput: {fileID: 483649593}
   faceCamCharPos: {fileID: 55370515}
   faceCamCamera: {fileID: 1506958992}
+  idleController: {fileID: 9100000, guid: 2b4c3f51202e0bc4aa250573388410ac, type: 2}
   charNameDisplay: {fileID: 520105014}
   charSelect: {fileID: 574961894}
   charPosition: {fileID: 764160786}
