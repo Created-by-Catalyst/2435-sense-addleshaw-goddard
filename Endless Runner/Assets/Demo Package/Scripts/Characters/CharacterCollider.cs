@@ -209,9 +209,19 @@ public class CharacterCollider : MonoBehaviour
         }
     }
 
+    public void SetMagnetActive(float timer = k_DefaultInvinsibleTime)
+    {
+        StartCoroutine(MagnetTimer(timer));
+    }
 
+    protected IEnumerator MagnetTimer(float timer)
+    {
+        controller.character._miniMes.SetActive(true);
+        yield return new WaitForSeconds(timer);
+        controller.character._miniMes.SetActive(false);
+    }
 
-    public void SetInvincibleExplicit(bool invincible)
+            public void SetInvincibleExplicit(bool invincible)
     {
         m_Invincible = invincible;
     }

@@ -154,7 +154,7 @@ public class GameState : AState
 
     bool playerWon = false;
 
-    private int requiredCoins = 10;
+    private int requiredCoins = 1000;
 
     public override void Tick()
     {
@@ -344,7 +344,6 @@ public class GameState : AState
         playerWon = false;
         trackManager.timerActive = false;
         timeText.text = "Time: ";
-        trackManager.characterController.coins = 0;
         trackManager.StopMove();
 
         // Reseting the global blinking value. Can happen if game unexpectly exited while still blinking
@@ -355,6 +354,7 @@ public class GameState : AState
         {
             TrackManager.s_SpawnFinishLine = true;
 
+            trackManager.characterController.coins = 0;
             GameOver();
         }
     }
@@ -375,12 +375,12 @@ public class GameState : AState
         yield return new WaitUntil(() => TrackManager.s_reachedFinishLineEnd == true);
         {
             timeText.text = "Time: ";
-            trackManager.characterController.coins = 0;
             trackManager.StopMove();
         }
         yield return new WaitForSeconds(4f);
         if (currentModifier.OnRunEnd(this))
         {
+            trackManager.characterController.coins = 0;
             Win();
         }
     }

@@ -42,6 +42,9 @@ public class CoinMagnet : Consumable
 			{
 				returnColls[i].transform.SetParent(c.transform);
 				c.characterCollider.magnetCoins.Add(returnColls[i].gameObject);
+
+                c.characterCollider.SetMagnetActive(duration);
+
 			}
 		}
     }
