@@ -59,6 +59,9 @@ public class LoadoutState : AState
     public MeshFilter skyMeshFilter;
     public MeshFilter UIGroundFilter;
 
+    [SerializeField]
+    private GameObject _charSelectEnvironment;
+
     public AudioClip menuTheme;
 
 
@@ -93,7 +96,9 @@ public class LoadoutState : AState
 
         k_UILayer = LayerMask.NameToLayer("UI");
 
-        skyMeshFilter.gameObject.SetActive(true);
+        //skyMeshFilter.gameObject.SetActive(true);
+        if (_charSelectEnvironment != null)
+            _charSelectEnvironment.SetActive(true);
         UIGroundFilter.gameObject.SetActive(true);
 
         // Reseting the global blinking value. Can happen if the game unexpectedly exited while still blinking
@@ -133,7 +138,9 @@ public class LoadoutState : AState
 
         GameState gs = to as GameState;
 
-        skyMeshFilter.gameObject.SetActive(false);
+        // skyMeshFilter.gameObject.SetActive(false);
+        if (_charSelectEnvironment != null)
+            _charSelectEnvironment.SetActive(false);
         UIGroundFilter.gameObject.SetActive(false);
         if (gs != null)
         {
@@ -189,10 +196,8 @@ public class LoadoutState : AState
             }
         }
 
-        if (m_Character != null)
-        {
-            m_Character.transform.Rotate(0, k_CharacterRotationSpeed * Time.deltaTime, 0, Space.Self);
-        }
+      //  if (m_Character != null)
+       //     m_Character.transform.Rotate(0, k_CharacterRotationSpeed * Time.deltaTime, 0, Space.Self);
 
         charSelect.gameObject.SetActive(PlayerData.instance.characters.Count > 1);
     }
@@ -251,7 +256,7 @@ public class LoadoutState : AState
         }
 
 
-        skyMeshFilter.sharedMesh = t.skyMesh;
+       // skyMeshFilter.sharedMesh = t.skyMesh;
         UIGroundFilter.sharedMesh = t.UIGroundMesh;
     }
 
