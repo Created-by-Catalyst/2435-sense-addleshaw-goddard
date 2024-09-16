@@ -303,6 +303,8 @@ public class CharacterInputController : MonoBehaviour
                     {
                         m_Jumping = false;
                         character.animator.SetBool(s_JumpingHash, false);
+                        character._miniMeOneAnimator.SetBool(s_JumpingHash, false);
+                        character._miniMeTwoAnimator.SetBool(s_JumpingHash, false);
                     }
                     else
                     {
@@ -315,6 +317,8 @@ public class CharacterInputController : MonoBehaviour
                     if (Mathf.Approximately(verticalTargetPosition.y, 0f))
                     {
                         character.animator.SetBool(s_JumpingHash, false);
+                        character._miniMeOneAnimator.SetBool(s_JumpingHash, false);
+                        character._miniMeTwoAnimator.SetBool(s_JumpingHash, false);
                         m_Jumping = false;
                     }
                 }
@@ -358,6 +362,13 @@ public class CharacterInputController : MonoBehaviour
 
             character.animator.SetFloat(s_JumpingSpeedHash, animSpeed);
             character.animator.SetBool(s_JumpingHash, true);
+            if (character._miniMesRoot.activeInHierarchy)
+            {
+                character._miniMeOneAnimator.SetFloat(s_JumpingSpeedHash, animSpeed);
+                character._miniMeOneAnimator.SetBool(s_JumpingHash, true);
+                character._miniMeTwoAnimator.SetFloat(s_JumpingSpeedHash, animSpeed);
+                character._miniMeTwoAnimator.SetBool(s_JumpingHash, true);
+            }
             m_Audio.PlayOneShot(character.jumpSound);
             m_Jumping = true;
         }
@@ -368,6 +379,11 @@ public class CharacterInputController : MonoBehaviour
         if (m_Jumping)
         {
             character.animator.SetBool(s_JumpingHash, false);
+            if (character._miniMesRoot.activeInHierarchy)
+            {
+                character._miniMeOneAnimator.SetBool(s_JumpingHash, false);
+                character._miniMeTwoAnimator.SetBool(s_JumpingHash, false);
+            }
             m_Jumping = false;
         }
     }
@@ -392,6 +408,11 @@ public class CharacterInputController : MonoBehaviour
 
             character.animator.SetFloat(s_JumpingSpeedHash, animSpeed);
             character.animator.SetBool(s_SlidingHash, true);
+            if (character._miniMesRoot.activeInHierarchy)
+            {
+                character._miniMeOneAnimator.SetBool(s_SlidingHash, true);
+                character._miniMeTwoAnimator.SetBool(s_SlidingHash, true);
+            }
             m_Audio.PlayOneShot(slideSound);
             m_Sliding = true;
 
@@ -404,6 +425,11 @@ public class CharacterInputController : MonoBehaviour
         if (m_Sliding)
         {
             character.animator.SetBool(s_SlidingHash, false);
+            if (character._miniMesRoot.activeInHierarchy)
+            {
+                character._miniMeOneAnimator.SetBool(s_SlidingHash, false);
+                character._miniMeTwoAnimator.SetBool(s_SlidingHash, false);
+            }
             m_Sliding = false;
 
             characterCollider.Slide(false);

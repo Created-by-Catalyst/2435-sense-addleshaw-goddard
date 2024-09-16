@@ -216,9 +216,9 @@ public class CharacterCollider : MonoBehaviour
 
     protected IEnumerator MagnetTimer(float timer)
     {
-        controller.character._miniMes.SetActive(true);
+        controller.character._miniMesRoot.SetActive(true);
         yield return new WaitForSeconds(timer);
-        controller.character._miniMes.SetActive(false);
+        controller.character._miniMesRoot.SetActive(false);
     }
 
             public void SetInvincibleExplicit(bool invincible)

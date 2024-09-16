@@ -592,6 +592,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1407077936339348299}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &4822339546056971994 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: cb6dedd31a95ed949b4f9e1c2006b6c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1407077936339348299}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2791474946038709036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1151,6 +1157,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2791474946038709036}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &8635610528028985021 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: cb6dedd31a95ed949b4f9e1c2006b6c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2791474946038709036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6435906260190545117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1697,7 +1709,9 @@ MonoBehaviour:
   icon: {fileID: 21300054, guid: e1a536f74c7ef384a8d7132148ace0c8, type: 3}
   jumpSound: {fileID: 8300000, guid: bc3f780d9e086e946957719961d640e4, type: 3}
   deathSound: {fileID: 8300000, guid: fdc365ead25d32f47b3bb147ab4649f6, type: 3}
-  _miniMes: {fileID: 2085465727594110264}
+  _miniMesRoot: {fileID: 2085465727594110264}
+  _miniMeOneAnimator: {fileID: 8635610528028985021}
+  _miniMeTwoAnimator: {fileID: 4822339546056971994}
 --- !u!82 &9017651799998050250
 AudioSource:
   m_ObjectHideFlags: 0
