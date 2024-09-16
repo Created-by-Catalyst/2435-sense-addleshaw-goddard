@@ -1,14 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PopUpMessages : MonoBehaviour
 {
-    [SerializeField] TMP_Text messageText;
+    [SerializeField] Image messageImage;
 
     [SerializeField] Animator anim;
+
+    [SerializeField] public PopUpTextures popUpTextures;
 
     public static PopUpMessages Instance;
 
@@ -36,59 +40,43 @@ public class PopUpMessages : MonoBehaviour
 
         switch (formattedObj)
         {
-            case "ObstacleCompromisedSmartHub":
-                DisplayMessage("Smart Hub!");
-                break;
-            case "ObstackeFirewallBlockade":
-                DisplayMessage("Firewall!");
-                break;
-            case "ObstacleAutonomousDroneSurveillance":
-                DisplayMessage("Drone!");
-                break;
-            case "ObstacleSocialMediaFirestorm":
-                DisplayMessage("Social Media Firestorm!");
-                break;
-            case "ObstacleDataCloud":
-                DisplayMessage("Data Cloud!");
-                break;
-            case "ObstacleSocialMediaFirestormPatrolling":
-                DisplayMessage("Social Media Firestorm!");
-                break;
-
 
             case "ObstacleQuestions":
-                DisplayMessage("Bombarded with Questions! Client queries are creating roadblocks.");
+                DisplayMessage(popUpTextures.questions);
                 break;
             case "ObstackeRedTapeHurdle":
-                DisplayMessage("Caught in Red Tape! Bureaucratic delays are holding you back.");
+                DisplayMessage(popUpTextures.redTape);
                 break;
             case "ObstacleWarningSign":
-                DisplayMessage("Warning Ahead! Risk management issues are signalling trouble.");
+                DisplayMessage(popUpTextures.warningSign);
+                break;
+            case "ObstacleBananaCrates":
+                DisplayMessage(popUpTextures.bananaCrates);
                 break;
             case "ObstaclePaperVortex":
-                DisplayMessage("Overwhelmed by Paperwork! Excessive documentation is bogging you down.");
+                DisplayMessage(popUpTextures.paperVortex);
                 break;
             case "ObstaclePaperVortexPatrolling":
-                DisplayMessage("Overwhelmed by Paperwork! Excessive documentation is bogging you down.");
+                DisplayMessage(popUpTextures.paperVortex);
                 break;
             case "ObstacleOilSlick":
-                DisplayMessage("Oil Slick! Your business is facing reputational danger.");
+                DisplayMessage(popUpTextures.oilSlick);
                 break;
 
             case "ExtraLife":
-                DisplayMessage("Legal Backup! Extra support is keeping you in the game.");
+                DisplayMessage(popUpTextures.life);
                 break;
             case "Invincibility":
-                DisplayMessage("AI to the Rescue! Advanced technology is clearing the path ahead.");
+                DisplayMessage(popUpTextures.ai);
                 break;
             case "ScoreMultiplier":
-                DisplayMessage("Cash Influx! Your business is securing more financial resources.");
+                DisplayMessage(popUpTextures.multiplier);
                 break;
             case "SpeedIncrease":
-                DisplayMessage("Lightning Speed! You're accelerating to maximise your gains.");
+                DisplayMessage(popUpTextures.speed);
                 break;
             case "Resource":
-                DisplayMessage("Reinforcements Arrived! Additional resources are boosting your efforts.");
+                DisplayMessage(popUpTextures.magnet);
                 break;
             default:
                 break;
@@ -96,15 +84,34 @@ public class PopUpMessages : MonoBehaviour
     }
 
 
-    public void DisplayMessage(string message)
+    public void DisplayMessage(Sprite texture)
     {
 
         print("attempt display");
 
-        messageText.text = message;
+        messageImage.sprite = texture;
 
-        anim.Play("PopUpAnim");
+        anim.SetTrigger("popup");
     }
 
 
+
+    [Serializable]
+    public class PopUpTextures
+    {
+        public Sprite redTape;
+        public Sprite bananaCrates;
+        public Sprite oilSlick;
+        public Sprite paperVortex;
+        public Sprite warningSign;
+        public Sprite questions;
+
+
+        public Sprite multiplier;
+        public Sprite ai;
+        public Sprite life;
+        public Sprite magnet;
+        public Sprite speed;
+    }
 }
+

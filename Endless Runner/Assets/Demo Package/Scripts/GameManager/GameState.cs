@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -29,8 +30,8 @@ public class GameState : AState
     public AudioClip gameTheme;
 
     [Header("UI")]
-    public Text timeText;
-    public Text coinText;
+    public TMP_Text timeText;
+    public TMP_Text coinText;
     public Text distanceText;
     public Text countdownText;
     public RectTransform powerupZone;
@@ -308,7 +309,7 @@ public class GameState : AState
     protected void UpdateUI()
     {
         coinText.text = trackManager.characterController.coins.ToString();
-        timeText.text = "Time: " + trackManager.finishTimeStr;
+        timeText.text = trackManager.finishTimeStr;
 
         for (int i = 0; i < 3; ++i)
         {
@@ -343,7 +344,7 @@ public class GameState : AState
 
         playerWon = false;
         trackManager.timerActive = false;
-        timeText.text = "Time: ";
+        timeText.text = "";
         trackManager.StopMove();
 
         // Reseting the global blinking value. Can happen if game unexpectly exited while still blinking
@@ -374,7 +375,7 @@ public class GameState : AState
 
         yield return new WaitUntil(() => TrackManager.s_reachedFinishLineEnd == true);
         {
-            timeText.text = "Time: ";
+            timeText.text = "";
             trackManager.StopMove();
         }
         yield return new WaitForSeconds(4f);

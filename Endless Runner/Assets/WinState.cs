@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 #if UNITY_ANALYTICS
@@ -29,6 +30,7 @@ public class WinState : AState
     public GameObject addButton;
 
     [SerializeField] InputField playerEntry;
+    [SerializeField] TMP_Text playerEntryOnKeyboard;
     public void AddCharacter(string key)
     {
         if (key == "Enter")
@@ -48,6 +50,8 @@ public class WinState : AState
         {
             playerEntry.text += key;
         }
+
+        playerEntryOnKeyboard.text = playerEntry.text;
     }
 
     int totalScore = 0;
@@ -92,6 +96,7 @@ public class WinState : AState
 
 
         playerEntry.text = "";
+        playerEntryOnKeyboard.text = playerEntry.text;
     }
 
     public override void Exit(AState to)

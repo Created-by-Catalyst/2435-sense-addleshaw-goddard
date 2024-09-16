@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Animations;
+
+//using UnityEditor.Animations;
 
 //using UnityEditor.Animations;
 using UnityEngine;
@@ -20,7 +22,11 @@ using UnityEngine.Analytics;
 /// </summary>
 public class LoadoutState : AState
 {
-    public GameObject defaultLoadoutButton;
+    [SerializeField] GameObject homePage;
+    [SerializeField] GameObject lobby;
+
+
+    public GameObject defaultStartButton;
 
     public FinishedScreen finishedScreen;
 
@@ -30,9 +36,10 @@ public class LoadoutState : AState
 
     [SerializeField] Transform faceCamCharPos;
     [SerializeField] Transform faceCamCamera;
-    [SerializeField] AnimatorController idleController;
+    [SerializeField] RuntimeAnimatorController idleController;
 
     [Header("Char UI")]
+    public Image charJobDisplay;
     public Text charNameDisplay;
     public RectTransform charSelect;
     public Transform charPosition;
@@ -87,6 +94,11 @@ public class LoadoutState : AState
 
     public override void Enter(AState from)
     {
+        homePage.SetActive(true);
+        lobby.SetActive(false);
+
+        charPosition.gameObject.SetActive(false);
+
         menuInput.enabled = true;
 
         inventoryCanvas.gameObject.SetActive(true);
@@ -111,7 +123,7 @@ public class LoadoutState : AState
         }
 
         runButton.interactable = false;
-        runButton.GetComponentInChildren<Text>().text = "Loading...";
+        //runButton.GetComponentInChildren<Text>().text = "Loading...";
 
         if (m_PowerupToUse != Consumable.ConsumableType.NONE)
         {
@@ -124,7 +136,10 @@ public class LoadoutState : AState
         finishedScreen.OpenLeaderboard();
 
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(defaultLoadoutButton);
+        EventSystem.current.SetSelectedGameObject(defaultStartButton);
+
+
+
     }
 
     public override void Exit(AState to)
@@ -189,7 +204,7 @@ public class LoadoutState : AState
             //    }
 
                 runButton.interactable = true;
-                runButton.GetComponentInChildren<Text>().text = "Run!";
+                //runButton.GetComponentInChildren<Text>().text = "Run!";
 
                 //we can always enabled, as the parent will be disabled if tutorial is already done
                 //tutorialPrompt.SetActive(true);
@@ -319,6 +334,7 @@ public class LoadoutState : AState
 
                     m_Character = newChar;
                     charNameDisplay.text = c.characterName;
+                    UpdateCharacterJobDisplay(c.characterName);
 
                     m_Character.transform.localPosition = Vector3.right * 1000;
                     //animator will take a frame to initialize, during which the character will be in a T-pose.
@@ -359,6 +375,45 @@ public class LoadoutState : AState
                     yield return new WaitForSeconds(1.0f);
             }
             m_IsLoadingCharacter = false;
+        }
+    }
+
+    [Serializable]
+    public class JobTextures
+    {
+        public Sprite inhouseLawyer;
+        public Sprite legalOps;
+        public Sprite innovationLead;
+        public Sprite legalEngineer;
+        public Sprite privateLawyer;
+        public Sprite consultant;
+    }
+
+    [SerializeField] private JobTextures jobTextures;
+
+    void UpdateCharacterJobDisplay(string charName)
+    {
+        switch (charName)
+        {
+            case "South East Asian Woman":
+                charJobDisplay.sprite = jobTextures.inhouseLawyer;
+                break;
+            case "Black Woman":
+                charJobDisplay.sprite = jobTextures.legalOps;
+                break;
+            case "White Man":
+                charJobDisplay.sprite = jobTextures.innovationLead;
+                break;
+            case "Arab Man":
+                charJobDisplay.sprite = jobTextures.legalEngineer;
+                break;
+            case "Non Binary Indian Asian":
+                charJobDisplay.sprite = jobTextures.privateLawyer;
+                break;
+
+            default:
+                charJobDisplay.sprite = jobTextures.consultant;
+                break;
         }
     }
 

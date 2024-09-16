@@ -6,6 +6,9 @@ public class CoinMagnet : Consumable
     protected readonly Vector3 k_HalfExtentsBox = new Vector3 (20.0f, 1.0f, 1.0f);
     protected const int k_LayerMask = 1 << 8;
 
+
+    bool used = false;
+
     public override string GetConsumableName()
     {
         return "Magnet";
@@ -43,7 +46,11 @@ public class CoinMagnet : Consumable
 				returnColls[i].transform.SetParent(c.transform);
 				c.characterCollider.magnetCoins.Add(returnColls[i].gameObject);
 
-                c.characterCollider.SetMagnetActive(duration);
+                if (used == false)
+                {
+                    c.characterCollider.SetMagnetActive(duration);
+                    used = true;
+                }
 
 			}
 		}

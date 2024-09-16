@@ -8,6 +8,9 @@ public class FinishedScreen : MonoBehaviour
 
     [SerializeField] Leaderboard leaderboard;
 
+
+
+
     public void RunAgain()
     {
         if (gameoverState.gameObject.activeSelf == true)
@@ -43,10 +46,9 @@ public class FinishedScreen : MonoBehaviour
 
     public void OpenLeaderboard()
     {
-        //if (gameoverState.gameObject.activeSelf == true)
-        //{
-        gameoverState.OpenLeaderboard();
-        //}
+        
+            gameoverState.OpenLeaderboard();
+        
         //else if (winState.gameObject.activeSelf == true)
         //{
         //    winState.OpenLeaderboard();

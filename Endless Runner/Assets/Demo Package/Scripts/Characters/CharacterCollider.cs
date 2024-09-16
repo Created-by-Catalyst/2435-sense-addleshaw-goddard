@@ -209,13 +209,19 @@ public class CharacterCollider : MonoBehaviour
         }
     }
 
+
+    Coroutine magnetTimer;
+
     public void SetMagnetActive(float timer = k_DefaultInvinsibleTime)
     {
-        StartCoroutine(MagnetTimer(timer));
+        if(magnetTimer != null) StopCoroutine(magnetTimer);
+
+        magnetTimer = StartCoroutine(MagnetTimer(timer));
     }
 
     protected IEnumerator MagnetTimer(float timer)
     {
+        print("magnet active" + timer);
         controller.character._miniMesRoot.SetActive(true);
         yield return new WaitForSeconds(timer);
         controller.character._miniMesRoot.SetActive(false);
