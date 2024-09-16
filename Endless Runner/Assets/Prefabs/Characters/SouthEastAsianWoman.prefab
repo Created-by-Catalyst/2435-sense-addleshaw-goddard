@@ -1479,7 +1479,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 63fb556b8055ef74a9136a33bf996ac3,
         type: 3}
       propertyPath: m_Name
-      value: SEAsianWoman
+      value: SouthEastAsianWoman
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 63fb556b8055ef74a9136a33bf996ac3,
         type: 3}
@@ -1697,10 +1697,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 9128588266557269888}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 63fb556b8055ef74a9136a33bf996ac3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8963710108696847132}
   m_SourcePrefab: {fileID: 100100000, guid: 63fb556b8055ef74a9136a33bf996ac3, type: 3}
 --- !u!95 &2144302961323904976 stripped
 Animator:
@@ -1833,19 +1829,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &8963710108696847132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4641491952008302352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e38bebbdc31db468a604b05bd1d75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixerGroup: SFX
 --- !u!4 &5413947951103497642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 63fb556b8055ef74a9136a33bf996ac3,

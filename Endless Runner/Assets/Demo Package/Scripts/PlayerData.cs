@@ -376,9 +376,9 @@ public class PlayerData
 
         if (ver >= 9)
         {
-            masterVolume = r.ReadSingle();
-            musicVolume = r.ReadSingle();
-            masterSFXVolume = r.ReadSingle();
+            //masterVolume = r.ReadSingle();
+            //musicVolume = r.ReadSingle();
+            //masterSFXVolume = r.ReadSingle();
         }
 
         if (ver >= 10)

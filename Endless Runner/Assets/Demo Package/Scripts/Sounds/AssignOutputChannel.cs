@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 //as if we assign it in editor, a copy of the mixer will be added to the bundle and won't use the main mixer
 public class AssignOutputChannel : MonoBehaviour
 {
-    public string mixerGroup;
+    string mixerGroup = "SFXUnducked";
 
     private void Awake()
     {

@@ -46,11 +46,11 @@ AudioSource:
   m_GameObject: {fileID: 7642419282870080960}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243000013019083220, guid: 3b7e99a6684bf49fa9bad5f4bb585fab,
+  OutputAudioMixerGroup: {fileID: 243000013519457790, guid: 3b7e99a6684bf49fa9bad5f4bb585fab,
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.496
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactedSound: {fileID: 8300000, guid: 825072b53168750438921d86680fa0ef, type: 3}
+  patrollingObstacles: []
 --- !u!1001 &1911045064860941790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -209,6 +210,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ObstacleWarningSign (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688584906496542452, guid: fc2af17abed0c2744892f9a5f82b3df0,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688584906496542452, guid: fc2af17abed0c2744892f9a5f82b3df0,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -284,6 +295,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstaclePaperVortexPatrolling (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5972294205643785207, guid: 0bf43cfee8f55c24aaf3a2f394d5c86e,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.513
+      objectReference: {fileID: 0}
+    - target: {fileID: 5972294205643785207, guid: 0bf43cfee8f55c24aaf3a2f394d5c86e,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243000013519457790, guid: 3b7e99a6684bf49fa9bad5f4bb585fab,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -358,6 +380,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstaclePaperVortexPatrolling (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5972294205643785207, guid: 0bf43cfee8f55c24aaf3a2f394d5c86e,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.513
+      objectReference: {fileID: 0}
+    - target: {fileID: 5972294205643785207, guid: 0bf43cfee8f55c24aaf3a2f394d5c86e,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243000013519457790, guid: 3b7e99a6684bf49fa9bad5f4bb585fab,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -432,6 +465,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstaclePaperVortexPatrolling (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5972294205643785207, guid: 0bf43cfee8f55c24aaf3a2f394d5c86e,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.513
+      objectReference: {fileID: 0}
+    - target: {fileID: 5972294205643785207, guid: 0bf43cfee8f55c24aaf3a2f394d5c86e,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243000013519457790, guid: 3b7e99a6684bf49fa9bad5f4bb585fab,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

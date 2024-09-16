@@ -353,6 +353,8 @@ public class CharacterInputController : MonoBehaviour
 
         if (!m_Jumping)
         {
+            m_Audio.PlayOneShot(character.jumpSound);
+
             if (m_Sliding)
                 StopSliding();
 
@@ -369,7 +371,6 @@ public class CharacterInputController : MonoBehaviour
                 character._miniMeTwoAnimator.SetFloat(s_JumpingSpeedHash, animSpeed);
                 character._miniMeTwoAnimator.SetBool(s_JumpingHash, true);
             }
-            m_Audio.PlayOneShot(character.jumpSound);
             m_Jumping = true;
         }
     }

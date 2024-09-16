@@ -230,6 +230,11 @@ public class LoadoutState : AState
         else if (PlayerData.instance.usedCharacter < 0)
             PlayerData.instance.usedCharacter = PlayerData.instance.characters.Count - 1;
 
+        if(lobby.activeInHierarchy == true)
+        {
+            GetComponent<AudioSource>().Play();
+        }
+
         StartCoroutine(PopulateCharacters());
     }
 

@@ -1122,10 +1122,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4027043148690990991}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0a9ed53c581145d429e32a62f7189f92,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3302972951845788963}
   m_SourcePrefab: {fileID: 100100000, guid: 0a9ed53c581145d429e32a62f7189f92, type: 3}
 --- !u!95 &2308016570012331726 stripped
 Animator:
@@ -1264,19 +1260,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &3302972951845788963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9055688471569591822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e38bebbdc31db468a604b05bd1d75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixerGroup: SFX
 --- !u!1001 &8937493430543132365
 PrefabInstance:
   m_ObjectHideFlags: 0
