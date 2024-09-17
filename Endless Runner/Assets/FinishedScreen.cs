@@ -8,8 +8,15 @@ public class FinishedScreen : MonoBehaviour
 
     [SerializeField] Leaderboard leaderboard;
 
+    [SerializeField] AudioSource menuTheme;
 
-
+    void OnEnable()
+    {
+        //if (winState.gameObject.activeSelf == true)
+        //{
+        //    menuTheme.Play();
+        //}
+    }
 
     public void RunAgain()
     {

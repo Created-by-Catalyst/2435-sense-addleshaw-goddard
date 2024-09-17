@@ -77,6 +77,9 @@ public class GameState : AState
 
 
 
+    private int requiredCoins = 1000;
+
+
     public override void Enter(AState from)
     {
         trackManager.invincible = false;
@@ -145,8 +148,12 @@ public class GameState : AState
 
         trackManager.currentTime = 0;
 
+        PopUpMessages.Instance.DisplayMessage(tutorial);
+
         StartCoroutine(trackManager.Begin());
     }
+
+    public Sprite tutorial;
 
     public override string GetName()
     {
@@ -155,7 +162,6 @@ public class GameState : AState
 
     bool playerWon = false;
 
-    private int requiredCoins = 1000;
 
     public override void Tick()
     {

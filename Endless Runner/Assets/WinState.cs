@@ -83,11 +83,11 @@ public class WinState : AState
 
         CreditCoins();
 
-        if (MusicPlayer.instance.GetStem(0) != winTheme)
-        {
-            MusicPlayer.instance.SetStem(0, winTheme);
-            StartCoroutine(MusicPlayer.instance.RestartAllStems());
-        }
+        //if (MusicPlayer.instance.GetStem(0) != winTheme)
+        //{
+        //    MusicPlayer.instance.SetStem(0, winTheme);
+        //    StartCoroutine(MusicPlayer.instance.RestartAllStems());
+        //}
 
         OpenLeaderboard();
 

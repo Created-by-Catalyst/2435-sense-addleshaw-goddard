@@ -112,6 +112,7 @@ public class PopUpMessages : MonoBehaviour
         public Sprite life;
         public Sprite magnet;
         public Sprite speed;
+
     }
 }
 
