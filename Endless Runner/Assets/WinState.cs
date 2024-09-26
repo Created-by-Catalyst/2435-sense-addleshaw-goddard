@@ -1,7 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 #if UNITY_ANALYTICS
 using UnityEngine.Analytics;
 #endif
@@ -29,7 +28,7 @@ public class WinState : AState
 
     public GameObject addButton;
 
-    [SerializeField] InputField playerEntry;
+    [SerializeField] TMP_Text playerEntry;
     [SerializeField] TMP_Text playerEntryOnKeyboard;
     public void AddCharacter(string key)
     {
