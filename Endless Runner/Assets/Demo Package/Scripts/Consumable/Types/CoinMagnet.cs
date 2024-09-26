@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class CoinMagnet : Consumable
 {
@@ -30,6 +31,18 @@ public class CoinMagnet : Consumable
 
     protected Collider[] returnColls = new Collider[20];
 
+    public override void AddTime(CharacterInputController c)
+    {
+        base.AddTime(c);
+        c.characterCollider.SetMagnetActive(duration);
+    }
+
+    public override IEnumerator Started(CharacterInputController c)
+    {
+        yield return base.Started(c);
+        c.characterCollider.SetMagnetActive(duration);
+    }
+
     public override void Tick(CharacterInputController c)
     {
         base.Tick(c);
@@ -46,7 +59,7 @@ public class CoinMagnet : Consumable
                 c.characterCollider.magnetCoins.Add(returnColls[i].gameObject);
 
 
-                c.characterCollider.SetMagnetActive(duration);
+                //c.characterCollider.SetMagnetActive(duration);
 
 
             }

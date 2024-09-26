@@ -12355,6 +12355,7 @@ MonoBehaviour:
   faceCamCamera: {fileID: 1506958992}
   idleController: {fileID: 9100000, guid: 2b4c3f51202e0bc4aa250573388410ac, type: 2}
   charJobDisplay: {fileID: 1222452942}
+  charJobCopy: {fileID: 2085180280}
   charNameDisplay: {fileID: 520105014}
   charSelect: {fileID: 574961894}
   charPosition: {fileID: 764160786}
@@ -12382,6 +12383,16 @@ MonoBehaviour:
     legalEngineer: {fileID: 21300000, guid: 52b358d95996c414dac75c561349d207, type: 3}
     privateLawyer: {fileID: 21300000, guid: 443d134792ec0624784263f0cbb9190a, type: 3}
     consultant: {fileID: 21300000, guid: 9eb913d06302bb047a74bf79cb9ad0b4, type: 3}
+    inhouseLawyerCopy: {fileID: 21300000, guid: 8bc80e07aa577b249a34cc2114c8694e,
+      type: 3}
+    legalOpsCopy: {fileID: 21300000, guid: 8ce4ec85bcc811c4c9cf756f271f253b, type: 3}
+    innovationLeadCopy: {fileID: 21300000, guid: ab75b0576b5e51b4e9d2edab7f8b2628,
+      type: 3}
+    legalEngineerCopy: {fileID: 21300000, guid: 8e944e09d01b74144b3c26fdf553e974,
+      type: 3}
+    privateLawyerCopy: {fileID: 21300000, guid: 34a35b97b583b394fb28f8db2770e362,
+      type: 3}
+    consultantCopy: {fileID: 21300000, guid: a7b2bf9c564cced449c26069105fe67d, type: 3}
 --- !u!82 &869760750
 AudioSource:
   m_ObjectHideFlags: 0

@@ -106,8 +106,8 @@ public class CharacterCollider : MonoBehaviour
             magnetCoins[i].transform.position = Vector3.MoveTowards(magnetCoins[i].transform.position, transform.position, k_MagnetSpeed * Time.deltaTime);
         }
 
-        print("MAGNET IN PROGRESS" + magnetInProgress);
-        print("NEW MAGNET" + newMagnet);
+        print("MAGNETCOINS" + magnetCoins.Count);
+        //print("NEW MAGNET" + newMagnet);
 
     }
 
@@ -228,7 +228,7 @@ public class CharacterCollider : MonoBehaviour
         }
 
         print("magnet active" + timer);
-        magnetTimer = StartCoroutine(MagnetTimer(0.2f));
+        magnetTimer = StartCoroutine(MagnetTimer(timer));
     }
 
     protected IEnumerator MagnetTimer(float timer)

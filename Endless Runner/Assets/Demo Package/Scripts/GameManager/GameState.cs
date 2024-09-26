@@ -77,7 +77,8 @@ public class GameState : AState
 
 
 
-    private int requiredCoins = 10;
+    private int requiredCoins = 1000;
+
 
 
     public override void Enter(AState from)

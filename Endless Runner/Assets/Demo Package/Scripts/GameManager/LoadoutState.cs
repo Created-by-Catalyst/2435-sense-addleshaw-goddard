@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 //using UnityEditor.Animations;
 
@@ -40,6 +39,7 @@ public class LoadoutState : AState
 
     [Header("Char UI")]
     public Image charJobDisplay;
+    public Image charJobCopy;
     public Text charNameDisplay;
     public RectTransform charSelect;
     public Transform charPosition;
@@ -194,14 +194,14 @@ public class LoadoutState : AState
             bool interactable = ThemeDatabase.loaded && CharacterDatabase.loaded;
             if (interactable)
             {
-             //   Debug.Log("Total Characters in Database is " + CharacterDatabase.dictionary.Count);
-           ///     Debug.Log("Current Selected Character is  " + PlayerData.instance.characters[PlayerData.instance.usedCharacter]);
+                //   Debug.Log("Total Characters in Database is " + CharacterDatabase.dictionary.Count);
+                ///     Debug.Log("Current Selected Character is  " + PlayerData.instance.characters[PlayerData.instance.usedCharacter]);
 
                 //Add all available characters - once character database has been built <<<< !!!
-             //   foreach (KeyValuePair<string, Character> characterFromDatabase in CharacterDatabase.dictionary)
-             //   {
-            //        PlayerData.instance.AddCharacter(characterFromDatabase.Key);
-            //    }
+                //   foreach (KeyValuePair<string, Character> characterFromDatabase in CharacterDatabase.dictionary)
+                //   {
+                //        PlayerData.instance.AddCharacter(characterFromDatabase.Key);
+                //    }
 
                 runButton.interactable = true;
                 //runButton.GetComponentInChildren<Text>().text = "Run!";
@@ -211,8 +211,8 @@ public class LoadoutState : AState
             }
         }
 
-      //  if (m_Character != null)
-       //     m_Character.transform.Rotate(0, k_CharacterRotationSpeed * Time.deltaTime, 0, Space.Self);
+        //  if (m_Character != null)
+        //     m_Character.transform.Rotate(0, k_CharacterRotationSpeed * Time.deltaTime, 0, Space.Self);
 
         charSelect.gameObject.SetActive(PlayerData.instance.characters.Count > 1);
     }
@@ -230,7 +230,7 @@ public class LoadoutState : AState
         else if (PlayerData.instance.usedCharacter < 0)
             PlayerData.instance.usedCharacter = PlayerData.instance.characters.Count - 1;
 
-        if(lobby.activeInHierarchy == true)
+        if (lobby.activeInHierarchy == true)
         {
             GetComponent<AudioSource>().Play();
         }
@@ -276,7 +276,7 @@ public class LoadoutState : AState
         }
 
 
-       // skyMeshFilter.sharedMesh = t.skyMesh;
+        // skyMeshFilter.sharedMesh = t.skyMesh;
         UIGroundFilter.sharedMesh = t.UIGroundMesh;
     }
 
@@ -362,7 +362,7 @@ public class LoadoutState : AState
                     faceChar.gameObject.GetComponent<Animator>().runtimeAnimatorController = idleController;
 
 
-                    foreach(Transform transform in faceChar.transform.GetComponentsInChildren<Transform>())
+                    foreach (Transform transform in faceChar.transform.GetComponentsInChildren<Transform>())
                     {
 
                         if (transform.gameObject.name == "Head")
@@ -392,6 +392,14 @@ public class LoadoutState : AState
         public Sprite legalEngineer;
         public Sprite privateLawyer;
         public Sprite consultant;
+
+        public Sprite inhouseLawyerCopy;
+        public Sprite legalOpsCopy;
+        public Sprite innovationLeadCopy;
+        public Sprite legalEngineerCopy;
+        public Sprite privateLawyerCopy;
+        public Sprite consultantCopy;
+
     }
 
     [SerializeField] private JobTextures jobTextures;
@@ -402,22 +410,28 @@ public class LoadoutState : AState
         {
             case "South East Asian Woman":
                 charJobDisplay.sprite = jobTextures.inhouseLawyer;
+                charJobCopy.sprite = jobTextures.inhouseLawyerCopy;
                 break;
             case "Black Woman":
                 charJobDisplay.sprite = jobTextures.legalOps;
+                charJobCopy.sprite = jobTextures.legalOpsCopy;
                 break;
             case "White Man":
                 charJobDisplay.sprite = jobTextures.innovationLead;
+                charJobCopy.sprite = jobTextures.innovationLeadCopy;
                 break;
             case "Arab Man":
                 charJobDisplay.sprite = jobTextures.legalEngineer;
+                charJobCopy.sprite = jobTextures.legalEngineerCopy;
                 break;
             case "Non Binary Indian Asian":
                 charJobDisplay.sprite = jobTextures.privateLawyer;
+                charJobCopy.sprite = jobTextures.privateLawyerCopy;
                 break;
 
             default:
                 charJobDisplay.sprite = jobTextures.consultant;
+                charJobCopy.sprite = jobTextures.consultantCopy;
                 break;
         }
     }
