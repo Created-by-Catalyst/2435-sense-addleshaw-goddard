@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using System;
-using System.Collections;
+﻿using System.Collections;
 
 public class Invincibility : Consumable
 {
@@ -19,16 +17,23 @@ public class Invincibility : Consumable
         return 1500;
     }
 
-	public override int GetPremiumCost()
-	{
-		return 5;
-	}
+    public override int GetPremiumCost()
+    {
+        return 5;
+    }
 
-	public override void Tick(CharacterInputController c)
+    public override void Tick(CharacterInputController c)
     {
         base.Tick(c);
 
+        //c.characterCollider.SetInvincible(duration);
         c.characterCollider.SetInvincibleExplicit(true);
+    }
+
+    public override void AddTime(CharacterInputController c)
+    {
+        base.AddTime(c);
+        c.characterCollider.SetInvincible(duration);
     }
 
     public override IEnumerator Started(CharacterInputController c)

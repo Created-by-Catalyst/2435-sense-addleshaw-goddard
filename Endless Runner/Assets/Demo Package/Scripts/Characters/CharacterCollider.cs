@@ -105,6 +105,10 @@ public class CharacterCollider : MonoBehaviour
         {
             magnetCoins[i].transform.position = Vector3.MoveTowards(magnetCoins[i].transform.position, transform.position, k_MagnetSpeed * Time.deltaTime);
         }
+
+        print("MAGNET IN PROGRESS" + magnetInProgress);
+        print("NEW MAGNET" + newMagnet);
+
     }
 
     protected void OnTriggerEnter(Collider c)
@@ -212,35 +216,68 @@ public class CharacterCollider : MonoBehaviour
 
     Coroutine magnetTimer;
 
+    bool magnetInProgress = false;
+    bool newMagnet = false;
+
     public void SetMagnetActive(float timer = k_DefaultInvinsibleTime)
     {
-        if(magnetTimer != null) StopCoroutine(magnetTimer);
+        if (magnetTimer != null)
+        {
+            print("STOPPING TIMER");
+            StopCoroutine(magnetTimer);
+        }
 
-        magnetTimer = StartCoroutine(MagnetTimer(timer));
+        print("magnet active" + timer);
+        magnetTimer = StartCoroutine(MagnetTimer(0.2f));
     }
 
     protected IEnumerator MagnetTimer(float timer)
     {
-        print("magnet active" + timer);
+
+        //magnetInProgress = true;
+
         controller.character._miniMesRoot.SetActive(true);
+
+
         yield return new WaitForSeconds(timer);
+
         controller.character._miniMesRoot.SetActive(false);
+
+        //if (newMagnet == false)
+        //{
+        //    magnetInProgress = false;
+        //}
+        //else
+        //{
+        //    newMagnet = false;
+        //}
+
     }
 
-            public void SetInvincibleExplicit(bool invincible)
+    public void SetInvincibleExplicit(bool invincible)
     {
         m_Invincible = invincible;
+        print("INVINCIBLE explicit");
     }
 
+    Coroutine invincibleTimer;
     public void SetInvincible(float timer = k_DefaultInvinsibleTime)
     {
-        StartCoroutine(InvincibleTimer(timer));
+        if (invincibleTimer != null)
+        {
+            print("STOP INVINCIBLE");
+            StopCoroutine(invincibleTimer);
+        }
+
+
+        print("START INVINCIBLE");
+        invincibleTimer = StartCoroutine(InvincibleTimer(timer));
     }
 
     protected IEnumerator InvincibleTimer(float timer)
     {
         m_Invincible = true;
-        if(timer > 2) aiForcefield.SetActive(true);
+        if (timer > 2) aiForcefield.SetActive(true);
 
         float time = 0;
         float currentBlink = 1.0f;

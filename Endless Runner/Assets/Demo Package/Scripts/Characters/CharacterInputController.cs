@@ -167,7 +167,7 @@ public class CharacterInputController : MonoBehaviour
 
     }
 
-    
+
 
 
 
@@ -470,6 +470,7 @@ public class CharacterInputController : MonoBehaviour
             if (m_ActiveConsumables[i].GetType() == c.GetType())
             {
                 // If we already have an active consumable of that type, we just reset the time
+                c.AddTime(this);
                 m_ActiveConsumables[i].ResetTime();
                 Addressables.ReleaseInstance(c.gameObject);
                 return;
