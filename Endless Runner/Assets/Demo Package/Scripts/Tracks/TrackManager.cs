@@ -339,8 +339,8 @@ public class TrackManager : MonoBehaviour
     void Update()
     {
         //  print("Spawn Finish Line" + s_SpawnFinishLine);
-        //// if (Input.GetKeyDown(KeyCode.Alpha9))
-        //   s_SpawnFinishLine = true;
+         if (Input.GetKeyDown(KeyCode.Alpha9))
+           s_SpawnFinishLine = true;
 
         print("max" + maxSpeed);
 
@@ -672,7 +672,7 @@ public class TrackManager : MonoBehaviour
         if (UnityEngine.Random.Range(0, 8) > 1)
             if (!m_IsTutorial)
             {
-                const float increment = 1.5f;
+                const float increment = 3;
                 float currentWorldPos = 0.0f;
                 int currentLane = UnityEngine.Random.Range(0, 3);
 
@@ -710,6 +710,9 @@ public class TrackManager : MonoBehaviour
                         if (UnityEngine.Random.value < powerupChance)
                         {
                             int picked = UnityEngine.Random.Range(0, consumableDatabase.consumbales.Length);
+
+                            if (consumableDatabase.consumbales[picked].useInAllLanes == false)
+                                pos = new Vector3((consumableDatabase.consumbales[picked].onlyInLane) * laneOffset, pos.y, pos.z);
 
                             //if the powerup can't be spawned, we don't reset the time since powerup to continue to have a high chance of picking one next track segment
                             if (consumableDatabase.consumbales[picked].canBeSpawned)

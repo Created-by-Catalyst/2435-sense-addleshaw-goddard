@@ -49,7 +49,7 @@ public class PlayerData
     public List<HighscoreEntry> highscores = new List<HighscoreEntry>();
     public List<MissionBase> missions = new List<MissionBase>();
 
-    public string previousName = "Black Woman";
+    public string previousName = "Asics Avatar";
 
     public bool licenceAccepted;
     public bool tutorialDone;
@@ -248,13 +248,13 @@ public class PlayerData
         m_Instance.coins = 0;
         m_Instance.premium = 0;
 
-        m_Instance.characters.Add("White Man");
-        m_Instance.characters.Add("Arab Man");
-        m_Instance.characters.Add("Black Woman");
-        m_Instance.characters.Add("White Woman");
-        m_Instance.characters.Add("South East Asian Woman");
-        m_Instance.characters.Add("Non Binary Indian Asian");
-
+        //m_Instance.characters.Add("White Man");
+      //  m_Instance.characters.Add("Arab Man");
+      // // m_Instance.characters.Add("Black Woman");
+      //  m_Instance.characters.Add("White Woman");
+     //   m_Instance.characters.Add("South East Asian Woman");
+      //  m_Instance.characters.Add("Non Binary Indian Asian");
+        m_Instance.characters.Add("Asics Avatar");
 
 
         m_Instance.themes.Add("Day");

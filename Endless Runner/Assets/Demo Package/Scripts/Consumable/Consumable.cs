@@ -8,7 +8,8 @@ using UnityEngine.AddressableAssets;
 public abstract class Consumable : MonoBehaviour
 {
     public float duration;
-
+    public bool useInAllLanes = true;
+    public int onlyInLane = 0;
     public enum ConsumableType
     {
         NONE,
