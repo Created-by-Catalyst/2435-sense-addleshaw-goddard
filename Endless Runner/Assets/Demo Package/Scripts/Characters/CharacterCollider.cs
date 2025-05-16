@@ -277,7 +277,10 @@ public class CharacterCollider : MonoBehaviour
     protected IEnumerator InvincibleTimer(float timer)
     {
         m_Invincible = true;
-        if (timer > 2) aiForcefield.SetActive(true);
+        if (aiForcefield != null)
+        {
+            if (timer > 2) aiForcefield.SetActive(true);
+        }
 
         float time = 0;
         float currentBlink = 1.0f;
@@ -304,8 +307,8 @@ public class CharacterCollider : MonoBehaviour
 
         Shader.SetGlobalFloat(s_BlinkingValueHash, 0.0f);
 
-
-        aiForcefield.SetActive(false);
+        if (aiForcefield != null)
+            aiForcefield.SetActive(false);
         m_Invincible = false;
     }
 }

@@ -478,16 +478,16 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 440.52338, y: 440.52338, z: 440.52338, w: 0}
+      - m_Value: {x: 0.2104996, y: 0.54026747, z: 4.867144, w: 0}
         m_Name: TornadoCoreColour
         m_Overridden: 1
-      - m_Value: {x: 450.98138, y: 373.69055, z: 219.10889, w: 0}
+      - m_Value: {x: 1.1835355, y: 3.0376575, z: 27.365551, w: 0}
         m_Name: TornadoLayer1Colour
         m_Overridden: 1
-      - m_Value: {x: 78.663445, y: 83.80226, z: 82.517555, w: 0}
+      - m_Value: {x: 0.2104996, y: 0.54026747, z: 4.867144, w: 0}
         m_Name: TornadoLayer2Colour
         m_Overridden: 1
-      - m_Value: {x: 483.1991, y: 483.1991, z: 483.1991, w: 0}
+      - m_Value: {x: 1.1835355, y: 3.0376575, z: 27.365551, w: 0}
         m_Name: TornadoLayer3Colour
         m_Overridden: 1
     m_Uint:

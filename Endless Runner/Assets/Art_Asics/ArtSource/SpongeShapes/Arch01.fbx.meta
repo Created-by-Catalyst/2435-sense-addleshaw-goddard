@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Arch01_MAT
-    second: {fileID: 2100000, guid: 06cd09eeedc0e1e4d99b149da69d7f90, type: 2}
+    second: {fileID: 2100000, guid: df022334ad963f54391ff87943b5f703, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Sponge
-    second: {fileID: 2100000, guid: aa65fd534cdd2e14597e4d74a6a8c535, type: 2}
+    second: {fileID: 2100000, guid: 68f9b871c94b4a44d94229fda700a424, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

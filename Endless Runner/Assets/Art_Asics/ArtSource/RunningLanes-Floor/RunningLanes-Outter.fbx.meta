@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: RunningLanes-Outter_MAT
-    second: {fileID: 2100000, guid: 06cd09eeedc0e1e4d99b149da69d7f90, type: 2}
+    second: {fileID: 2100000, guid: df022334ad963f54391ff87943b5f703, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

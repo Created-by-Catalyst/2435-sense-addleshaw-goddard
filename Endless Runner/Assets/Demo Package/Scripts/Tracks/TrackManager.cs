@@ -253,8 +253,8 @@ public class TrackManager : MonoBehaviour
         m_CurrentZoneDistance = 0;
 
         skyMeshFilter.sharedMesh = m_CurrentThemeData.skyMesh;
-        RenderSettings.fogColor = m_CurrentThemeData.fogColor;
-        RenderSettings.fog = true;
+        //RenderSettings.fogColor = m_CurrentThemeData.fogColor;
+       // RenderSettings.fog = true;
 
         gameObject.SetActive(true);
         characterController.gameObject.SetActive(true);
