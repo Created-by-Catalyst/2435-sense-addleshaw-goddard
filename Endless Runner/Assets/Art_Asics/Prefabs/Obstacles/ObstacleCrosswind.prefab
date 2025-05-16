@@ -463,7 +463,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 0.81
+      - m_Value: 0.72
         m_Name: TornadoCoreDissolve
         m_Overridden: 1
       - m_Value: 0.96

@@ -23,6 +23,38 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+    - m_AssetGUID: c7f5dd004b4c7f34c8040caaa56d0a7b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 279c769517cfdff4ba47ca40c9fd41ba
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: abd9ecb40164c8147ab761fc8f103884
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: abd9ecb40164c8147ab761fc8f103884
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: abd9ecb40164c8147ab761fc8f103884
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: abd9ecb40164c8147ab761fc8f103884
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 45dce719b544103418e6cb6b4ee32f9a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 7242a8d374148484fa4e9096bf6463f2
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
   collectiblePrefab: {fileID: 6919264813653953470, guid: 70040b42756f34947b2fbc896c90bcb7,
     type: 3}
   premiumCollectible: {fileID: 6919264813653953470, guid: 70040b42756f34947b2fbc896c90bcb7,
@@ -31,9 +63,9 @@ MonoBehaviour:
   - {fileID: 1000012225143368, guid: 1225524528f67794ead226c3401f6bd6, type: 3}
   - {fileID: 1000012941456988, guid: e4217d014d522f94bb0a059a38e2cb14, type: 3}
   - {fileID: 1000013540275922, guid: 480053abe3ba0aa4883a1b63c0deee9d, type: 3}
-  cloudMinimumDistance: {x: 0, y: 10, z: 10}
-  cloudSpread: {x: 20, y: 1, z: 20}
-  cloudNumber: 20
+  cloudMinimumDistance: {x: 0, y: 20, z: 10}
+  cloudSpread: {x: 40, y: 2, z: 40}
+  cloudNumber: 30
   skyMesh: {fileID: 4300002, guid: 0fd40b0b70fef064c9b7e20779b1f8ec, type: 3}
   UIGroundMesh: {fileID: 4300000, guid: 28288b28edded764b843730ced06fb8c, type: 3}
   fogColor: {r: 0.86274517, g: 0.9725491, b: 1, a: 1}

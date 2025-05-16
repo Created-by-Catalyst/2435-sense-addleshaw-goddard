@@ -126,7 +126,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.6839622, g: 0.89897853, b: 1, a: 1}
     - _Color: {r: 0.6839622, g: 0.89897853, b: 1, a: 1}
-    - _Colour: {r: 0.68235296, g: 0.8980392, b: 1, a: 0}
+    - _Colour: {r: 0.050980393, g: 0.11764706, b: 0.38431373, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColour: {r: 0, g: 0, b: 0, a: 0}
     - _NormalsTiling: {r: 1, g: 1, b: 0, a: 0}

@@ -69,6 +69,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - characters
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7f5dd004b4c7f34c8040caaa56d0a7b
+    m_Address: Assets/Art_Asics/Prefabs/EnvironmentBundles/Asics-Segment02.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 279c769517cfdff4ba47ca40c9fd41ba
+    m_Address: Assets/Art_Asics/Prefabs/EnvironmentBundles/Asics-Segment03.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45dce719b544103418e6cb6b4ee32f9a
+    m_Address: Assets/Art_Asics/Prefabs/EnvironmentBundles/Asics-Segment04.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7242a8d374148484fa4e9096bf6463f2
+    m_Address: Assets/Art_Asics/Prefabs/EnvironmentBundles/Asics-Segment05.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 735e874f947d0e143a6b4e83f8a7283a, type: 2}
   m_SchemaSet:
