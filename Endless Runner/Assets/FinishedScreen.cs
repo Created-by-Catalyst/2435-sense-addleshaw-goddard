@@ -26,7 +26,7 @@ public class FinishedScreen : MonoBehaviour
         }
         else if (winState.gameObject.activeSelf == true)
         {
-            SaveNewScoreToFirebase();
+            //SaveNewScoreToFirebase();
             winState.RunAgain();
         }
     }
@@ -39,7 +39,7 @@ public class FinishedScreen : MonoBehaviour
         }
         else if (winState.gameObject.activeSelf == true)
         {
-            SaveNewScoreToFirebase();
+            //SaveNewScoreToFirebase();
             winState.GoToLoadout();
         }
     }
@@ -48,7 +48,7 @@ public class FinishedScreen : MonoBehaviour
 
     void SaveNewScoreToFirebase()
     {
-        FirebaseHandler.Instance.UploadScore(leaderboard.playerEntry.playerName.text, leaderboard.playerEntry.finalScore);
+        //FirebaseHandler.Instance.UploadScore(leaderboard.playerEntry.playerName.text, leaderboard.playerEntry.finalScore);
     }
 
     public void OpenLeaderboard()
