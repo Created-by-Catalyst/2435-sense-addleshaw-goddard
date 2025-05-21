@@ -455,6 +455,21 @@ public class CharacterInputController : MonoBehaviour
         }
     }
 
+    public void SetLane(int lane)
+    {
+        if (!m_IsRunning)
+            return;
+
+        int targetLane = lane;
+
+        if (targetLane < 0 || targetLane > 2)
+            // Ignore, we are on the borders.
+            return;
+
+        m_CurrentLane = targetLane;
+        m_TargetPosition = new Vector3((m_CurrentLane - 1) * trackManager.laneOffset, 0, 0);
+    }
+
     public void ChangeLane(int direction)
     {
         if (!m_IsRunning)
