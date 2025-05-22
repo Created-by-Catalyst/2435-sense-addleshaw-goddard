@@ -31676,9 +31676,9 @@ MonoBehaviour:
   finishLineSegment: {fileID: 3317869721621504086, guid: 0d1e26bba466ab64395b93403e8fc8e6,
     type: 3}
   characterController: {fileID: 2094493432}
-  minSpeed: 8
-  maxSpeed: 20
-  speedStep: 4
+  minSpeed: 6
+  maxSpeed: 12
+  speedStep: 6
   laneOffset: 2
   invincible: 1
   consumableDatabase: {fileID: 11400000, guid: b1d7db7e373aa4247a2f81cdbce898be, type: 2}

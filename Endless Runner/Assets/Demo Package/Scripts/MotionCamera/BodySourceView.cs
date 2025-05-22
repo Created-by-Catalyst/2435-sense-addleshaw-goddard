@@ -148,7 +148,7 @@ public class BodySourceView : MonoBehaviour
                     UpdateLane(2);
                     print("RIGHT");
                 }
-                else if (spine.position.x < laneWidth)
+                else if (spine.position.x < -laneWidth)
                 {
                     UpdateLane(0);
                     print("LEFT");
@@ -203,7 +203,7 @@ public class BodySourceView : MonoBehaviour
                 }
                 else if (isCrouching && diff > -crouchThreshold * 0.5f)
                 {
-
+                    //characterInputController.StopSliding();
                     lastCrouchTime = Time.time;
                     isCrouching = false;
                     //Debug.Log("Standing up.");

@@ -40,10 +40,10 @@ public class CharacterInputController : MonoBehaviour
     public bool isSliding { get { return m_Sliding; } }
 
     [Header("Controls")]
-    public float jumpLength = 2.0f;     // Distance jumped
-    public float jumpHeight = 1.2f;
+    public float jumpLength = 8.0f;     // Distance jumped
+    public float jumpHeight = 1.8f;
 
-    public float slideLength = 2.0f;
+    public float slideLength = 4.0f;
 
     [Header("Sounds")]
     public AudioClip slideSound;
@@ -297,7 +297,7 @@ public class CharacterInputController : MonoBehaviour
                 {
                     // Same as with the sliding, we want a fixed jump LENGTH not fixed jump TIME. Also, just as with sliding,
                     // we slightly modify length with speed to make it more playable.
-                    float correctJumpLength = jumpLength * (1.0f + trackManager.speedRatio);
+                    float correctJumpLength = jumpLength * (1.6f + trackManager.speedRatio);
                     float ratio = (trackManager.worldDistance - m_JumpStart) / correctJumpLength;
                     if (ratio >= 1.0f)
                     {
@@ -364,7 +364,7 @@ public class CharacterInputController : MonoBehaviour
             if (m_Sliding)
                 StopSliding();
 
-            float correctJumpLength = jumpLength * (1.0f + trackManager.speedRatio);
+            float correctJumpLength = jumpLength * (1.6f + trackManager.speedRatio);
             m_JumpStart = trackManager.worldDistance;
             float animSpeed = k_TrackSpeedToJumpAnimSpeedRatio * (trackManager.speed / correctJumpLength);
 
