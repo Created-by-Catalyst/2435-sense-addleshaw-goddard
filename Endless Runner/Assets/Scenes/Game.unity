@@ -31661,6 +31661,10 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  - m_AssetGUID: 55f6787ffa77e8946b52e7e7b58d80d7
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   - m_AssetGUID: 68f33b0bd85052646add095eb8b22904
     m_SubObjectName: 
     m_SubObjectType: 
@@ -31676,8 +31680,8 @@ MonoBehaviour:
   finishLineSegment: {fileID: 3317869721621504086, guid: 0d1e26bba466ab64395b93403e8fc8e6,
     type: 3}
   characterController: {fileID: 2094493432}
-  minSpeed: 6
-  maxSpeed: 12
+  minSpeed: 8
+  maxSpeed: 16
   speedStep: 6
   laneOffset: 2
   invincible: 1
@@ -31687,6 +31691,7 @@ MonoBehaviour:
   parallaxRatio: 0.8
   tutorialThemeData: {fileID: 11400000, guid: d2594127ff496284399060a56ff8ad68, type: 2}
   finishTimeStr: 
+  m_SafeSegementLeft: 0
   _flipSegmentScale: 0
   timerActive: 0
   currentTime: 0
@@ -32708,7 +32713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2036954777
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38133,8 +38138,8 @@ MonoBehaviour:
   character: {fileID: 0}
   characterCollider: {fileID: 1144878499}
   blobShadow: {fileID: 184212906}
-  laneChangeSpeed: 14
-  maxLife: 3
+  laneChangeSpeed: 25
+  maxLife: 1000
   inventory: {fileID: 0}
   jumpLength: 6
   jumpHeight: 0.8

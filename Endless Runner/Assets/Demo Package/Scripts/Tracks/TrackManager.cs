@@ -118,7 +118,7 @@ public class TrackManager : MonoBehaviour
 
     protected List<TrackSegment> m_Segments = new List<TrackSegment>();
     protected List<TrackSegment> m_PastSegments = new List<TrackSegment>();
-    protected int m_SafeSegementLeft;
+    public int m_SafeSegementLeft;
 
     protected ThemeData m_CurrentThemeData;
     protected int m_CurrentZone;
@@ -644,6 +644,9 @@ public class TrackManager : MonoBehaviour
     {
         if (possibleObstacles.Length != 0)
         {
+
+            print("SPAWN OBSTACLE");
+
             for (int i = 0; i < segment.obstaclePositions.Length; ++i)
             {
                 AssetReference assetRef = possibleObstacles[UnityEngine.Random.Range(0, possibleObstacles.Length)];
@@ -669,7 +672,7 @@ public class TrackManager : MonoBehaviour
 
     public IEnumerator SpawnCoinAndPowerup(TrackSegment segment)
     {
-        if (UnityEngine.Random.Range(0, 8) > 1)
+        if (UnityEngine.Random.Range(0, 18) > 1)
             if (!m_IsTutorial)
             {
                 const float increment = 3;

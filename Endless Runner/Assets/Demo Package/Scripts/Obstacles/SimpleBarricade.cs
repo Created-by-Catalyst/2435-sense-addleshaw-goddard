@@ -7,8 +7,9 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 public class SimpleBarricade : Obstacle
 {
     public bool _spawnOnMultipleLanes = true;
-    protected const int k_MinObstacleCount = 1;
-    protected const int k_MaxObstacleCount = 2;
+    public bool impassable = false;
+    protected int k_MinObstacleCount = 1;
+    protected const int k_MaxObstacleCount = 3;
     protected const int k_LeftMostLaneIndex = -1;
     protected const int k_RightMostLaneIndex = 1;
     
@@ -24,7 +25,19 @@ public class SimpleBarricade : Obstacle
         if (!_spawnOnMultipleLanes)
             maxcount = 1;
         else
-            maxcount = k_MaxObstacleCount;
+        {
+
+            if (impassable)
+            {
+                maxcount = 2;
+            }
+            else
+            {
+                k_MinObstacleCount = 2;
+                maxcount = k_MaxObstacleCount;
+            }
+        }
+
 
         int count = isTutorialFirst ? 1 : Random.Range(k_MinObstacleCount, maxcount + 1);
         int startLane = isTutorialFirst ? 0 : Random.Range(k_LeftMostLaneIndex, k_RightMostLaneIndex + 1);
@@ -33,6 +46,8 @@ public class SimpleBarricade : Obstacle
         Quaternion rotation;
         segment.GetPointAt(t, out position, out rotation);
 
+
+       
         for(int i = 0; i < count; ++i)
         {
             int lane = startLane + i;

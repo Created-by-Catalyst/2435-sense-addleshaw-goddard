@@ -280,6 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impactedSound: {fileID: 8300000, guid: 825072b53168750438921d86680fa0ef, type: 3}
   _spawnOnMultipleLanes: 1
+  impassable: 1
 --- !u!95 &3259924483027922942
 Animator:
   serializedVersion: 5
