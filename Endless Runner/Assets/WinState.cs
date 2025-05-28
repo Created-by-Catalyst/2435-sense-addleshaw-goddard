@@ -10,6 +10,8 @@ using UnityEngine.Analytics;
 /// </summary>
 public class WinState : AState
 {
+    public GameObject runInsights;
+
     public KeyboardManager onScreenKeyboard;
 
     public GameObject defaultLoadoutButton;
@@ -126,8 +128,17 @@ public class WinState : AState
         fullLeaderboard.Open();
     }
 
+
+    public void DelayedGoToLoadout()
+    {
+        runInsights.SetActive(true);
+        Invoke("GoToLoadout", 10f);
+    }
+
+
     public void GoToLoadout()
     {
+        runInsights.SetActive(false);
         trackManager.isRerun = false;
         manager.SwitchState("Loadout");
     }
