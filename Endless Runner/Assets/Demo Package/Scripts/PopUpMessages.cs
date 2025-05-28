@@ -66,13 +66,13 @@ public class PopUpMessages : MonoBehaviour
             case "ExtraLife":
                 DisplayMessage(popUpTextures.life);
                 break;
-            case "Invincibility":
+            case "GoFurther-Invincibility":
                 DisplayMessage(popUpTextures.ai);
                 break;
             case "ScoreMultiplier":
                 DisplayMessage(popUpTextures.multiplier);
                 break;
-            case "SpeedIncrease":
+            case "GoFaster-SpeedInc":
                 DisplayMessage(popUpTextures.speed);
                 break;
             case "Resource":
