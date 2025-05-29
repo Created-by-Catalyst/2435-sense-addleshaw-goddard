@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 615346148456401094}
   - component: {fileID: 82449939795409321}
   - component: {fileID: 6062421589153209898}
+  - component: {fileID: 9222200503461995110}
   m_Layer: 8
   m_Name: AsicsToken
   m_TagString: Untagged
@@ -68,6 +69,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPremium: 0
+--- !u!95 &9222200503461995110
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919264813653953470}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3b2dd32375313df4a97536a33789dbc1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &151507819290969780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109,22 +131,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 53a8350acfd46174997f2f3117538d56,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53a8350acfd46174997f2f3117538d56,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00000003774895
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53a8350acfd46174997f2f3117538d56,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53a8350acfd46174997f2f3117538d56,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53a8350acfd46174997f2f3117538d56,
         type: 3}
@@ -134,13 +156,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 53a8350acfd46174997f2f3117538d56,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 53a8350acfd46174997f2f3117538d56,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 53a8350acfd46174997f2f3117538d56,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 05735ba94c0e2d4418cb7fe276639602, type: 2}
     - target: {fileID: -7511558181221131132, guid: 53a8350acfd46174997f2f3117538d56,
         type: 3}
       propertyPath: m_Materials.Array.data[1]

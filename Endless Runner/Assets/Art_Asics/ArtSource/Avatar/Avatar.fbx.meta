@@ -19,6 +19,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: AsicsAvatar-Shoes_MAT
     second: {fileID: 2100000, guid: 4d0f89b36ade5ab4aa421930fd99d1b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u6750\u8D28.019"
+    second: {fileID: 2100000, guid: c4e1bd0c4f9a8b149a3a9f7c13bf6e1b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
