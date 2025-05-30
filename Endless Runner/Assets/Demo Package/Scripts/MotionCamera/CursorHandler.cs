@@ -8,6 +8,9 @@ public class CursorHandler : MonoBehaviour
 
     [SerializeField] private Slider progressBar;
 
+
+    public BodySourceView bodySourceView;
+
     private RectTransform targetRectTransform;
 
 

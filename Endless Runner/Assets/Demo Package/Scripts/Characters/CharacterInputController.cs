@@ -195,6 +195,14 @@ public class CharacterInputController : MonoBehaviour
         return (!TrackManager.instance.isTutorial || currentTutorialLevel >= tutorialLevel);
     }
 
+
+    private int lastLane = 0;
+    private float lastChangeTime = 0f;
+
+    public float timeInLeftLane = 0f;
+    private float timeInMidLane = 0f;
+    public float timeInRightLane = 0f;
+
     protected void Update()
     {
         if (!_isVictory)
@@ -275,6 +283,28 @@ public class CharacterInputController : MonoBehaviour
 			}
         }
 #endif
+
+
+
+            if(m_CurrentLane == 0)
+            {
+                timeInLeftLane += Time.time;
+                print("left" + timeInLeftLane);
+            }
+
+            if (m_CurrentLane == 2)
+            {
+                timeInRightLane += Time.time;
+                print("right" + timeInRightLane);
+
+            }
+
+
+
+
+
+
+
 
             Vector3 verticalTargetPosition = m_TargetPosition;
 
@@ -359,6 +389,7 @@ public class CharacterInputController : MonoBehaviour
 
         if (!m_Jumping)
         {
+            characterCollider.SetJumpInvincibleCustom(0.1f);
             m_Audio.PlayOneShot(character.jumpSound);
 
             if (m_Sliding)

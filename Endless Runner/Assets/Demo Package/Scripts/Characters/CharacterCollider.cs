@@ -254,6 +254,23 @@ public class CharacterCollider : MonoBehaviour
 
     }
 
+
+    public void SetJumpInvincibleCustom(float time)
+    {
+
+        if (m_Invincible == true) return;
+
+        if (invincibleTimer != null)
+        {
+            print("STOP INVINCIBLE");
+            StopCoroutine(invincibleTimer);
+        }
+
+
+        print("START INVINCIBLE");
+        invincibleTimer = StartCoroutine(InvincibleTimer(time));
+    }
+
     public void SetInvincibleExplicit(bool invincible)
     {
         m_Invincible = invincible;

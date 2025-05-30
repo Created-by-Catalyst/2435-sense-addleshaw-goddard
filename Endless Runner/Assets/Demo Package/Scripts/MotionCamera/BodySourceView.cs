@@ -7,7 +7,7 @@ using System.Buffers.Text;
 
 public class BodySourceView : MonoBehaviour
 {
-    [SerializeField] RectTransform cursor;
+    //[SerializeField] RectTransform cursor;
     [SerializeField] CharacterInputController characterInputController;
     public BodySourceManager mBodySourceManager;
     public GameObject mJointObject;
@@ -15,7 +15,7 @@ public class BodySourceView : MonoBehaviour
     private Dictionary<ulong, GameObject> mBodies = new Dictionary<ulong, GameObject>();
 
     private bool isJumping = false;
-    private float jumpThreshold = 1f; // Adjust based on your needs
+    private float jumpThreshold = 0.9f; // Adjust based on your needs
     private float groundedThreshold = 0.05f;
     private float baselineY; // baseline Y when standing
 
@@ -48,16 +48,27 @@ public class BodySourceView : MonoBehaviour
 
         if (data == null) return;
 
-        List<ulong> trackedIds = new List<ulong>();
 
-        foreach(var body in data)
+        Body firstTrackedBody = null;
+
+
+        foreach (var body in data)
         {
-            if (body == null)
-                continue;
-
-            if (body.IsTracked)
-                trackedIds.Add(body.TrackingId);
+            if (body != null && body.IsTracked)
+            {
+                float distance = body.Joints[JointType.SpineBase].Position.Z;
+                if (distance <= 3f) // 3 meters from the sensor
+                {
+                    firstTrackedBody = body;
+                    break;
+                }
+            }
         }
+
+        if (firstTrackedBody == null) return;
+
+        List<ulong> trackedIds = new List<ulong> { firstTrackedBody.TrackingId };
+
         #endregion
 
         #region Delete Kinect Data
@@ -76,18 +87,12 @@ public class BodySourceView : MonoBehaviour
         #endregion
 
         #region Create Kinect Bodies
-        foreach(var body in data)
+        if (!mBodies.ContainsKey(firstTrackedBody.TrackingId))
         {
-            if (body == null)
-                continue;
-
-            if(body.IsTracked)
-            {
-                if (!mBodies.ContainsKey(body.TrackingId)) mBodies[body.TrackingId] = CreateBodyObject(body.TrackingId);
-
-                UpdateBodyObject(body, mBodies[body.TrackingId]);
-            }
+            mBodies[firstTrackedBody.TrackingId] = CreateBodyObject(firstTrackedBody.TrackingId);
         }
+
+        UpdateBodyObject(firstTrackedBody, mBodies[firstTrackedBody.TrackingId]);
         #endregion
     }
 
@@ -119,6 +124,8 @@ public class BodySourceView : MonoBehaviour
     float laneWidth = 2.5f;
 
 
+    public Vector3 cursorPosition = Vector3.zero;
+
     private void UpdateBodyObject(Body body, GameObject bodyObject)
     {
         foreach (JointType _joint in _joints)
@@ -135,7 +142,7 @@ public class BodySourceView : MonoBehaviour
             {
                 Vector3 rightHandAdjustedPosition = jointObject.localPosition * 150;
 
-                cursor.localPosition = rightHandAdjustedPosition;
+                cursorPosition = rightHandAdjustedPosition;
 
             }
 

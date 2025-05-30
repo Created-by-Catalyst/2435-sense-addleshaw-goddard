@@ -10,9 +10,15 @@ using UnityEngine.Analytics;
 /// </summary>
 public class WinState : AState
 {
+
+    public TMP_Text goFasterText;
+    public TMP_Text goFurtherText;
+
     public GameObject runInsights;
 
     public KeyboardManager onScreenKeyboard;
+
+    public CursorHandler cursor;
 
     public GameObject defaultLoadoutButton;
 
@@ -36,6 +42,7 @@ public class WinState : AState
     {
         if (key == "Enter")
         {
+            cursor.gameObject.SetActive(false);
             onScreenKeyboard.gameObject.SetActive(false);
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(entryFinishedLoadoutButton);
@@ -62,6 +69,7 @@ public class WinState : AState
         //GameManager.instance.SetSelectedUIElement(defaultLoadoutButton);
 
         onScreenKeyboard.gameObject.SetActive(true);
+        cursor.gameObject.SetActive(true);
 
         gameOverState.gameObject.SetActive(false);
         gameObject.SetActive(true);
@@ -131,6 +139,24 @@ public class WinState : AState
 
     public void DelayedGoToLoadout()
     {
+        float timeInFurther = trackManager.characterController.timeInLeftLane;
+        float timeInFaster = trackManager.characterController.timeInRightLane;
+
+        float total = timeInFaster + timeInFurther;
+
+        float furtherPercent =  Mathf.Round((timeInFurther / total) * 100f);
+        float fasterPercent = Mathf.Round((timeInFaster / total) * 100f);
+
+        print($"{timeInFurther} \n {timeInFaster} \n {total} \n {furtherPercent} \n {fasterPercent}");
+
+
+        goFurtherText.text = $"You chose  <b>{furtherPercent}%</b> GO FURTHER, \r\npowered by <b>GEL-NIMBUS 27</b>";
+
+        goFasterText.text = $"You chose <b>{fasterPercent}%</b> GO FASTER, \r\npowered by <b>NOVABLAST 5</b>";
+
+
+
+
         runInsights.SetActive(true);
         Invoke("GoToLoadout", 10f);
     }
