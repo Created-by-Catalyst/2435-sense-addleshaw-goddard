@@ -8,7 +8,7 @@ using UnityEngine.AddressableAssets;
 /// </summary>
 public class CharacterInputController : MonoBehaviour
 {
-    [SerializeField] GameObject windTrails;
+    [SerializeField] WindTrails windTrails;
 
     static int s_DeadHash = Animator.StringToHash("Dead");
     static int s_RunStartHash = Animator.StringToHash("runStart");
@@ -579,7 +579,7 @@ public class CharacterInputController : MonoBehaviour
     {
         StartCoroutine(SpeedUpTimer(timer));
         if (windTrails != null)
-            windTrails.SetActive(true);
+            windTrails.ToggleWindTrails(true);
     }
 
     protected IEnumerator SpeedUpTimer(float timer)
@@ -605,8 +605,6 @@ public class CharacterInputController : MonoBehaviour
         if (trackManager.speed > trackManager.maxSpeed) trackManager.speed = trackManager.maxSpeed;
 
         m_SpedUp = false;
-        if (windTrails != null && windTrails.activeInHierarchy)
-            windTrails.SetActive(false);
     }
 
 }
