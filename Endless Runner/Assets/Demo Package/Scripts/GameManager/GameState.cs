@@ -77,7 +77,7 @@ public class GameState : AState
 
 
 
-    private int requiredCoins = 10;
+    private int requiredCoins = 500;
 
 
 

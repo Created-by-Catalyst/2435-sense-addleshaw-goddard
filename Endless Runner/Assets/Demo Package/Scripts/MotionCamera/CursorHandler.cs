@@ -28,6 +28,7 @@ public class CursorHandler : MonoBehaviour
     {
         Button overlappingButton = GetOverlappingButton();
 
+        if(gameObject.activeInHierarchy) transform.localPosition = bodySourceView.cursorPosition;
 
 
         if (overlappingButton != currentOverlappingButton)
@@ -51,11 +52,23 @@ public class CursorHandler : MonoBehaviour
             {
                 // Still overlapping after 2 seconds — trigger the button
                 currentOverlappingButton.onClick.Invoke();
-                currentOverlappingButton.GetComponent<CustomButtonFunctions>().ButtonPressFinish();
+
+                var buttonFunctions = currentOverlappingButton.GetComponent<CustomButtonFunctions>();
+                if (buttonFunctions != null)
+                {
+
+                    currentOverlappingButton.GetComponent<CustomButtonFunctions>().ButtonPressFinish();
+                }
+
                 Debug.Log($"Triggered button: {currentOverlappingButton.name}");
                 buttonAlreadyTriggered = true;
 
-                overlapStartTime = (currentOverlappingButton != null) ? Time.time : -1f;
+                overlapStartTime = Time.time;
+
+
+
+
+                progressBar.value = 0;
 
             }
         }
