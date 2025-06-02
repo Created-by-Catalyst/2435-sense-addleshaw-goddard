@@ -20,7 +20,7 @@ public struct HighscoreEntry : System.IComparable<HighscoreEntry>
     public int CompareTo(HighscoreEntry other)
     {
         // We want to sort from highest to lowest, so inverse the comparison.
-        return other.finalScore.CompareTo(finalScore);
+        return finalScore.CompareTo(other.finalScore);
     }
 }
 

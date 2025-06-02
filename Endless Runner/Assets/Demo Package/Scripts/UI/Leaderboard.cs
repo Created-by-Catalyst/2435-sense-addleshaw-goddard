@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 // Prefill the info on the player data, as they will be used to populate the leadboard.
 public class Leaderboard : MonoBehaviour
@@ -68,7 +69,13 @@ public class Leaderboard : MonoBehaviour
                 hs.gameObject.SetActive(true);
                 hs.playerName.text = PlayerData.instance.highscores[currentHighScore].name;
                 hs.number.text = (localStart + i + 1).ToString();
-                hs.finishTimeText.text = PlayerData.instance.highscores[currentHighScore].finalScore.ToString() /*$"{PlayerData.instance.highscores[currentHighScore].finishTime.Minutes.ToString()} : {PlayerData.instance.highscores[currentHighScore].finishTime.Seconds.ToString()}"*/;
+
+
+                TimeSpan finaltime = TimeSpan.FromSeconds(PlayerData.instance.highscores[currentHighScore].finalScore);
+
+                
+
+                hs.finishTimeText.text = string.Format("{0:D2}:{1:D2}", finaltime.Minutes, finaltime.Seconds); /*$"{PlayerData.instance.highscores[currentHighScore].finishTime.Minutes.ToString()} : {PlayerData.instance.highscores[currentHighScore].finishTime.Seconds.ToString()}"*/;
 
                 currentHighScore++;
             }

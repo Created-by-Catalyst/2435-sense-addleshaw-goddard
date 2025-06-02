@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 #if UNITY_ANALYTICS
@@ -84,10 +85,15 @@ public class WinState : AState
 
         //Total score + remaining health - time taken
 
-        totalScore = Mathf.Clamp((3000 - ((int)trackManager.finishTime.TotalSeconds * 13)) + (trackManager.characterController.currentLife * 40), 0, 5000);
+        totalScore = (int)trackManager.finishTime.TotalSeconds;
 
         miniLeaderboard.playerEntry.finalScore = totalScore;
-        miniLeaderboard.playerEntry.finishTimeText.text = miniLeaderboard.playerEntry.finalScore.ToString();
+
+
+        TimeSpan finaltime = TimeSpan.FromSeconds(miniLeaderboard.playerEntry.finalScore);
+
+        miniLeaderboard.playerEntry.finishTimeText.text = string.Format("{0:D2}:{1:D2}", finaltime.Minutes, finaltime.Seconds);
+
         miniLeaderboard.Populate();
 
         CreditCoins();
@@ -131,7 +137,10 @@ public class WinState : AState
         fullLeaderboard.displayPlayer = true;
         fullLeaderboard.playerEntry.playerName.text = miniLeaderboard.playerEntry.inputName.text;
         fullLeaderboard.playerEntry.finalScore = totalScore;
-        fullLeaderboard.playerEntry.finishTimeText.text = fullLeaderboard.playerEntry.finalScore.ToString();
+
+        TimeSpan finaltime = TimeSpan.FromSeconds(fullLeaderboard.playerEntry.finalScore);
+
+        fullLeaderboard.playerEntry.finishTimeText.text = string.Format("{0:D2}:{1:D2}", finaltime.Minutes, finaltime.Seconds);
 
         fullLeaderboard.Open();
     }
@@ -226,6 +235,8 @@ public class WinState : AState
         {
             PlayerData.instance.previousName = miniLeaderboard.playerEntry.inputName.text;
         }
+
+
 
         PlayerData.instance.InsertScore(miniLeaderboard.playerEntry.finalScore, miniLeaderboard.playerEntry.inputName.text);
 
