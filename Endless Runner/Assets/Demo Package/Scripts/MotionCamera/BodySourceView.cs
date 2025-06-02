@@ -128,6 +128,32 @@ public class BodySourceView : MonoBehaviour
 
     private void UpdateBodyObject(Body body, GameObject bodyObject)
     {
+
+
+        Vector3 rightHandPos = GetVector3FromJoint(body.Joints[JointType.HandRight]);
+        Vector3 leftHandPos = GetVector3FromJoint(body.Joints[JointType.HandLeft]);
+        Vector3 selectedHand;
+        Vector3 handAdjustedPosition;
+
+        if (rightHandPos.z < leftHandPos.z)
+        {
+            selectedHand = rightHandPos;
+        }
+        else
+        {
+            selectedHand = leftHandPos;
+        }
+
+        handAdjustedPosition = selectedHand;
+
+        handAdjustedPosition.z = 0;
+        handAdjustedPosition.y -= 4;
+        handAdjustedPosition *= 90;
+
+        print("hand pos " + handAdjustedPosition);
+        cursorPosition = handAdjustedPosition;
+
+
         foreach (JointType _joint in _joints)
         {
             Joint sourceJoint = body.Joints[_joint];
@@ -138,13 +164,6 @@ public class BodySourceView : MonoBehaviour
             Transform jointObject = bodyObject.transform.Find(_joint.ToString());
                 jointObject.position = targetPosition;
 
-            if(jointObject.name == "HandRight")
-            {
-                Vector3 rightHandAdjustedPosition = jointObject.localPosition * 150;
-
-                cursorPosition = rightHandAdjustedPosition;
-
-            }
 
             if(jointObject.name == "SpineBase")
             {
