@@ -143,6 +143,7 @@ public class CharacterCollider : MonoBehaviour
                 {
                     if (_aiForcefieldAnimator != null)
                         _aiForcefieldAnimator.SetTrigger("Pulse");
+                    c.enabled = false;
                     c.GetComponent<Animator>().SetTrigger("Dissolve");
                 }
                 else
