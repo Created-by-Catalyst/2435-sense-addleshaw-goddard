@@ -134,6 +134,7 @@ public class TrackManager : MonoBehaviour
     Vector3 m_CameraOriginalPos = Vector3.zero;
     Vector3 m_CameraOriginalRot = Vector3.zero;
     Vector3 _cameraGamePosition = new Vector3(0, 3, -3.2f);
+    Vector3 _cameraGameRotation = new Vector3(8.827f, 3.27f, 0);
     private Animator _cameraAnimator;
 
     const float k_FloatingOriginThreshold = 10000f;
@@ -243,6 +244,7 @@ public class TrackManager : MonoBehaviour
         player.transform.SetParent(characterController.characterCollider.transform, false);
         Camera.main.transform.SetParent(characterController.transform, true);
         Camera.main.transform.position = _cameraGamePosition;
+        Camera.main.transform.eulerAngles = _cameraGameRotation;
 
         if (m_IsTutorial)
             m_CurrentThemeData = tutorialThemeData;
