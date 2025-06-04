@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
-using System;
-using Unity.VisualScripting.FullSerializer;
 
 
 #if UNITY_ANALYTICS
@@ -249,11 +247,11 @@ public class PlayerData
         m_Instance.premium = 0;
 
         //m_Instance.characters.Add("White Man");
-      //  m_Instance.characters.Add("Arab Man");
-      // // m_Instance.characters.Add("Black Woman");
-      //  m_Instance.characters.Add("White Woman");
-     //   m_Instance.characters.Add("South East Asian Woman");
-      //  m_Instance.characters.Add("Non Binary Indian Asian");
+        //  m_Instance.characters.Add("Arab Man");
+        // // m_Instance.characters.Add("Black Woman");
+        //  m_Instance.characters.Add("White Woman");
+        //   m_Instance.characters.Add("South East Asian Woman");
+        //  m_Instance.characters.Add("Non Binary Indian Asian");
         m_Instance.characters.Add("Asics Avatar");
 
 
@@ -438,7 +436,7 @@ public class PlayerData
         w.Write(highscores.Count);
         for (int i = 0; i < highscores.Count; ++i)
         {
-            Debug.Log("Save highscore: name-" + highscores[i].name + " score-" + highscores[i].finalScore);
+            //Debug.Log("Save highscore: name-" + highscores[i].name + " score-" + highscores[i].finalScore);
 
             w.Write(highscores[i].name);
             w.Write(highscores[i].finalScore);

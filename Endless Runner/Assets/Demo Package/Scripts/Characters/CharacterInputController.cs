@@ -196,11 +196,8 @@ public class CharacterInputController : MonoBehaviour
     }
 
 
-    private int lastLane = 0;
-    private float lastChangeTime = 0f;
 
     public float timeInLeftLane = 0f;
-    private float timeInMidLane = 0f;
     public float timeInRightLane = 0f;
 
     protected void Update()
@@ -286,7 +283,7 @@ public class CharacterInputController : MonoBehaviour
 
 
 
-            if(m_CurrentLane == 0)
+            if (m_CurrentLane == 0)
             {
                 timeInLeftLane += Time.time;
                 print("left" + timeInLeftLane);

@@ -254,7 +254,7 @@ public class TrackManager : MonoBehaviour
 
         skyMeshFilter.sharedMesh = m_CurrentThemeData.skyMesh;
         //RenderSettings.fogColor = m_CurrentThemeData.fogColor;
-       // RenderSettings.fog = true;
+        // RenderSettings.fog = true;
 
         gameObject.SetActive(true);
         characterController.gameObject.SetActive(true);
@@ -339,8 +339,8 @@ public class TrackManager : MonoBehaviour
     void Update()
     {
         //  print("Spawn Finish Line" + s_SpawnFinishLine);
-         if (Input.GetKeyDown(KeyCode.Alpha9))
-           s_SpawnFinishLine = true;
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+            s_SpawnFinishLine = true;
 
         print("max" + maxSpeed);
 
@@ -360,9 +360,10 @@ public class TrackManager : MonoBehaviour
         {
             currentTime += Time.deltaTime;
 
+
             finishTime = TimeSpan.FromSeconds(currentTime);
 
-            finishTimeStr = $"{finishTime.Minutes.ToString()} : {finishTime.Seconds.ToString()}";
+            finishTimeStr = string.Format("{0:D2}:{1:D2}", finishTime.Minutes, finishTime.Seconds);
         }
 
 
@@ -645,7 +646,7 @@ public class TrackManager : MonoBehaviour
         if (possibleObstacles.Length != 0)
         {
 
-            print("SPAWN OBSTACLE");
+            //print("SPAWN OBSTACLE");
 
             for (int i = 0; i < segment.obstaclePositions.Length; ++i)
             {

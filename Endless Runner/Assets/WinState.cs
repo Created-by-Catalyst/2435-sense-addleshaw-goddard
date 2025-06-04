@@ -43,10 +43,15 @@ public class WinState : AState
     {
         if (key == "Enter")
         {
-            cursor.gameObject.SetActive(false);
-            onScreenKeyboard.gameObject.SetActive(false);
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(entryFinishedLoadoutButton);
+            if (playerEntry.text.Length > 0)
+            {
+                cursor.gameObject.SetActive(false);
+                onScreenKeyboard.gameObject.SetActive(false);
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(entryFinishedLoadoutButton);
+
+                DelayedGoToLoadout();
+            }
         }
         else if (key == "Back")
         {
@@ -112,6 +117,9 @@ public class WinState : AState
 
         playerEntry.text = "";
         playerEntryOnKeyboard.text = playerEntry.text;
+
+
+        fullLeaderboard.MoveToFinished();
     }
 
     public override void Exit(AState to)
@@ -119,6 +127,7 @@ public class WinState : AState
         onScreenKeyboard.gameObject.SetActive(false);
         canvas.gameObject.SetActive(false);
         FinishRun();
+        fullLeaderboard.MoveToMain();
     }
 
     public override string GetName()
@@ -153,7 +162,7 @@ public class WinState : AState
 
         float total = timeInFaster + timeInFurther;
 
-        float furtherPercent =  Mathf.Round((timeInFurther / total) * 100f);
+        float furtherPercent = Mathf.Round((timeInFurther / total) * 100f);
         float fasterPercent = Mathf.Round((timeInFaster / total) * 100f);
 
         print($"{timeInFurther} \n {timeInFaster} \n {total} \n {furtherPercent} \n {fasterPercent}");
@@ -163,6 +172,9 @@ public class WinState : AState
 
         goFasterText.text = $"You chose <b>{fasterPercent}%</b> GO FASTER, \r\npowered by <b>NOVABLAST 5</b>";
 
+
+        trackManager.characterController.timeInRightLane = 0;
+        trackManager.characterController.timeInLeftLane = 0;
 
 
 
@@ -176,6 +188,7 @@ public class WinState : AState
         runInsights.SetActive(false);
         trackManager.isRerun = false;
         manager.SwitchState("Loadout");
+
     }
 
     public void RunAgain()

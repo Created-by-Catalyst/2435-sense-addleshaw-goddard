@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CursorHandler : MonoBehaviour
 {
+
+
 
     [SerializeField] private Slider progressBar;
 
@@ -28,7 +29,7 @@ public class CursorHandler : MonoBehaviour
     {
         Button overlappingButton = GetOverlappingButton();
 
-        if(gameObject.activeInHierarchy) transform.localPosition = bodySourceView.cursorPosition;
+        // if (gameObject.activeInHierarchy) transform.localPosition = bodySourceView.cursorPosition;
 
 
         if (overlappingButton != currentOverlappingButton)
@@ -60,13 +61,10 @@ public class CursorHandler : MonoBehaviour
                     currentOverlappingButton.GetComponent<CustomButtonFunctions>().ButtonPressFinish();
                 }
 
-                Debug.Log($"Triggered button: {currentOverlappingButton.name}");
+                //Debug.Log($"Triggered button: {currentOverlappingButton.name}");
                 buttonAlreadyTriggered = true;
 
                 overlapStartTime = Time.time;
-
-
-
 
                 progressBar.value = 0;
 
@@ -79,6 +77,8 @@ public class CursorHandler : MonoBehaviour
         Rect targetRect = GetWorldRect(targetRectTransform);
         Button[] allButtons = FindObjectsOfType<Button>();
 
+        int numberOfSelectedButtons = 0;
+
         foreach (Button button in allButtons)
         {
             RectTransform btnRect = button.GetComponent<RectTransform>();
@@ -86,8 +86,17 @@ public class CursorHandler : MonoBehaviour
 
             if (targetRect.Overlaps(buttonRect))
             {
+                numberOfSelectedButtons++;
+                button.Select();
+
                 return button;
             }
+
+        }
+
+        if (numberOfSelectedButtons == 0)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
         }
 
         return null;

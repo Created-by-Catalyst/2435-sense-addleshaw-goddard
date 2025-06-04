@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -87,7 +83,7 @@ public class PopUpMessages : MonoBehaviour
     public void DisplayMessage(Sprite texture)
     {
 
-        print("attempt display");
+        //print("attempt display");
 
         messageImage.sprite = texture;
 

@@ -77,7 +77,7 @@ public class GameState : AState
 
 
 
-    private int requiredCoins = 500;
+    private int requiredCoins = 3;
 
 
 
@@ -336,7 +336,20 @@ public class GameState : AState
         if (trackManager.timeToStart >= 0)
         {
             countdownText.gameObject.SetActive(true);
-            countdownText.text = Mathf.Ceil(trackManager.timeToStart).ToString();
+
+            if (Mathf.Ceil(trackManager.timeToStart) == 1)
+            {
+                countdownText.text = "GO!";
+            }
+            else
+            {
+                countdownText.text = Mathf.Ceil(trackManager.timeToStart - 1).ToString();
+            }
+
+
+
+
+
             m_CountdownRectTransform.localScale = Vector3.one * (1.0f - (trackManager.timeToStart - Mathf.Floor(trackManager.timeToStart)));
         }
         else

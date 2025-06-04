@@ -1,9 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using Windows.Kinect;
 using Joint = Windows.Kinect.Joint;
-using System.Buffers.Text;
 
 public class BodySourceView : MonoBehaviour
 {
@@ -36,70 +34,69 @@ public class BodySourceView : MonoBehaviour
             JointType.Head,
             JointType.SpineBase,
     };
-    
-    void Update () 
-    {
 
+    void Update()
+    {
         #region Get Kinect data
 
-
         Body[] data = mBodySourceManager.GetData();
-
-
         if (data == null) return;
 
-
-        Body firstTrackedBody = null;
-
+        List<ulong> trackedIds = new List<ulong>();
 
         foreach (var body in data)
         {
             if (body != null && body.IsTracked)
             {
                 float distance = body.Joints[JointType.SpineBase].Position.Z;
-                if (distance <= 3f) // 3 meters from the sensor
+                if (distance <= 3f) // Only include bodies within 3 meters
                 {
-                    firstTrackedBody = body;
-                    break;
+                    trackedIds.Add(body.TrackingId);
                 }
             }
         }
-
-        if (firstTrackedBody == null) return;
-
-        List<ulong> trackedIds = new List<ulong> { firstTrackedBody.TrackingId };
 
         #endregion
 
         #region Delete Kinect Data
 
         List<ulong> knownIds = new List<ulong>(mBodies.Keys);
-        foreach(ulong trackingId in knownIds)
+        foreach (ulong trackingId in knownIds)
         {
-            if(!trackedIds.Contains(trackingId))
+            if (!trackedIds.Contains(trackingId))
             {
                 Destroy(mBodies[trackingId]);
-
                 mBodies.Remove(trackingId);
             }
         }
 
         #endregion
 
-        #region Create Kinect Bodies
-        if (!mBodies.ContainsKey(firstTrackedBody.TrackingId))
+        #region Create and Update Kinect Bodies
+
+        foreach (var body in data)
         {
-            mBodies[firstTrackedBody.TrackingId] = CreateBodyObject(firstTrackedBody.TrackingId);
+            if (body == null || !body.IsTracked) continue;
+
+            float distance = body.Joints[JointType.SpineBase].Position.Z;
+            if (distance > 3f) continue; // Skip bodies beyond 3m
+
+            if (!mBodies.ContainsKey(body.TrackingId))
+            {
+                mBodies[body.TrackingId] = CreateBodyObject(body.TrackingId);
+            }
+
+            UpdateBodyObject(body, mBodies[body.TrackingId]);
         }
 
-        UpdateBodyObject(firstTrackedBody, mBodies[firstTrackedBody.TrackingId]);
         #endregion
     }
+
 
     private GameObject CreateBodyObject(ulong id)
     {
         GameObject body = new GameObject("Body:" + id);
-        
+
         foreach (JointType joint in _joints)
         {
             GameObject newJoint = Instantiate(mJointObject);
@@ -107,7 +104,7 @@ public class BodySourceView : MonoBehaviour
 
             newJoint.transform.parent = body.transform;
         }
-        
+
         return body;
     }
 
@@ -162,10 +159,10 @@ public class BodySourceView : MonoBehaviour
             targetPosition.z = 0;
 
             Transform jointObject = bodyObject.transform.Find(_joint.ToString());
-                jointObject.position = targetPosition;
+            jointObject.position = targetPosition;
 
 
-            if(jointObject.name == "SpineBase")
+            if (jointObject.name == "SpineBase")
             {
                 Transform spine = jointObject;
 
@@ -192,7 +189,7 @@ public class BodySourceView : MonoBehaviour
             {
                 Transform head = jointObject;
 
-               
+
 
                 bool inCrouchCooldown = Time.time - lastJumpTime < crouchCooldownAfterJump;
                 bool inJumpCooldown = Time.time - lastCrouchTime < jumpCooldownAfterCrouch;
@@ -240,8 +237,8 @@ public class BodySourceView : MonoBehaviour
 
         }
     }
-    
-    
+
+
     private static Vector3 GetVector3FromJoint(Joint joint)
     {
         return new Vector3(joint.Position.X * 10, joint.Position.Y * 10, joint.Position.Z * 10);

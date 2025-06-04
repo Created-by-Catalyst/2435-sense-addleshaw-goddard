@@ -11,6 +11,22 @@ public class Leaderboard : MonoBehaviour
     public bool forcePlayerDisplay;
     public bool displayPlayer = true;
 
+    public GameObject leaderboardDisplay;
+
+    private Vector3 mainPosition = new Vector3(501, 0, 0);
+    private Vector3 finishedPosition = new Vector3(346, 0, 0);
+
+
+    public void MoveToMain()
+    {
+        leaderboardDisplay.transform.localPosition = mainPosition;
+    }
+    public void MoveToFinished()
+    {
+
+        leaderboardDisplay.transform.localPosition = finishedPosition;
+    }
+
     public void Open()
     {
         gameObject.SetActive(true);
@@ -73,7 +89,7 @@ public class Leaderboard : MonoBehaviour
 
                 TimeSpan finaltime = TimeSpan.FromSeconds(PlayerData.instance.highscores[currentHighScore].finalScore);
 
-                
+
 
                 hs.finishTimeText.text = string.Format("{0:D2}:{1:D2}", finaltime.Minutes, finaltime.Seconds); /*$"{PlayerData.instance.highscores[currentHighScore].finishTime.Minutes.ToString()} : {PlayerData.instance.highscores[currentHighScore].finishTime.Seconds.ToString()}"*/;
 
