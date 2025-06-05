@@ -10,12 +10,16 @@ public class FinishedScreen : MonoBehaviour
 
     [SerializeField] AudioSource menuTheme;
 
+    [SerializeField] AudioSource crowdCheer;
+
+
     void OnEnable()
     {
-        //if (winState.gameObject.activeSelf == true)
-        //{
-        //    menuTheme.Play();
-        //}
+
+
+
+
+
     }
 
     public void RunAgain()
@@ -53,9 +57,9 @@ public class FinishedScreen : MonoBehaviour
 
     public void OpenLeaderboard()
     {
-        
-            gameoverState.OpenLeaderboard();
-        
+
+        gameoverState.OpenLeaderboard();
+
         //else if (winState.gameObject.activeSelf == true)
         //{
         //    winState.OpenLeaderboard();

@@ -286,13 +286,13 @@ public class CharacterInputController : MonoBehaviour
             if (m_CurrentLane == 0)
             {
                 timeInLeftLane += Time.time;
-                print("left" + timeInLeftLane);
+                //print("left" + timeInLeftLane);
             }
 
             if (m_CurrentLane == 2)
             {
                 timeInRightLane += Time.time;
-                print("right" + timeInRightLane);
+                //print("right" + timeInRightLane);
 
             }
 

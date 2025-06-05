@@ -7,6 +7,7 @@ using System.Collections.Generic;
 //using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
@@ -21,6 +22,8 @@ using UnityEngine.Analytics;
 /// </summary>
 public class LoadoutState : AState
 {
+    [SerializeField] UnityEvent beginGame;
+
     [SerializeField] GameObject homePage;
     [SerializeField] GameObject lobby;
 
@@ -91,6 +94,15 @@ public class LoadoutState : AState
     protected int k_UILayer;
     protected readonly Quaternion k_FlippedYAxisRotation = Quaternion.Euler(0f, 180f, 0f);
 
+    public void BeginPressed()
+    {
+        Invoke("BeginGame", 0.85f);
+    }
+
+    private void BeginGame()
+    {
+        beginGame.Invoke();
+    }
 
     public override void Enter(AState from)
     {

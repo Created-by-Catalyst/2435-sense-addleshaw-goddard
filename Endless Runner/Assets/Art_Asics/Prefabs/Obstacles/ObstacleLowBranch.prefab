@@ -69,11 +69,11 @@ AudioSource:
   m_GameObject: {fileID: 1453295178391965604}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243000013519457790, guid: 3b7e99a6684bf49fa9bad5f4bb585fab,
+  OutputAudioMixerGroup: {fileID: 243000013019083220, guid: 3b7e99a6684bf49fa9bad5f4bb585fab,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.496
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74cb1264bb5e40d47b4850ac0a649a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactedSound: {fileID: 8300000, guid: 825072b53168750438921d86680fa0ef, type: 3}
+  impactedSound: {fileID: 8300000, guid: a359d81b34c8ace42afd87ba6a90e4c5, type: 3}
   patrollingObstacles: []
 --- !u!114 &3185602371262290137
 MonoBehaviour:
@@ -196,7 +196,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: d5aafbe89a4a12a4f8957f712b6a653a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0

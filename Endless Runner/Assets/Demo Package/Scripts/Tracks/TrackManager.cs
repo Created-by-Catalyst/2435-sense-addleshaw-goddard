@@ -203,6 +203,7 @@ public class TrackManager : MonoBehaviour
 
     public IEnumerator Begin()
     {
+        finishLineSpawned = false;
 
         firstObstacle = true;
         m_CameraOriginalPos = Camera.main.transform.position;
@@ -645,6 +646,9 @@ public class TrackManager : MonoBehaviour
 
     public void SpawnObstacle(TrackSegment segment)
     {
+
+        if (finishLineSpawned) return;
+
         if (possibleObstacles.Length != 0)
         {
 
@@ -790,10 +794,14 @@ public class TrackManager : MonoBehaviour
         _characterWinAnimationTriggered = false;
     }
 
+    bool finishLineSpawned = false;
+
     private void SpawnFinishLineSegment()
     {
         if (finishLineSegment != null)
         {
+            finishLineSpawned = true;
+
             finishSegment = Instantiate(finishLineSegment, Vector3.zero, Quaternion.identity).GetComponent<TrackSegment>();
 
             Vector3 currentExitPoint;
