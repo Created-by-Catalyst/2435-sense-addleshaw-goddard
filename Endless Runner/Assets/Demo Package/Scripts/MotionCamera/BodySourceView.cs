@@ -35,6 +35,11 @@ public class BodySourceView : MonoBehaviour
             JointType.SpineBase,
     };
 
+    public void ResetThresholds()
+    {
+        baselineY = 0;
+    }
+
     void Update()
     {
         #region Get Kinect data
@@ -54,6 +59,11 @@ public class BodySourceView : MonoBehaviour
                     trackedIds.Add(body.TrackingId);
                 }
             }
+        }
+
+        if(trackedIds.Count == 0)
+        {
+            ResetThresholds();
         }
 
         #endregion

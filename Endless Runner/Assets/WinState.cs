@@ -11,6 +11,7 @@ using UnityEngine.Analytics;
 /// </summary>
 public class WinState : AState
 {
+    public GameObject startingMenuBackground;
 
     public TMP_Text goFasterText;
     public TMP_Text goFurtherText;
@@ -187,6 +188,7 @@ public class WinState : AState
 
     public void GoToLoadout()
     {
+        startingMenuBackground.SetActive(true);
         runInsights.SetActive(false);
         trackManager.isRerun = false;
         manager.SwitchState("Loadout");

@@ -29,7 +29,7 @@ public class CursorHandler : MonoBehaviour
     {
         Button overlappingButton = GetOverlappingButton();
 
-        // if (gameObject.activeInHierarchy) transform.localPosition = bodySourceView.cursorPosition;
+        if (gameObject.activeInHierarchy) transform.localPosition = bodySourceView.cursorPosition;
 
 
         if (overlappingButton != currentOverlappingButton)

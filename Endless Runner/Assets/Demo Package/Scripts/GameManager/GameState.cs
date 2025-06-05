@@ -18,6 +18,10 @@ using UnityEngine.Analytics;
 /// </summary>
 public class GameState : AState
 {
+
+
+    private int requiredCoins = 300;
+
     public Animator _fadeScreen;
 
     static int s_DeadHash = Animator.StringToHash("Dead");
@@ -76,8 +80,6 @@ public class GameState : AState
     protected int k_ObstacleToClear = 3;
 
 
-
-    private int requiredCoins = 300;
 
 
 

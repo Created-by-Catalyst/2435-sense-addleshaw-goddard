@@ -94,8 +94,11 @@ public class LoadoutState : AState
     protected int k_UILayer;
     protected readonly Quaternion k_FlippedYAxisRotation = Quaternion.Euler(0f, 180f, 0f);
 
+    public BodySourceView bodySourceView;
+
     public void BeginPressed()
     {
+        bodySourceView.ResetThresholds();
         Invoke("BeginGame", 0.85f);
     }
 
