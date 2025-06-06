@@ -126,6 +126,13 @@ public class GameState : AState
 
     public void StartGame()
     {
+#if UNITY_EDITOR
+        
+#else
+    requiredCoins = 300;
+#endif
+
+
         if (_fadeScreen != null)
             _fadeScreen.SetTrigger("FadeScreenIn");
 
@@ -166,6 +173,7 @@ public class GameState : AState
     bool playerWon = false;
 
 
+    public AudioSource crowdCheer;
     public override void Tick()
     {
 
@@ -185,6 +193,9 @@ public class GameState : AState
             if (trackManager.characterController.coins >= requiredCoins)
             {
                 //Win state
+
+
+                crowdCheer.Play();
 
                 playerWon = true;
             }

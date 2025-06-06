@@ -31,7 +31,6 @@ public class WinState : AState
     public TrackManager trackManager;
     public Canvas canvas;
 
-    public AudioSource crowdCheer;
 
     public Leaderboard miniLeaderboard;
     public Leaderboard fullLeaderboard;
@@ -110,7 +109,6 @@ public class WinState : AState
         //    StartCoroutine(MusicPlayer.instance.RestartAllStems());
         //}
 
-        crowdCheer.Play();
 
         OpenLeaderboard();
 

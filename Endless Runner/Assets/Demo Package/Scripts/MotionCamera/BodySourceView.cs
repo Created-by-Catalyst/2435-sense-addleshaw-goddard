@@ -18,7 +18,7 @@ public class BodySourceView : MonoBehaviour
     private float baselineY; // baseline Y when standing
 
     private bool isCrouching = false;
-    private float crouchThreshold = 3.6f;
+    private float crouchThreshold = 3.0f;
 
 
     private float lastJumpTime = -10f;
