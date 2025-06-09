@@ -18,8 +18,8 @@ RenderSettings:
   m_FogColor: {r: 1, g: 1, b: 0.92156863, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.0075
-  m_LinearFogStart: 55
-  m_LinearFogEnd: 120
+  m_LinearFogStart: 80
+  m_LinearFogEnd: 150
   m_AmbientSkyColor: {r: 0.8980392, g: 0.8156863, b: 0.7058824, a: 1}
   m_AmbientEquatorColor: {r: 0.8, g: 0.69803923, b: 0.79607844, a: 1}
   m_AmbientGroundColor: {r: 0.047058824, g: 0, b: 0.16862746, a: 1}
@@ -12385,6 +12385,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.5741949
       objectReference: {fileID: 0}
+    - target: {fileID: 1691347618308644120, guid: 645172c6ca233f049bb758210754f468,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691347618308644120, guid: 645172c6ca233f049bb758210754f468,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 1789824041747944110, guid: 645172c6ca233f049bb758210754f468,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13380,6 +13390,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.04056619
       objectReference: {fileID: 0}
+    - target: {fileID: 5771469037170113554, guid: 645172c6ca233f049bb758210754f468,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6144714728028420758, guid: 645172c6ca233f049bb758210754f468,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14276,7 +14291,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 150
+  far clip plane: 2000
   field of view: 67.68945
   orthographic: 0
   orthographic size: 5
@@ -28031,7 +28046,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352635721}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 25
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -34184,7 +34199,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.87999827, b: 0.7783019, a: 1}
-  m_Intensity: 0.4
+  m_Intensity: 0.35
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -34242,13 +34257,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449334685}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20338671, y: 0.33391288, z: -0.0740267, w: 0.91741824}
+  m_LocalRotation: {x: 0.3213938, y: 0.3213938, z: -0.116977744, w: 0.8830223}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 25, y: 40, z: 0}
+  m_LocalEulerAnglesHint: {x: 40, y: 40, z: 0}
 --- !u!114 &1449334688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44850,7 +44865,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 46caf18aa6a7c1b4f99ae7dea44f7d57, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

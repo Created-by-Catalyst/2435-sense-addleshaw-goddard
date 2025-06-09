@@ -7,8 +7,8 @@ public class WindTrails : MonoBehaviour
     [SerializeField] private float followSpeed = 15;
 
     private bool isActive = false;
-    private float trailDuration = 5f;
-    private float time = 0;
+    private float trailDuration = 8f;
+    private float time = 8f;
 
     void Update()
     {
@@ -31,8 +31,9 @@ public class WindTrails : MonoBehaviour
     public void ToggleWindTrails(bool state)
     {
         time = trailDuration;
+        Debug.Log("WIND ACTIVATED");
         isActive = state;
         if (windTrails != null)
-            windTrails.SetActive(true);
+            windTrails.SetActive(state);
     }
 }

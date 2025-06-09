@@ -555,6 +555,9 @@ public class CharacterInputController : MonoBehaviour
             if (m_Jumping)
                 StopJumping();
 
+            if (windTrails != null)
+                windTrails.ToggleWindTrails(false);
+
             float correctSlideLength = slideLength * (1.3f + trackManager.speedRatio);
             m_SlideStart = trackManager.worldDistance;
             float animSpeed = k_TrackSpeedToJumpAnimSpeedRatio * (trackManager.speed / correctSlideLength);
@@ -570,13 +573,15 @@ public class CharacterInputController : MonoBehaviour
     public void SetSpeedUpExplicit(bool spedUp)
     {
         m_SpedUp = spedUp;
+        if (windTrails != null)
+            windTrails.ToggleWindTrails(spedUp);
     }
 
     public void SetSpeedUp(float timer = k_DefaultSpedUpTime)
     {
-        StartCoroutine(SpeedUpTimer(timer));
         if (windTrails != null)
             windTrails.ToggleWindTrails(true);
+        StartCoroutine(SpeedUpTimer(timer));
     }
 
     protected IEnumerator SpeedUpTimer(float timer)
