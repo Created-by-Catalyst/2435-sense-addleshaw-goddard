@@ -11,6 +11,8 @@ using UnityEngine.AddressableAssets;
 [RequireComponent(typeof(AudioSource))]
 public class CharacterCollider : MonoBehaviour
 {
+    [SerializeField] AudioSource techNoise;
+
     static int s_HitHash = Animator.StringToHash("Hit");
     static int s_BlinkingValueHash;
 
@@ -54,6 +56,8 @@ public class CharacterCollider : MonoBehaviour
     protected DeathEvent m_DeathData;
     protected BoxCollider m_Collider;
     protected AudioSource m_Audio;
+
+    protected bool m_SecretInvincible = false;
 
     protected float m_StartingColliderHeight;
 
@@ -138,6 +142,7 @@ public class CharacterCollider : MonoBehaviour
             if (m_Invincible || controller.IsCheatInvincible())
             {
                 //Destroy hurdle here
+                techNoise.Play();
 
                 if (c.GetComponent<Animator>() != null)
                 {
@@ -149,6 +154,10 @@ public class CharacterCollider : MonoBehaviour
                 else
                     Destroy(c.gameObject);
 
+                return;
+            }
+            else if (m_SecretInvincible)
+            {
                 return;
             }
 
@@ -258,18 +267,15 @@ public class CharacterCollider : MonoBehaviour
 
     public void SetJumpInvincibleCustom(float time)
     {
+        if (m_SecretInvincible == true) return;
 
-        if (m_Invincible == true) return;
+        m_SecretInvincible = true;
+        Invoke("SetSecretInvincibleFalse", time);
+    }
 
-        if (invincibleTimer != null)
-        {
-            print("STOP INVINCIBLE");
-            StopCoroutine(invincibleTimer);
-        }
-
-
-        print("START INVINCIBLE");
-        invincibleTimer = StartCoroutine(InvincibleTimer(time));
+    public void SetSecretInvincibleFalse()
+    {
+        m_SecretInvincible = false;
     }
 
     public void SetInvincibleExplicit(bool invincible)
