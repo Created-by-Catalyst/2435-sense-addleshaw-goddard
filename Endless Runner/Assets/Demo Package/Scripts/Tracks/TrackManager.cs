@@ -29,6 +29,7 @@ using UnityEngine.Analytics;
 public class TrackManager : MonoBehaviour
 {
 
+    public AudioSource crowdCheer;
 
     public AssetReference[] possibleObstacles;
 
@@ -345,7 +346,6 @@ public class TrackManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha9))
             s_SpawnFinishLine = true;
 
-        print("max" + maxSpeed);
 
 
         if (!s_SpawnFinishLine)
@@ -361,12 +361,19 @@ public class TrackManager : MonoBehaviour
 
         if (timerActive)
         {
-            currentTime += Time.deltaTime;
+            currentTime -= Time.deltaTime;
 
 
             finishTime = TimeSpan.FromSeconds(currentTime);
 
             finishTimeStr = string.Format("{0:D2}:{1:D2}", finishTime.Minutes, finishTime.Seconds);
+
+            if (currentTime <= 0)
+            {
+
+                crowdCheer.Play();
+                timerActive = false;
+            }
         }
 
 

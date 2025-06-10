@@ -17,15 +17,8 @@ public class BodySourceView : MonoBehaviour
     private float groundedThreshold = 0.05f;
     private float baselineY; // baseline Y when standing
 
-    private bool isCrouching = false;
-    private float crouchThreshold = 3.0f;
-
-
     private float lastJumpTime = -10f;
-    private float lastCrouchTime = -10f;
 
-    private float crouchCooldownAfterJump = 1.6f;
-    private float jumpCooldownAfterCrouch = 1.6f;
 
     private List<JointType> _joints = new List<JointType>()
     {
@@ -61,7 +54,7 @@ public class BodySourceView : MonoBehaviour
             }
         }
 
-        if(trackedIds.Count == 0)
+        if (trackedIds.Count == 0)
         {
             ResetThresholds();
         }
@@ -201,8 +194,6 @@ public class BodySourceView : MonoBehaviour
 
 
 
-                bool inCrouchCooldown = Time.time - lastJumpTime < crouchCooldownAfterJump;
-                bool inJumpCooldown = Time.time - lastCrouchTime < jumpCooldownAfterCrouch;
 
 
                 float currentY = head.position.y;
@@ -213,7 +204,7 @@ public class BodySourceView : MonoBehaviour
                 float diff = currentY - baselineY;
 
                 // Jump detection
-                if (!inJumpCooldown && !isCrouching && !isJumping && diff > jumpThreshold)
+                if (!isJumping && diff > jumpThreshold)
                 {
                     isJumping = true;
                     characterInputController.Jump();
@@ -224,22 +215,6 @@ public class BodySourceView : MonoBehaviour
                     lastJumpTime = Time.time;
                     isJumping = false;
                     //Debug.Log("Landed.");
-                }
-
-
-                // Crouch detection
-                if (!inCrouchCooldown && !isJumping && !isCrouching && diff < -crouchThreshold)
-                {
-                    isCrouching = true;
-                    characterInputController.Slide();
-                    Debug.Log("Crouch detected!");
-                }
-                else if (isCrouching && diff > -crouchThreshold * 0.5f)
-                {
-                    //characterInputController.StopSliding();
-                    lastCrouchTime = Time.time;
-                    isCrouching = false;
-                    //Debug.Log("Standing up.");
                 }
 
             }

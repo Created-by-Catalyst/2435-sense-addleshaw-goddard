@@ -110,7 +110,6 @@ public class CharacterCollider : MonoBehaviour
             magnetCoins[i].transform.position = Vector3.MoveTowards(magnetCoins[i].transform.position, transform.position, k_MagnetSpeed * Time.deltaTime);
         }
 
-        print("MAGNETCOINS" + magnetCoins.Count);
         //print("NEW MAGNET" + newMagnet);
 
     }
@@ -133,7 +132,10 @@ public class CharacterCollider : MonoBehaviour
             {
                 Coin.coinPool.Free(c.gameObject);
                 PlayerData.instance.coins += 1 * TrackManager.m_Multiplier;
-                controller.coins += 1 * TrackManager.m_Multiplier;
+                if (TrackManager.instance.timerActive)
+                {
+                    controller.coins += 1 * TrackManager.m_Multiplier;
+                }
                 m_Audio.PlayOneShot(coinSound);
             }
         }

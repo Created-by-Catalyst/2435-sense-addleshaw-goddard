@@ -18,6 +18,8 @@ using UnityEngine.Analytics;
 /// </summary>
 public class GameState : AState
 {
+    static public GameState instance { get { return s_Instance; } }
+    static protected GameState s_Instance;
 
 
     private int requiredCoins = 300;
@@ -58,7 +60,7 @@ public class GameState : AState
 #endif
     public bool adsRewarded = true;
 
-    protected bool m_Finished;
+    public bool m_Finished;
     protected float m_TimeSinceStart;
     protected List<PowerupIcon> m_PowerupIcons = new List<PowerupIcon>();
     protected Image[] m_LifeHearts;
@@ -81,7 +83,11 @@ public class GameState : AState
 
 
 
+    private void Awake()
+    {
 
+        s_Instance = this;
+    }
 
     public override void Enter(AState from)
     {
@@ -127,7 +133,7 @@ public class GameState : AState
     public void StartGame()
     {
 #if UNITY_EDITOR
-        
+
 #else
     requiredCoins = 300;
 #endif
@@ -156,7 +162,7 @@ public class GameState : AState
         m_Finished = false;
         m_PowerupIcons.Clear();
 
-        trackManager.currentTime = 0;
+        trackManager.currentTime = 60;
 
         PopUpMessages.Instance.DisplayMessage(tutorial);
 
@@ -170,14 +176,68 @@ public class GameState : AState
         return "Game";
     }
 
-    bool playerWon = false;
+    public bool playerWon = false;
 
 
-    public AudioSource crowdCheer;
     public override void Tick()
     {
 
+
+        CharacterInputController chrCtrl = trackManager.characterController;
+
+        // Consumable ticking & lifetime management
+        List<Consumable> toRemove = new List<Consumable>();
+        List<PowerupIcon> toRemoveIcon = new List<PowerupIcon>();
+
+        for (int i = 0; i < chrCtrl.consumables.Count; ++i)
+        {
+            PowerupIcon icon = null;
+            for (int j = 0; j < m_PowerupIcons.Count; ++j)
+            {
+                if (m_PowerupIcons[j].linkedConsumable == chrCtrl.consumables[i])
+                {
+                    icon = m_PowerupIcons[j];
+                    break;
+                }
+            }
+
+            chrCtrl.consumables[i].Tick(chrCtrl);
+            if (!chrCtrl.consumables[i].active)
+            {
+                toRemove.Add(chrCtrl.consumables[i]);
+                toRemoveIcon.Add(icon);
+            }
+            else if (icon == null)
+            {
+                // If there's no icon for the active consumable, create it!
+                GameObject o = Instantiate(PowerupIconPrefab);
+
+                icon = o.GetComponent<PowerupIcon>();
+
+                icon.linkedConsumable = chrCtrl.consumables[i];
+                icon.transform.SetParent(powerupZone, false);
+
+                m_PowerupIcons.Add(icon);
+            }
+        }
+
+        for (int i = 0; i < toRemove.Count; ++i)
+        {
+            toRemove[i].Ended(trackManager.characterController);
+
+            Addressables.ReleaseInstance(toRemove[i].gameObject);
+            if (toRemoveIcon[i] != null)
+                Destroy(toRemoveIcon[i].gameObject);
+
+            chrCtrl.consumables.Remove(toRemove[i]);
+            m_PowerupIcons.Remove(toRemoveIcon[i]);
+        }
+
         UpdateUI();
+
+        currentModifier.OnRunTick(this);
+
+
 
         if (m_Finished)
         {
@@ -186,16 +246,14 @@ public class GameState : AState
 
         if (trackManager.isLoaded)
         {
-            CharacterInputController chrCtrl = trackManager.characterController;
 
             m_TimeSinceStart += Time.deltaTime;
 
-            if (trackManager.characterController.coins >= requiredCoins)
+            if (trackManager.currentTime <= 5)
             {
                 //Win state
 
 
-                crowdCheer.Play();
 
                 playerWon = true;
             }
@@ -207,7 +265,7 @@ public class GameState : AState
                 trackManager.characterController.CheatInvincible(true);
 
                 TrackManager.s_SpawnFinishLine = true;
-                chrCtrl.CleanConsumable();
+                //chrCtrl.CleanConsumable();
                 chrCtrl.character.animator.SetBool(s_DeadHash, true);
                 //chrCtrl.characterCollider.koParticle.gameObject.SetActive(true);
                 StartCoroutine(WaitForWinScreen());
@@ -220,60 +278,6 @@ public class GameState : AState
                 chrCtrl.characterCollider.koParticle.gameObject.SetActive(true);
                 StartCoroutine(WaitForGameOver());
             }
-
-
-
-            // Consumable ticking & lifetime management
-            List<Consumable> toRemove = new List<Consumable>();
-            List<PowerupIcon> toRemoveIcon = new List<PowerupIcon>();
-
-            for (int i = 0; i < chrCtrl.consumables.Count; ++i)
-            {
-                PowerupIcon icon = null;
-                for (int j = 0; j < m_PowerupIcons.Count; ++j)
-                {
-                    if (m_PowerupIcons[j].linkedConsumable == chrCtrl.consumables[i])
-                    {
-                        icon = m_PowerupIcons[j];
-                        break;
-                    }
-                }
-
-                chrCtrl.consumables[i].Tick(chrCtrl);
-                if (!chrCtrl.consumables[i].active)
-                {
-                    toRemove.Add(chrCtrl.consumables[i]);
-                    toRemoveIcon.Add(icon);
-                }
-                else if (icon == null)
-                {
-                    // If there's no icon for the active consumable, create it!
-                    GameObject o = Instantiate(PowerupIconPrefab);
-
-                    icon = o.GetComponent<PowerupIcon>();
-
-                    icon.linkedConsumable = chrCtrl.consumables[i];
-                    icon.transform.SetParent(powerupZone, false);
-
-                    m_PowerupIcons.Add(icon);
-                }
-            }
-
-            for (int i = 0; i < toRemove.Count; ++i)
-            {
-                toRemove[i].Ended(trackManager.characterController);
-
-                Addressables.ReleaseInstance(toRemove[i].gameObject);
-                if (toRemoveIcon[i] != null)
-                    Destroy(toRemoveIcon[i].gameObject);
-
-                chrCtrl.consumables.Remove(toRemove[i]);
-                m_PowerupIcons.Remove(toRemoveIcon[i]);
-            }
-
-            UpdateUI();
-
-            currentModifier.OnRunTick(this);
         }
     }
 
@@ -400,7 +404,7 @@ public class GameState : AState
 
         m_Finished = true;
 
-        trackManager.timerActive = false;
+        //trackManager.timerActive = false;
         playerWon = false;
 
         // Reseting the global blinking value. Can happen if game unexpectly exited while still blinking
@@ -414,8 +418,8 @@ public class GameState : AState
         yield return new WaitForSeconds(4f);
         if (currentModifier.OnRunEnd(this))
         {
-            trackManager.characterController.coins = 0;
             Win();
+            trackManager.characterController.coins = 0;
         }
     }
 

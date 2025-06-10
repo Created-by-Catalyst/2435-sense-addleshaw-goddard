@@ -1,34 +1,26 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.InputSystem.LowLevel;
-using UnityEngine.ResourceManagement;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class AllLaneObstacle: Obstacle
+public class AllLaneObstacle : Obstacle
 {
-	[SerializeField] PatrollingObstacle[] patrollingObstacles;
+    [SerializeField] PatrollingObstacle[] patrollingObstacles;
 
 
-	public override IEnumerator Spawn(TrackSegment segment, float t)
-	{
-
-        print("all lane");
-
-
-
-        print("all lane1");
+    public override IEnumerator Spawn(TrackSegment segment, float t)
+    {
 
         Vector3 position;
-		Quaternion rotation;
-		segment.GetPointAt(t, out position, out rotation);
+        Quaternion rotation;
+        segment.GetPointAt(t, out position, out rotation);
         AsyncOperationHandle op = Addressables.InstantiateAsync(gameObject.name, position, rotation);
         yield return op;
-	    if (op.Result == null || !(op.Result is GameObject))
-	    {
-	        Debug.LogWarning(string.Format("Unable to load obstacle {0}.", gameObject.name));
-	        yield break;
-	    }
+        if (op.Result == null || !(op.Result is GameObject))
+        {
+            Debug.LogWarning(string.Format("Unable to load obstacle {0}.", gameObject.name));
+            yield break;
+        }
         GameObject obj = op.Result as GameObject;
         obj.transform.SetParent(segment.objectRoot, true);
 

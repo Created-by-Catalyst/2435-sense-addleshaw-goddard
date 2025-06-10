@@ -23709,8 +23709,9 @@ MonoBehaviour:
   PowerupIconPrefab: {fileID: 102596, guid: 94cb557246c11d14388842cc08be79a8, type: 3}
   adsPlacementId: reviveVideo
   adsRewarded: 1
+  m_Finished: 0
   tutorial: {fileID: 21300000, guid: 359af62250f017840a47c8381903cfba, type: 3}
-  crowdCheer: {fileID: 1245236426}
+  playerWon: 0
 --- !u!82 &1245236426
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25686,7 +25687,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pos      Name                                      Time
+  m_Text: Pos      Name                                      Score
 --- !u!222 &1320188555
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41689,6 +41690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357943a8c88ecc848b7f5de152a00562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crowdCheer: {fileID: 1245236426}
   possibleObstacles:
   - m_AssetGUID: afe8d29925861a64fbbbbdc74ae0ef6f
     m_SubObjectName: 
