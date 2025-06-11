@@ -47,7 +47,7 @@ public class BodySourceView : MonoBehaviour
             if (body != null && body.IsTracked)
             {
                 float distance = body.Joints[JointType.SpineBase].Position.Z;
-                if (distance <= 3f) // Only include bodies within 3 meters
+                if (distance <= 2f) // Only include bodies within 2 meters
                 {
                     trackedIds.Add(body.TrackingId);
                 }
@@ -128,8 +128,6 @@ public class BodySourceView : MonoBehaviour
 
     private void UpdateBodyObject(Body body, GameObject bodyObject)
     {
-
-
         Vector3 rightHandPos = GetVector3FromJoint(body.Joints[JointType.HandRight]);
         Vector3 leftHandPos = GetVector3FromJoint(body.Joints[JointType.HandLeft]);
         Vector3 selectedHand;
@@ -147,10 +145,9 @@ public class BodySourceView : MonoBehaviour
         handAdjustedPosition = selectedHand;
 
         handAdjustedPosition.z = 0;
-        handAdjustedPosition.y -= 4;
-        handAdjustedPosition *= 90;
+        //handAdjustedPosition.y -= 3;
+        handAdjustedPosition *= 120;
 
-        print("hand pos " + handAdjustedPosition);
         cursorPosition = handAdjustedPosition;
 
 
@@ -191,10 +188,6 @@ public class BodySourceView : MonoBehaviour
             if (jointObject.name == "Head")
             {
                 Transform head = jointObject;
-
-
-
-
 
                 float currentY = head.position.y;
 

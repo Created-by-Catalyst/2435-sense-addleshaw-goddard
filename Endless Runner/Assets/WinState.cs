@@ -109,7 +109,6 @@ public class WinState : AState
         //}
 
 
-        OpenLeaderboard();
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(defaultLoadoutButton);
@@ -119,7 +118,6 @@ public class WinState : AState
         playerEntryOnKeyboard.text = playerEntry.text;
 
 
-        fullLeaderboard.MoveToFinished();
     }
 
     public override void Exit(AState to)
@@ -178,6 +176,10 @@ public class WinState : AState
 
 
         runInsights.SetActive(true);
+
+        OpenLeaderboard();
+        fullLeaderboard.MoveToFinished();
+
         Invoke("GoToLoadout", 10f);
     }
 

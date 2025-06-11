@@ -386,7 +386,7 @@ public class CharacterInputController : MonoBehaviour
 
         if (!m_Jumping)
         {
-            characterCollider.SetJumpInvincibleCustom(0.1f);
+            characterCollider.SetJumpInvincibleCustom(0.3f);
             m_Audio.PlayOneShot(character.jumpSound);
 
             if (m_Sliding)
