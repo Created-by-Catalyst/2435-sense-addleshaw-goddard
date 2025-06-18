@@ -30,6 +30,9 @@ public class WinState : AState
     public TrackManager trackManager;
     public Canvas canvas;
 
+    public GameObject tutorialPanel;
+
+    public Animator loadoutAnim;
 
     public Leaderboard miniLeaderboard;
     public Leaderboard fullLeaderboard;
@@ -73,6 +76,11 @@ public class WinState : AState
     {
         //GameManager.instance.SetSelectedUIElement(defaultLoadoutButton);
 
+
+
+
+        DelayedGoToLoadout();
+        /*
         onScreenKeyboard.gameObject.SetActive(true);
         cursor.gameObject.SetActive(true);
 
@@ -117,7 +125,7 @@ public class WinState : AState
         playerEntry.text = "";
         playerEntryOnKeyboard.text = playerEntry.text;
 
-
+        */
     }
 
     public override void Exit(AState to)
@@ -154,6 +162,10 @@ public class WinState : AState
 
     public void DelayedGoToLoadout()
     {
+
+        tutorialPanel.SetActive(false);
+        loadoutAnim.Play("Idle");
+
         float timeInFurther = trackManager.characterController.timeInLeftLane;
         float timeInFaster = trackManager.characterController.timeInRightLane;
 
@@ -177,8 +189,8 @@ public class WinState : AState
 
         runInsights.SetActive(true);
 
-        OpenLeaderboard();
-        fullLeaderboard.MoveToFinished();
+        //OpenLeaderboard();
+        //fullLeaderboard.MoveToFinished();
 
         Invoke("GoToLoadout", 10f);
     }

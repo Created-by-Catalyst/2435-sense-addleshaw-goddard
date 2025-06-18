@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class SimpleBarricade : Obstacle
@@ -9,10 +8,10 @@ public class SimpleBarricade : Obstacle
     public bool _spawnOnMultipleLanes = true;
     public bool impassable = false;
     protected int k_MinObstacleCount = 1;
-    protected const int k_MaxObstacleCount = 3;
+    protected const int k_MaxObstacleCount = 2;
     protected const int k_LeftMostLaneIndex = -1;
     protected const int k_RightMostLaneIndex = 1;
-    
+
     public override IEnumerator Spawn(TrackSegment segment, float t)
     {
         //the tutorial very firts barricade need to be center and alone, so player can swipe safely in bother direction to avoid it
@@ -47,8 +46,8 @@ public class SimpleBarricade : Obstacle
         segment.GetPointAt(t, out position, out rotation);
 
 
-       
-        for(int i = 0; i < count; ++i)
+
+        for (int i = 0; i < count; ++i)
         {
             int lane = startLane + i;
             lane = lane > k_RightMostLaneIndex ? k_LeftMostLaneIndex : lane;
