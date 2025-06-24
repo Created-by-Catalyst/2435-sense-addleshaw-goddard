@@ -13,7 +13,7 @@ public class BodySourceView : MonoBehaviour
     private Dictionary<ulong, GameObject> mBodies = new Dictionary<ulong, GameObject>();
 
     private bool isJumping = false;
-    private float jumpThreshold = 0.9f; // Adjust based on your needs
+    private float jumpThreshold = 1.2f; // Adjust based on your needs
     private float groundedThreshold = 0.05f;
     private float baselineY; // baseline Y when standing
 
@@ -47,9 +47,14 @@ public class BodySourceView : MonoBehaviour
             if (body != null && body.IsTracked)
             {
                 float distance = body.Joints[JointType.SpineBase].Position.Z;
-                if (distance <= 2f) // Only include bodies within 2 meters
+
+                float xPosition = body.Joints[JointType.SpineBase].Position.X;
+
+                if (distance <= 2.5f && xPosition < 1.25f && xPosition > -1.25f) // Only include bodies within 2 meters
                 {
                     trackedIds.Add(body.TrackingId);
+
+                    print("trackingid" + body.TrackingId);
                 }
             }
         }
@@ -121,7 +126,7 @@ public class BodySourceView : MonoBehaviour
         characterInputController.SetLane(lane);
     }
 
-    float laneWidth = 2.5f;
+    float laneWidth = 1f;
 
 
     public Vector3 cursorPosition = Vector3.zero;
@@ -169,22 +174,44 @@ public class BodySourceView : MonoBehaviour
                 if (spine.position.x > laneWidth)
                 {
                     UpdateLane(2);
-                    print("RIGHT");
+                    //print("RIGHT");
                 }
                 else if (spine.position.x < -laneWidth)
                 {
                     UpdateLane(0);
-                    print("LEFT");
+                    ///print("LEFT");
                 }
                 else
                 {
                     UpdateLane(1);
-                    print("CENTRE");
+                    //print("CENTRE");
+                }
+
+
+                float currentY = jointObject.position.y;
+
+                // Establish baseline when first detected
+                if (baselineY == 0f) baselineY = currentY;
+
+                float diff = currentY - baselineY;
+
+                // Jump detection
+                if (!isJumping && diff > jumpThreshold)
+                {
+                    isJumping = true;
+                    characterInputController.Jump();
+                    Debug.LogWarning("Jump detected!");
+                }
+                else if (isJumping && diff < jumpThreshold * 0.5f)
+                {
+                    lastJumpTime = Time.time;
+                    isJumping = false;
+                    //Debug.Log("Landed.");
                 }
 
             }
 
-
+            /*
             if (jointObject.name == "Head")
             {
                 Transform head = jointObject;
@@ -211,6 +238,7 @@ public class BodySourceView : MonoBehaviour
                 }
 
             }
+            */
 
 
         }
