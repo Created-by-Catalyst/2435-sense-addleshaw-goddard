@@ -96,10 +96,19 @@ public class LoadoutState : AState
 
     public BodySourceView bodySourceView;
 
+
+    public Animator fadeoutAnim;
+
     public void BeginPressed()
     {
         bodySourceView.ResetThresholds();
-        Invoke("BeginGame", 0.85f);
+        Invoke("FadeoutFromBegin", 5f);
+        Invoke("BeginGame", 5.85f);
+    }
+
+    private void FadeoutFromBegin()
+    {
+        fadeoutAnim.Play("Fadeout");
     }
 
     private void BeginGame()

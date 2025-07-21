@@ -47,7 +47,10 @@ public class BodySourceView : MonoBehaviour
             if (body != null && body.IsTracked)
             {
                 float distance = body.Joints[JointType.SpineBase].Position.Z;
-                if (distance <= 2f) // Only include bodies within 2 meters
+
+                float xPosition = body.Joints[JointType.SpineBase].Position.X;
+
+                if (distance <= 2.5f && xPosition < 3f && xPosition > -3f) // Only include bodies within 2 meters
                 {
                     trackedIds.Add(body.TrackingId);
                 }
@@ -145,7 +148,7 @@ public class BodySourceView : MonoBehaviour
         handAdjustedPosition = selectedHand;
 
         handAdjustedPosition.z = 0;
-        //handAdjustedPosition.y -= 3;
+        handAdjustedPosition.y -= 3;
         handAdjustedPosition *= 120;
 
         cursorPosition = handAdjustedPosition;

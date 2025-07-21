@@ -586,7 +586,7 @@ public class CharacterInputController : MonoBehaviour
 
     protected IEnumerator SpeedUpTimer(float timer)
     {
-        float speedModifier = 1.3f;
+        float speedModifier = 1.15f;
 
         m_SpedUp = true;
 
