@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
-using System;
-using Unity.VisualScripting.FullSerializer;
 
 
 #if UNITY_ANALYTICS
@@ -480,30 +478,6 @@ public class PlayerDataEditor : Editor
     static public void ClearSave()
     {
         File.Delete(Application.persistentDataPath + "/save.bin");
-    }
-
-    [MenuItem("Trash Dash Debug/Give 1000000 fishbones and 1000 premium")]
-    static public void GiveCoins()
-    {
-        PlayerData.instance.coins += 1000000;
-        PlayerData.instance.premium += 1000;
-        PlayerData.instance.Save();
-    }
-
-    [MenuItem("Trash Dash Debug/Give 10 Consumables of each types")]
-    static public void AddConsumables()
-    {
-
-        for (int i = 0; i < ShopItemList.s_ConsumablesTypes.Length; ++i)
-        {
-            Consumable c = ConsumableDatabase.GetConsumbale(ShopItemList.s_ConsumablesTypes[i]);
-            if (c != null)
-            {
-                PlayerData.instance.consumables[c.GetConsumableType()] = 10;
-            }
-        }
-
-        PlayerData.instance.Save();
     }
 }
 #endif
