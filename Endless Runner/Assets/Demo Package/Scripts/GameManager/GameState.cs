@@ -148,7 +148,7 @@ public class GameState : AState
         m_Finished = false;
         m_PowerupIcons.Clear();
 
-        trackManager.currentTime = 0;
+        trackManager.currentTime = trackManager.totalTime;
 
         PopUpMessages.Instance.DisplayMessage(tutorial);
 
@@ -181,7 +181,7 @@ public class GameState : AState
 
             m_TimeSinceStart += Time.deltaTime;
 
-            if (trackManager.characterController.coins >= requiredCoins)
+            if (trackManager.currentTime <= 0)
             {
                 //Win state
 
@@ -316,9 +316,10 @@ public class GameState : AState
 
     protected void UpdateUI()
     {
-        coinText.text = trackManager.characterController.coins.ToString();
+        coinText.text = trackManager.score.ToString();
         timeText.text = trackManager.finishTimeStr;
-        progressBar.value = (float)trackManager.finishTime.TotalSeconds;
+        progressBar.value = trackManager.totalTime - (float)trackManager.finishTime.TotalSeconds;
+
 
         for (int i = 0; i < 3; ++i)
         {

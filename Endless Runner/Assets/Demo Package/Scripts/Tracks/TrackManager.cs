@@ -332,7 +332,8 @@ public class TrackManager : MonoBehaviour
     }
 
     public bool timerActive = false;
-    public float currentTime = 0;
+    public float currentTime = 90;
+    public float totalTime = 90;
 
     private int _parallaxRootChildren = 0;
     private int _spawnedSegments = 0;
@@ -358,7 +359,13 @@ public class TrackManager : MonoBehaviour
 
         if (timerActive)
         {
-            currentTime += Time.deltaTime;
+            if(currentTime <= 0)
+            {
+                currentTime = 0;
+                timerActive = false;
+            }
+
+            currentTime -= Time.deltaTime;
 
             finishTime = TimeSpan.FromSeconds(currentTime);
 
@@ -431,7 +438,7 @@ public class TrackManager : MonoBehaviour
             m_CurrentZoneDistance += scaledSpeed;
 
             int intScore = Mathf.FloorToInt(m_ScoreAccum);
-            if (intScore != 0) AddScore(intScore);
+            //if (intScore != 0) AddScore(intScore);
             m_ScoreAccum -= intScore;
 
             m_TotalWorldDistance += scaledSpeed;
