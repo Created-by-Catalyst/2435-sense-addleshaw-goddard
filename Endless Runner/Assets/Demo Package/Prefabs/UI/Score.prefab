@@ -67,7 +67,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d01f75c9f4e2f194ba14c8d8837b63ab, type: 3}
+    m_Font: {fileID: 12800000, guid: 7a6ffa0199d7e894282d3bcba4f660e7, type: 3}
     m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: -1
   m_PreferredWidth: -1
-  m_PreferredHeight: 74
+  m_PreferredHeight: 72
   m_FlexibleWidth: -1
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
@@ -211,7 +211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 371.40518, y: -25}
+  m_AnchoredPosition: {x: 371.40518, y: -31.2}
   m_SizeDelta: {x: 104.6604, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222000013350351242
@@ -243,7 +243,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d01f75c9f4e2f194ba14c8d8837b63ab, type: 3}
+    m_Font: {fileID: 12800000, guid: fa74404002ca87644906bfe00e92fbdf, type: 3}
     m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
@@ -290,7 +290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 142.76062, y: -25}
+  m_AnchoredPosition: {x: 142.76062, y: -27}
   m_SizeDelta: {x: 285.5212, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &25864676644986414
@@ -321,12 +321,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'asdsadasdasasdsadassadsadsa
+  m_text: 'Jenny Block
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 203dc99d36c4fd84f966ce6202dc152c, type: 2}
-  m_sharedMaterial: {fileID: 227032666616570410, guid: 203dc99d36c4fd84f966ce6202dc152c,
+  m_fontAsset: {fileID: 11400000, guid: 8ed4ff69a20f00c4b86cbe9a98793ab7, type: 2}
+  m_sharedMaterial: {fileID: 3406204032964423779, guid: 8ed4ff69a20f00c4b86cbe9a98793ab7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -351,15 +351,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 34
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 14
-  m_fontSizeMax: 38
-  m_fontStyle: 0
+  m_fontSizeMax: 34
+  m_fontStyle: 18
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

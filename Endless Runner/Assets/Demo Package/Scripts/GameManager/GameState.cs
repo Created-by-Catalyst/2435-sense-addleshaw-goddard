@@ -31,6 +31,7 @@ public class GameState : AState
 
     [Header("UI")]
     public TMP_Text timeText;
+    public Slider progressBar;
     public TMP_Text coinText;
     public Text distanceText;
     public Text countdownText;
@@ -77,7 +78,7 @@ public class GameState : AState
 
 
 
-    private int requiredCoins = 10;
+    private int requiredCoins = 500;
 
 
 
@@ -317,6 +318,7 @@ public class GameState : AState
     {
         coinText.text = trackManager.characterController.coins.ToString();
         timeText.text = trackManager.finishTimeStr;
+        progressBar.value = (float)trackManager.finishTime.TotalSeconds;
 
         for (int i = 0; i < 3; ++i)
         {
