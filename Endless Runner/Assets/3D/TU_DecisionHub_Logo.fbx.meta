@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad2df3231fa652f41901d7e9c3b9a5f1
+guid: 0f654bbb684cc3746a3efd8809a86003
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Gate_EED
-    second: {fileID: 2100000, guid: b2b1bf95791b89b46b639834ee53f152, type: 2}
+      name: Logo_White
+    second: {fileID: 2100000, guid: 0b9aa057b6c7eda43a7f36e82fec2b49, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: gate_black
-    second: {fileID: 2100000, guid: e3c55337f2fc8134cb3a48c68595c561, type: 2}
+      name: Logo_Yellow
+    second: {fileID: 2100000, guid: 3943b5401df7c1a4bb6e4b16efc83e69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 0b9aa057b6c7eda43a7f36e82fec2b49, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad2df3231fa652f41901d7e9c3b9a5f1
+guid: ad9cb1dd53a66a94cb7a7b9acb17439e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Gate_EED
-    second: {fileID: 2100000, guid: b2b1bf95791b89b46b639834ee53f152, type: 2}
+      name: Gate_Finish
+    second: {fileID: 2100000, guid: 320a466a5db006c4cbf19708dfe15dab, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
