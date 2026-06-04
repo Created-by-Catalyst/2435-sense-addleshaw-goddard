@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Gate_Metallic
+    second: {fileID: 2100000, guid: 38d5be1ad6f204e48ae6b55cdff86acd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Gate_SS
     second: {fileID: 2100000, guid: a0be5cb058e22e743b7da7ded9b88269, type: 2}
   - first:

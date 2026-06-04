@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Gate_Metallic
+    second: {fileID: 2100000, guid: 38d5be1ad6f204e48ae6b55cdff86acd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: gate_black
     second: {fileID: 2100000, guid: e3c55337f2fc8134cb3a48c68595c561, type: 2}
   materials:
