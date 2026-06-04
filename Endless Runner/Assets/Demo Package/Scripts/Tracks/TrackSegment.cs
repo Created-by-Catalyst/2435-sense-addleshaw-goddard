@@ -10,6 +10,8 @@ using UnityEditor;
 /// </summary>
 public class TrackSegment : MonoBehaviour
 {
+
+
     public Transform pathParent;
     public TrackManager manager;
 
@@ -34,6 +36,14 @@ public class TrackSegment : MonoBehaviour
 		obj = new GameObject("Collectibles");
 		obj.transform.SetParent(objectRoot);
 		collectibleTransform = obj.transform;
+
+        foreach (Transform item in transform.GetChild(0))
+        {
+            if (item.TryGetComponent<MeshRenderer>(out MeshRenderer meshRenderer))
+            {
+               if( meshRenderer.material.name == "TransUnion_City_Custom") meshRenderer.material = manager.segmentMaterials[manager.section];
+            }
+        }
     }
 
     // Same as GetPointAt but using an interpolation parameter in world units instead of 0 to 1.

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TransUnion_City_Custom
+  m_Name: TransUnion_City_CustomPurple
   m_Shader: {fileID: -6465566751694194690, guid: 5c37b8c945608ab4e84fc6ca30ea504e,
     type: 3}
   m_Parent: {fileID: 0}
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 72f264a0a5626e34abf32fc8fa736ec8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6641411637747d84cb2da7da15025d18, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:

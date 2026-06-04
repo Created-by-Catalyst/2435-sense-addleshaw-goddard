@@ -68,13 +68,12 @@ public class WinState : AState
 
         miniLeaderboard.playerEntry.inputName.text = PlayerData.instance.previousName;
 
-
         print("finish time seconds " + trackManager.finishTime.TotalSeconds);
         print("end health " + trackManager.characterController.currentLife);
 
         //Total score + remaining health - time taken
 
-        totalScore = Mathf.Clamp((3000 - ((int)trackManager.finishTime.TotalSeconds * 13)) + (trackManager.characterController.currentLife * 40), 0, 5000);
+        totalScore = trackManager.score;
 
         miniLeaderboard.playerEntry.finalScore = totalScore;
         miniLeaderboard.playerEntry.finishTimeText.text = miniLeaderboard.playerEntry.finalScore.ToString();
@@ -89,6 +88,8 @@ public class WinState : AState
         //}
 
         OpenLeaderboard();
+
+        fullLeaderboard.gameObject.SetActive(false);
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(defaultLoadoutButton);

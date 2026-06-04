@@ -17,12 +17,7 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 0ee8914add8bf184eb2669a5f9b6f538
   m_SerializeEntries:
-  - m_GUID: a1da5a75d83b2b64d9684707d810f8c7
-    m_Address: Assets/Demo Package/Materials/VCOL.mat
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 74d2ef33bb39d3b46b576de04fcf21bb
+  - m_GUID: 0209174c1d8d91e44a54588f124c5b49
     m_Address: White Man
     m_ReadOnly: 0
     m_SerializedLabels:
@@ -34,34 +29,17 @@ MonoBehaviour:
     m_SerializedLabels:
     - characters
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3c95df46e92268342a69b203be9592c6
-    m_Address: Arab Man
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 83caef8ee6b6b224fa91b30de36f2c2c
+  - m_GUID: 39df355f468738448b2476fb3f76fbfc
     m_Address: Black Woman
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a2c2839ffe8e574449e0d5693a5f9944
-    m_Address: Non Binary Indian Asian
+  - m_GUID: 74d2ef33bb39d3b46b576de04fcf21bb
+    m_Address: Asian Man
     m_ReadOnly: 0
     m_SerializedLabels:
     - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2ed8f988cce43a547a6b1ea700ff65a8
-    m_Address: South East Asian Woman
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - characters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 62e25ef75a2216f418d06453c9ad15cb
-    m_Address: Assets/PolygonCity/Materials/PolygonCity_Mat_01_A.mat
-    m_ReadOnly: 0
-    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 735e874f947d0e143a6b4e83f8a7283a, type: 2}

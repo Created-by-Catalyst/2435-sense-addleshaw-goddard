@@ -367,7 +367,7 @@ public class LoadoutState : AState
 
                         if (transform.gameObject.name == "Head")
                         {
-                            print("FOUND" + transform.gameObject);
+                            //print("FOUND" + transform.gameObject);
 
                             faceCamCamera.position = transform.position;
 

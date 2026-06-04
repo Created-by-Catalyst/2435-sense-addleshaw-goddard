@@ -29,6 +29,10 @@ using UnityEngine.Analytics;
 public class TrackManager : MonoBehaviour
 {
 
+    public int section = 0;
+
+    [SerializeField]
+    public Material[] segmentMaterials;
 
     public AssetReference[] possibleObstacles;
 

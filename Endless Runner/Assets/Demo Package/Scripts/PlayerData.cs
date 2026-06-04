@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
+using System;
+
+
 
 
 #if UNITY_ANALYTICS
@@ -247,11 +251,9 @@ public class PlayerData
         m_Instance.premium = 0;
 
         m_Instance.characters.Add("White Man");
-        m_Instance.characters.Add("Arab Man");
         m_Instance.characters.Add("Black Woman");
         m_Instance.characters.Add("White Woman");
-        m_Instance.characters.Add("South East Asian Woman");
-        m_Instance.characters.Add("Non Binary Indian Asian");
+        m_Instance.characters.Add("Asian Man");
 
 
 
@@ -296,6 +298,7 @@ public class PlayerData
         {
             string charName = r.ReadString();
             characters.Add(charName);
+            Debug.Log(charName);
         }
 
         usedCharacter = r.ReadInt32();

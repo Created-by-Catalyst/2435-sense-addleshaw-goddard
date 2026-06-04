@@ -30,7 +30,7 @@ public class GameOverState : AState
         gameObject.SetActive(true);
         canvas.gameObject.SetActive(true);
 
-        OpenLeaderboard();
+        //OpenLeaderboard();
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(defaultLoadoutButton);

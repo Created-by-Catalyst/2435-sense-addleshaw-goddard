@@ -22,13 +22,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 99e8eb2efe632e348a420dc4ba5b2e38
-    m_Address: ScoreMultiplier
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d20615272cffbda4aa2bbd64d907dfb6
-    m_Address: Resource
+  - m_GUID: 4c21b71ec44f38d4fa7eb9326834c249
+    m_Address: Invincibility
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -37,8 +32,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99e8eb2efe632e348a420dc4ba5b2e38
+    m_Address: ScoreMultiplier
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9e2b957157514af40870bf65c60ae63f
     m_Address: ExtraLifeParticles
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2d2feb3c02255a46a64455680e7c2f1
+    m_Address: ExtraLife
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -52,13 +57,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b2d2feb3c02255a46a64455680e7c2f1
-    m_Address: ExtraLife
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4c21b71ec44f38d4fa7eb9326834c249
-    m_Address: Invincibility
+  - m_GUID: d20615272cffbda4aa2bbd64d907dfb6
+    m_Address: Magnet
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
