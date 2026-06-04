@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using GameObject = UnityEngine.GameObject;
 
 #if UNITY_ANALYTICS
@@ -30,6 +31,11 @@ public class TrackManager : MonoBehaviour
 {
 
     public int section = 0;
+
+    public bool newSection = true;
+
+    [SerializeField]
+    public GameObject[] gates;
 
     [SerializeField]
     public Material[] segmentMaterials;
@@ -206,6 +212,7 @@ public class TrackManager : MonoBehaviour
 
     public IEnumerator Begin()
     {
+        section = 0;
 
         firstObstacle = true;
         m_CameraOriginalPos = Camera.main.transform.position;
@@ -339,6 +346,8 @@ public class TrackManager : MonoBehaviour
     public float currentTime = 90;
     public float totalTime = 90;
 
+    int previousSectionValue = 0;
+
     private int _parallaxRootChildren = 0;
     private int _spawnedSegments = 0;
     void Update()
@@ -369,11 +378,20 @@ public class TrackManager : MonoBehaviour
                 timerActive = false;
             }
 
+            section = 4 - Mathf.Clamp(Mathf.FloorToInt(currentTime / (totalTime/5)), 0, 4);
+
+
+            if(previousSectionValue != section)
+            {
+                previousSectionValue = section;
+                newSection = true;
+            }
+
             currentTime -= Time.deltaTime;
 
             finishTime = TimeSpan.FromSeconds(currentTime);
 
-            finishTimeStr = $"{finishTime.Minutes.ToString()} : {finishTime.Seconds.ToString()}";
+            finishTimeStr = finishTime.ToString(@"m\:ss");
         }
 
 

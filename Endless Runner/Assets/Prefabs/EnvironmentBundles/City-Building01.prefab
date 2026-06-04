@@ -46,12 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f119face70eef45923442a053ff451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colouredMaterials:
-  - {fileID: 2100000, guid: 8c6328d150818844c99cb4c8eb920614, type: 2}
-  - {fileID: 2100000, guid: a943ed8fe00a4f942a013b459adf3dc0, type: 2}
-  - {fileID: 2100000, guid: 3c27aa69f1c284541b26fdaa58017d43, type: 2}
-  - {fileID: 2100000, guid: 42966a2dec6390b4283f857d858abc69, type: 2}
-  - {fileID: 2100000, guid: eabb2f62cd799754390094ebf70273c8, type: 2}
+  entryPoint: {fileID: 3653500633487273679}
   pathParent: {fileID: 4832618172358567926}
   manager: {fileID: 0}
   objectRoot: {fileID: 0}

@@ -10,7 +10,8 @@ using UnityEditor;
 /// </summary>
 public class TrackSegment : MonoBehaviour
 {
-
+    [SerializeField]
+    Transform entryPoint;
 
     public Transform pathParent;
     public TrackManager manager;
@@ -37,14 +38,31 @@ public class TrackSegment : MonoBehaviour
 		obj.transform.SetParent(objectRoot);
 		collectibleTransform = obj.transform;
 
+        Invoke("UpdateMaterial", 0.08f);
+    }
+
+    private void UpdateMaterial()
+    {
         foreach (Transform item in transform.GetChild(0))
         {
+            //print("THIS ITEM" + item.name);
             if (item.TryGetComponent<MeshRenderer>(out MeshRenderer meshRenderer))
             {
-               if( meshRenderer.material.name == "TransUnion_City_Custom") meshRenderer.material = manager.segmentMaterials[manager.section];
+                if (meshRenderer.material.name.Contains("TransUnion_City_Custom"))
+                {
+                    print(item.name);
+                    meshRenderer.material = manager.segmentMaterials[manager.section];
+                }
             }
         }
+
+        if(manager.newSection)
+        {
+            Instantiate(manager.gates[manager.section], entryPoint);
+            manager.newSection = false;
+        }
     }
+
 
     // Same as GetPointAt but using an interpolation parameter in world units instead of 0 to 1.
     public void GetPointAtInWorldUnit(float wt, out Vector3 pos, out Quaternion rot)

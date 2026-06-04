@@ -106,7 +106,7 @@ public class CharacterCollider : MonoBehaviour
             magnetCoins[i].transform.position = Vector3.MoveTowards(magnetCoins[i].transform.position, transform.position, k_MagnetSpeed * Time.deltaTime);
         }
 
-        print("MAGNETCOINS" + magnetCoins.Count);
+        //print("MAGNETCOINS" + magnetCoins.Count);
         //print("NEW MAGNET" + newMagnet);
 
     }
@@ -237,12 +237,12 @@ public class CharacterCollider : MonoBehaviour
 
         //magnetInProgress = true;
 
-        controller.character._miniMesRoot.SetActive(true);
+        //controller.character._miniMesRoot.SetActive(true);
 
 
         yield return new WaitForSeconds(timer);
 
-        controller.character._miniMesRoot.SetActive(false);
+        //controller.character._miniMesRoot.SetActive(false);
 
         //if (newMagnet == false)
         //{

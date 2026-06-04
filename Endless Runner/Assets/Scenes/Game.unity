@@ -33244,12 +33244,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   section: 0
+  newSection: 1
+  gates:
+  - {fileID: 1803021984588298710, guid: 40f6925c09501da4d8147e11ef5f1873, type: 3}
+  - {fileID: 513837110137835719, guid: 7cecaa78fa0b78041b2367e3ccfd23f3, type: 3}
+  - {fileID: 3527440299397425256, guid: a42d67fb0199da0408234d787a4c259c, type: 3}
+  - {fileID: 1261078573601996720, guid: d19d4ecae0880e647ba3905c2934ca51, type: 3}
+  - {fileID: 904614859820441476, guid: 350ff51253d2a784288803764185faf5, type: 3}
   segmentMaterials:
   - {fileID: 2100000, guid: 8c6328d150818844c99cb4c8eb920614, type: 2}
   - {fileID: 2100000, guid: a943ed8fe00a4f942a013b459adf3dc0, type: 2}
   - {fileID: 2100000, guid: 3c27aa69f1c284541b26fdaa58017d43, type: 2}
-  - {fileID: 2100000, guid: eabb2f62cd799754390094ebf70273c8, type: 2}
   - {fileID: 2100000, guid: 42966a2dec6390b4283f857d858abc69, type: 2}
+  - {fileID: 2100000, guid: eabb2f62cd799754390094ebf70273c8, type: 2}
   possibleObstacles:
   - m_AssetGUID: af369283a0e7bb445bc3ad238393e68c
     m_SubObjectName: 
