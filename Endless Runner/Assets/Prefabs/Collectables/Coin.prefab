@@ -68,6 +68,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPremium: 0
+  coinMeshVariants:
+  - {fileID: 3379262632344063351, guid: beef6500fbd36eb44a7637ed51221c59, type: 3}
+  - {fileID: 2686729889603924552, guid: bec8a1803814a314eaa549c7abdb8233, type: 3}
+  - {fileID: 6549897469289813626, guid: 0d5a1ed2216bde549a8ce560fc54fdb7, type: 3}
+  - {fileID: -7010189314246376841, guid: 28fced0883505de4e910381b3351b103, type: 3}
+  - {fileID: 104321144521372245, guid: 7d5c2a3b285d3e445b2826ca69c60381, type: 3}
 --- !u!1001 &6675295097872336224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,6 +137,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2934256921679114933, guid: ef849cbb984f83d4aa4429bb6db0702d,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3379262632344063351, guid: beef6500fbd36eb44a7637ed51221c59,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

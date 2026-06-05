@@ -38,11 +38,14 @@ public class TrackSegment : MonoBehaviour
 		obj.transform.SetParent(objectRoot);
 		collectibleTransform = obj.transform;
 
-        Invoke("UpdateMaterial", 0.08f);
+        UpdateMaterial();
     }
 
     private void UpdateMaterial()
     {
+        manager = TrackManager.instance;
+
+
         foreach (Transform item in transform.GetChild(0))
         {
             //print("THIS ITEM" + item.name);
