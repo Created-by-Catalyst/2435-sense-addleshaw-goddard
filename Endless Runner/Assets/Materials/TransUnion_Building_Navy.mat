@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TransUnion_City_Custom
+  m_Name: TransUnion_Building_Navy
   m_Shader: {fileID: -6465566751694194690, guid: 5c37b8c945608ab4e84fc6ca30ea504e,
     type: 3}
   m_Parent: {fileID: 2100000, guid: 119445b885344194c86a61a8b4d493eb, type: 2}
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: cb92d7f69ca74a942846f8f37747fb12, type: 3}
+        m_Texture: {fileID: 2800000, guid: 15b24a47f602a7a488828f69dfba48f3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
