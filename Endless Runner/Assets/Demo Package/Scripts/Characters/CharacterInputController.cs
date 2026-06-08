@@ -504,7 +504,8 @@ public class CharacterInputController : MonoBehaviour
         }
     }
 
-
+    [SerializeField]
+    GameObject speedUpVFX;
 
     public void SetSpeedUpExplicit(bool spedUp)
     {
@@ -521,6 +522,8 @@ public class CharacterInputController : MonoBehaviour
         float speedModifier = 1.3f;
 
         m_SpedUp = true;
+        speedUpVFX.SetActive(true);
+
 
         trackManager.maxSpeed = trackManager.maxSpeed * speedModifier;
         trackManager.speed = trackManager.maxSpeed;
@@ -539,6 +542,7 @@ public class CharacterInputController : MonoBehaviour
         if (trackManager.speed > trackManager.maxSpeed) trackManager.speed = trackManager.maxSpeed;
 
         m_SpedUp = false;
+        speedUpVFX.SetActive(false);
     }
 
 }
