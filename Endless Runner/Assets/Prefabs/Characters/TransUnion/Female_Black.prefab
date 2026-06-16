@@ -63,6 +63,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Female_Black
       objectReference: {fileID: 0}
+    - target: {fileID: 1351834353539369360, guid: eedb8487cd8b8154a94caee82b66cb56,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351834353539369360, guid: eedb8487cd8b8154a94caee82b66cb56,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: eedb8487cd8b8154a94caee82b66cb56,
         type: 3}
       propertyPath: m_Controller
@@ -111,9 +121,6 @@ MonoBehaviour:
   icon: {fileID: 21300054, guid: e1a536f74c7ef384a8d7132148ace0c8, type: 3}
   jumpSound: {fileID: 8300000, guid: bc3f780d9e086e946957719961d640e4, type: 3}
   deathSound: {fileID: 8300000, guid: fc8f796a573766645b3d5295a1f91feb, type: 3}
-  _miniMesRoot: {fileID: 0}
-  _miniMeOneAnimator: {fileID: 0}
-  _miniMeTwoAnimator: {fileID: 0}
 --- !u!82 &745528838836981265
 AudioSource:
   m_ObjectHideFlags: 0
