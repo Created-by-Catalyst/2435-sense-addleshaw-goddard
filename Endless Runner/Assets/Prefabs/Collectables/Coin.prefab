@@ -69,8 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPremium: 0
   coinMeshVariants:
-  - {fileID: 3379262632344063351, guid: beef6500fbd36eb44a7637ed51221c59, type: 3}
   - {fileID: 2686729889603924552, guid: bec8a1803814a314eaa549c7abdb8233, type: 3}
+  - {fileID: 3379262632344063351, guid: beef6500fbd36eb44a7637ed51221c59, type: 3}
   - {fileID: 6549897469289813626, guid: 0d5a1ed2216bde549a8ce560fc54fdb7, type: 3}
   - {fileID: -7010189314246376841, guid: 28fced0883505de4e910381b3351b103, type: 3}
   - {fileID: 104321144521372245, guid: 7d5c2a3b285d3e445b2826ca69c60381, type: 3}

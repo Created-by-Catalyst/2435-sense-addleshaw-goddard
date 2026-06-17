@@ -96,6 +96,7 @@ public class LoadoutState : AState
     {
         homePage.SetActive(true);
         lobby.SetActive(false);
+        instructionsPanel.SetActive(false);
 
         charPosition.gameObject.SetActive(false);
 
@@ -386,17 +387,17 @@ public class LoadoutState : AState
     [Serializable]
     public class JobTextures
     {
-        public Sprite inhouseLawyer;
-        public Sprite legalOps;
-        public Sprite innovationLead;
-        public Sprite legalEngineer;
+        public Sprite whiteWoman;
+        public Sprite blackWoman;
+        public Sprite whiteMan;
+        public Sprite asianMan;
         public Sprite privateLawyer;
         public Sprite consultant;
 
-        public Sprite inhouseLawyerCopy;
-        public Sprite legalOpsCopy;
-        public Sprite innovationLeadCopy;
-        public Sprite legalEngineerCopy;
+        public Sprite whiteWomanCopy;
+        public Sprite blackWomanCopy;
+        public Sprite whiteManCopy;
+        public Sprite asianManCopy;
         public Sprite privateLawyerCopy;
         public Sprite consultantCopy;
 
@@ -408,21 +409,21 @@ public class LoadoutState : AState
     {
         switch (charName)
         {
-            case "South East Asian Woman":
-                charJobDisplay.sprite = jobTextures.inhouseLawyer;
-                charJobCopy.sprite = jobTextures.inhouseLawyerCopy;
+            case "White Woman":
+                charJobDisplay.sprite = jobTextures.whiteWoman;
+                charJobCopy.sprite = jobTextures.whiteWomanCopy;
                 break;
             case "Black Woman":
-                charJobDisplay.sprite = jobTextures.legalOps;
-                charJobCopy.sprite = jobTextures.legalOpsCopy;
+                charJobDisplay.sprite = jobTextures.blackWoman;
+                charJobCopy.sprite = jobTextures.blackWomanCopy;
                 break;
             case "White Man":
-                charJobDisplay.sprite = jobTextures.innovationLead;
-                charJobCopy.sprite = jobTextures.innovationLeadCopy;
+                charJobDisplay.sprite = jobTextures.whiteMan;
+                charJobCopy.sprite = jobTextures.whiteManCopy;
                 break;
-            case "Arab Man":
-                charJobDisplay.sprite = jobTextures.legalEngineer;
-                charJobCopy.sprite = jobTextures.legalEngineerCopy;
+            case "Asian Man":
+                charJobDisplay.sprite = jobTextures.asianMan;
+                charJobCopy.sprite = jobTextures.asianManCopy;
                 break;
             case "Non Binary Indian Asian":
                 charJobDisplay.sprite = jobTextures.privateLawyer;
@@ -526,6 +527,21 @@ public class LoadoutState : AState
         //    PlayerData.instance.ftueLevel = 2;
         //    PlayerData.instance.Save();
         //}
+
+
+        StartCoroutine(iStartGame());
+
+    }
+
+    [SerializeField]
+    GameObject instructionsPanel;
+
+    IEnumerator iStartGame()
+    {
+        lobby.SetActive(false);
+        instructionsPanel.SetActive(true);
+
+        yield return new WaitForSeconds(5);
 
         manager.SwitchState("Game");
     }
