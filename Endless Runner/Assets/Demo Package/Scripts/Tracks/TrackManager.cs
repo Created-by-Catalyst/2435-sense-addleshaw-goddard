@@ -207,7 +207,13 @@ public class TrackManager : MonoBehaviour
 
         characterController.StartRunning();
         StartMove();
+
+
+        //timeZone.SetActive(true);
     }
+
+    //[SerializeField]
+   // GameObject timeZone;
 
     public IEnumerator Begin()
     {

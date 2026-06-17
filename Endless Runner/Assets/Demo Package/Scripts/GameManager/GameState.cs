@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -149,6 +150,7 @@ public class GameState : AState
         m_PowerupIcons.Clear();
 
         trackManager.currentTime = trackManager.totalTime;
+        trackManager.finishTime = TimeSpan.FromSeconds(trackManager.currentTime);
 
         PopUpMessages.Instance.DisplayMessage(tutorial);
 
